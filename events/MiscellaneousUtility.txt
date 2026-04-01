@@ -1,0 +1,2795 @@
+namespace = fix_tag_traits
+
+country_event = {  # Myrmidons
+	id = fix_tag_traits.1
+	title = fix_tag_traits.1.t
+	desc = fix_tag_traits.1.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = MYM
+		OR = { 
+			NOT = { religion = hellenic_pagan_reformed }
+			NOT = { has_reform = myrmidons_government }
+		}
+		OR = {
+			is_subject = no
+			overlord = { religion = hellenic_pagan_reformed }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = fix_tag_traits.1.a
+		if = {
+			limit = { NOT = { religion = hellenic_pagan_reformed } }
+			change_religion = hellenic_pagan_reformed
+		}
+		if = {
+			limit = { NOT = { has_reform = myrmidons_government } }
+			change_government = theocracy
+			add_government_reform = myrmidons_government
+		}
+	}
+}
+
+country_event = {  # Jomsvikings
+	id = fix_tag_traits.2
+	title = fix_tag_traits.2.t
+	desc = fix_tag_traits.2.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = JOM
+		OR = { 
+			NOT = { religion = norse_pagan_reformed }
+			NOT = { has_reform = jomsviking_government }
+		}
+		OR = {
+			is_subject = no
+			overlord = { religion = norse_pagan_reformed }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = fix_tag_traits.2.a
+		if = {
+			limit = { NOT = { religion = norse_pagan_reformed } }
+			change_religion = norse_pagan_reformed
+		}
+		if = {
+			limit = { NOT = { has_reform = jomsviking_government } }
+			change_government = theocracy
+			add_government_reform = jomsviking_government
+		}
+	}
+}
+
+country_event = {  # Antioch joining their subject wars properly
+	id = fix_tag_traits.3
+	title = fix_tag_traits.3.t
+	desc = fix_tag_traits.3.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		is_emperor = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = fix_tag_traits.3.a
+		#join_all_defensive_wars_of = event_target:make_antioch_join_their_wars_target
+		create_subject = {
+			subject_type = vassal
+			subject = event_target:make_antioch_join_their_wars_target
+		}
+		create_subject = {
+			subject_type = aurora_beneficiary
+			subject = event_target:make_antioch_join_their_wars_target
+		}
+	}
+}
+
+country_event = {  # Pope
+	id = fix_tag_traits.4
+	title = fix_tag_traits.4.t
+	desc = fix_tag_traits.4.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = PAP
+		OR = { 
+			NOT = { religion = catholic }
+			NOT = { has_reform = papacy_reform }
+			NOT = { government = theocracy }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = fix_tag_traits.2.a
+		if = {
+			limit = { NOT = { religion = catholic } }
+			change_religion = catholic
+		}
+		if = {
+			limit = { NOT = { has_reform = papacy_reform } }
+			change_government = theocracy
+			add_government_reform = papacy_reform
+		}
+	}
+}
+
+country_event = {  # Abolitionist or Bogomilist Theocracy
+	id = fix_tag_traits.5
+	title = fix_tag_traits.5.t
+	desc = fix_tag_traits.5.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		government = theocracy
+		OR = { 
+			religion = abolitionist
+			religion = bogomilist
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = fix_tag_traits.2.a
+		change_government = monarchy
+	}
+}
+
+namespace = ia_change_primary_culture_events
+
+country_event = {
+	id = ia_change_primary_culture_events.1
+	title = ia_change_primary_culture_events.1.title
+	desc = ia_change_primary_culture_events.1.desc
+	picture = ARTWORK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ia_change_primary_culture_events.1.a
+		ai_chance = {
+			factor = 0
+		}
+		
+		change_primary_culture = capital
+		remove_country_modifier = changing_primary_culture_modifier
+		add_country_modifier = {
+			name = changed_primary_culture_modifier
+			duration = 7300
+		}
+	}
+}
+
+namespace = change_deity
+
+country_event = {
+	id = change_deity.69420
+	title = change_deity.1.title
+	desc = change_deity.1.desc
+	picture = ARTWORK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = change_deity.1.a
+		ai_chance = {
+			factor = 0
+		}
+		change_personal_deity = jupiter
+	}
+	
+	option = {
+		name = change_deity.1.b
+		ai_chance = {
+			factor = 0
+		}
+		change_personal_deity = luno
+	}
+	
+	option = {
+		name = change_deity.1.c
+		ai_chance = {
+			factor = 0
+		}
+		change_personal_deity = neptunus
+	}
+	
+	option = {
+		name = change_deity.1.d
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				NOT = { manpower_percentage = 0.25 }
+			}
+		}
+		change_personal_deity = venus
+	}
+	
+	option = {
+		name = change_deity.1.e
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				is_at_war = yes
+			}
+		}
+		change_personal_deity = mars
+	}
+	
+	option = {
+		name = change_deity.1.f
+		ai_chance = {
+			factor = 4
+		}
+		change_personal_deity = ceres
+	}
+	
+	option = {
+		name = change_deity.1.g
+		ai_chance = {
+			factor = 1
+		}
+		change_personal_deity = vulcan
+	}
+	
+	option = {
+		name = change_deity.1.h
+		ai_chance = {
+			factor = 2
+		}
+		change_personal_deity = minerva
+	}
+	
+	option = {
+		name = change_deity.1.i
+		ai_chance = {
+			factor = 1
+		}
+		change_personal_deity = diana
+	}
+	
+	option = {
+		name = change_deity.1.j
+		ai_chance = {
+			factor = 0
+		}
+		change_personal_deity = apollo
+	}
+	
+	option = {
+		name = change_deity.1.k
+		ai_chance = {
+			factor = 0
+		}
+		change_personal_deity = mercury
+	}
+	
+	option = {
+		name = change_deity.1.l
+		ai_chance = {
+			factor = 1
+		}
+		change_personal_deity = vesta
+	}
+}
+
+namespace = ia_tutorial
+
+country_event = {	# In Honor of (Gn)Olle
+	id = ia_tutorial.1
+	title = ia_tutorial.1.title
+	desc = ia_tutorial.1.desc
+	picture = ARTWORK_eventPicture
+	
+	trigger = {
+		ai = no
+		NOT = { has_country_flag = read_the_tutorial }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {	# germany mechanics
+		name = ia_tutorial.1.a
+		custom_tooltip = ia_tutorial_tt_germany
+		set_country_flag = read_the_tutorial
+	}
+	
+	option = {	# antioch mechanics
+		name = ia_tutorial.1.b
+		custom_tooltip = ia_tutorial_tt_antioch
+		set_country_flag = read_the_tutorial
+	}
+	
+	option = {	# catholic mechanics
+		name = ia_tutorial.1.catholic
+		custom_tooltip = ia_tutorial_tt_catholic
+		set_country_flag = read_the_tutorial
+	}
+	
+	option = {	# last crusade mechanics
+		name = ia_tutorial.1.c
+		custom_tooltip = ia_tutorial_tt_lastcrusade
+		set_country_flag = read_the_tutorial
+	}
+	
+	option = {	# war of harmony
+		name = ia_tutorial.1.d
+		custom_tooltip = ia_tutorial_tt_warofharmony
+		set_country_flag = read_the_tutorial
+	}
+	
+	option = {	# close window
+		name = ia_tutorial.1.e
+		
+		set_country_flag = read_the_tutorial
+	}
+}
+
+country_event = {	# In Honor of RetrogMG
+	id = ia_tutorial.2
+	title = ia_tutorial.2.title
+	desc = ia_tutorial.2.desc
+	picture = ARTWORK_eventPicture
+	
+	trigger = {
+		ai = no
+		NOT = { has_global_flag = locked_difficulty }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {	# powerful lucky nations / on -> off
+		name = ia_tutorial.2.lucky.1
+		trigger = { NOT = { has_global_flag = ia_no_powerful_lucky_nations } }
+		custom_tooltip = ia_difficulty_tt_lucky_nations
+		set_global_flag = ia_no_powerful_lucky_nations
+		hidden_effect = { country_event = { id = ia_tutorial.3 } }
+	}
+	
+	option = {	# powerful lucky nations / off -> on
+		name = ia_tutorial.2.lucky.2
+		trigger = { has_global_flag = ia_no_powerful_lucky_nations }
+		custom_tooltip = ia_difficulty_tt_lucky_nations
+		clr_global_flag = ia_no_powerful_lucky_nations
+		hidden_effect = { country_event = { id = ia_tutorial.3 } }
+	}
+	
+	option = {	# advanced revanchism / on -> off
+		name = ia_tutorial.2.revanchism.1
+		trigger = { NOT = { has_global_flag = ia_no_advanced_revanchism } }
+		custom_tooltip = ia_difficulty_tt_revanchism
+		set_global_flag = ia_no_advanced_revanchism
+		hidden_effect = { country_event = { id = ia_tutorial.3 } }
+	}
+	
+	option = {	# advanced revanchism / off -> on
+		name = ia_tutorial.2.revanchism.2
+		trigger = { has_global_flag = ia_no_advanced_revanchism }
+		custom_tooltip = ia_difficulty_tt_revanchism
+		clr_global_flag = ia_no_advanced_revanchism
+		hidden_effect = { country_event = { id = ia_tutorial.3 } }
+	}
+	
+	option = {	# early game protection / on -> off
+		name = ia_tutorial.2.protection.1
+		trigger = { NOT = { has_global_flag = ia_no_early_game_protection } }
+		custom_tooltip = ia_difficulty_tt_protection
+		set_global_flag = ia_no_early_game_protection
+		hidden_effect = { country_event = { id = ia_tutorial.3 } }
+	}
+	
+	option = {	# early game protection / on -> off
+		name = ia_tutorial.2.protection.2
+		trigger = { has_global_flag = ia_no_early_game_protection }
+		custom_tooltip = ia_difficulty_tt_protection
+		clr_global_flag = ia_no_early_game_protection
+		hidden_effect = { country_event = { id = ia_tutorial.3 } }
+	}
+	
+	option = {	# close window
+		name = ia_tutorial.2.e
+		
+	}
+	
+	option = {  # lock difficulty
+		name = ia_tutorial.2.f
+		
+		set_global_flag = locked_difficulty
+	}
+}
+
+country_event = {
+	id = ia_tutorial.3
+	title = ia_tutorial.3.title
+	desc = ia_tutorial.3.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+	
+	option = {
+		name = "ia_tutorial.3.1"
+		country_event = { id = ia_tutorial.2 }
+	}
+}
+
+namespace = ia_check_goods_used
+country_event = {
+	id = ia_check_goods_used.1
+	title = ia_check_goods_used.1.title
+	desc = ia_check_goods_used.1.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "ia_check_goods_used.1.a"
+		set_variable = {
+			which = copper_used
+			value = 0
+		}
+		set_variable = {
+			which = tin_used
+			value = 0
+		}
+		set_variable = {
+			which = iron_used
+			value = 0
+		}
+		set_variable = {
+			which = lead_used
+			value = 0
+		}
+		set_variable = {
+			which = zinc_used
+			value = 0
+		}
+		set_variable = {
+			which = glass_used
+			value = 0
+		}
+		set_variable = {
+			which = tobacco_used
+			value = 0
+		}
+		set_variable = {
+			which = cocoa_used
+			value = 0
+		}
+		set_variable = {
+			which = cannon_foundry_amount
+			value = 0
+		}
+
+		set_variable = {
+			which = metalworking_workshop_amount
+			value = 0
+		}	
+		
+		set_variable = {
+			which = munition_factory_amount
+			value = 0
+		}
+		
+		set_variable = {
+			which = steam_engine_manu_amount
+			value = 0
+		}
+		
+		set_variable = {
+			which = spectacle_factory_amount
+			value = 0
+		}
+		
+		set_variable = {
+			which = cigars_factory_amount
+			value = 0
+		}
+		
+		set_variable = {
+			which = chocolate_factory_amount
+			value = 0
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_building = cannon_foundry
+					has_building = metalworking_workshop
+					has_building = munition_factory
+					has_building = spectacle_factory 
+					has_building = cigars_factory
+					has_building = chocolate_factory
+					has_building = steam_engine_manu
+				}
+			}
+			if = {
+				limit = { has_building = cannon_foundry }
+				owner = { change_variable = { which = cannon_foundry_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off } }
+					owner = { change_variable = { which = copper_used value = 0.4 } } 
+					owner = { change_variable = { which = tin_used value = 0.3 } }
+				}
+			}
+			else_if = {
+				limit = { has_building = metalworking_workshop }
+				owner = { change_variable = { which = metalworking_workshop_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off_2 } }
+					owner = { change_variable = { which = iron_used value = 1.0 } }
+				}
+			}
+			else_if = {
+				limit = { has_building = munition_factory }
+				owner = { change_variable = { which = munition_factory_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off_3 } }
+					owner = { change_variable = { which = lead_used value = 1.0 } }
+				}
+			}
+			else_if = {
+				limit = { has_building = spectacle_factory }
+				owner = { change_variable = { which = spectacle_factory_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off_5 } }
+					owner = { change_variable = { which = glass_used value = 0.6 } }
+				}
+			}
+			else_if = {
+				limit = { has_building = cigars_factory }
+				owner = { change_variable = { which = cigars_factory_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off_6 } }
+					owner = { change_variable = { which = tobacco_used value = 0.6 } }
+				}
+			}
+			else_if = {
+				limit = { has_building = chocolate_factory }
+				owner = { change_variable = { which = chocolate_factory_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off_7 } }
+					owner = { change_variable = { which = cocoa_used value = 0.6 } }
+				}
+			}
+			else_if = {
+				limit = { has_building = steam_engine_manu }
+				owner = { change_variable = { which = steam_engine_manu_amount value = 1 } }
+				if = {
+					limit = { NOT = { has_building = off_4 } }
+					owner = { change_variable = { which = copper_used value = 0.4 } }    
+					owner = { change_variable = { which = zinc_used value = 0.3 } }
+				}
+			}
+		}
+		country_event = { id = New_TradeGood_Events.2 }
+	}
+}
+
+namespace = papal_control
+
+country_event = {
+	id = papal_control.83
+	title = papal_control.83.title
+	desc = papal_control.83.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			tag = FAP
+			tag = PAP
+		}
+		NOT = { is_free_or_tributary_trigger = yes }
+		NOT = { is_subject_of_type = papal_puppet }
+		overlord = {
+			OR = {
+				religion = fraticelli
+				religion = catholic
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "papal_control.83.1"
+		overlord = {
+			create_subject = {
+				subject = PREV
+				subject_type = papal_puppet
+			}
+			add_prestige = 6.66
+		}
+	}
+}
+
+country_event = {	#Schism Mended
+	id = papal_control.84
+	title = papal_control.84.title
+	desc = papal_control.84.desc
+	picture = POPE_PREACHING_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "papal_control.84.1"
+		
+		add_prestige_or_monarch_power = { amount = 200 }
+		add_papal_influence = 200
+		add_reform_desire = -0.5
+		
+		transfer_papal_controller = ROOT
+		add_country_modifier = {
+			name = ended_the_antipapacies
+			duration = -1
+		}
+	}
+}
+
+country_event = {	# Schism Mended Templarite Edition
+	id = papal_control.85
+	title = papal_control.85.title
+	desc = papal_control.85.desc
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "papal_control.85.1"
+		
+		add_prestige_or_monarch_power = { amount = 200 }
+		add_church_power = 200
+		
+		add_country_modifier = {
+			name = templarite_schism_mender
+			duration = -1
+		}
+	}
+}
+
+
+namespace = saxon_fief
+
+country_event = {
+	id = saxon_fief.84
+	title = saxon_fief.84.title
+	desc = saxon_fief.84.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			is_subject_of_type = vassal
+			is_subject_of_type = march
+			is_subject_of_type = incorporated_vassal
+		}
+		overlord = { has_reform = saxon_feudalism }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "saxon_fief.84.1"
+		overlord = {
+			create_subject = {
+				subject = PREV
+				subject_type = saxon_daimyo
+			}
+			add_prestige = 1
+		}
+		ia_become_saxon_fief_effect = yes
+	}
+}
+
+country_event = {
+	id = saxon_fief.85
+	title = saxon_fief.85.title
+	desc = saxon_fief.85.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_subject_country = { OR = { is_subject_of_type = saxon_daimyo	is_subject_of_type = german_march  } }
+		NOT = { has_reform = saxon_feudalism }
+		#NOT = { tag = GER }
+		NOT = { is_in_war = { casus_belli = cb_german_civil_war } }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		if = {
+			limit = { any_known_country = { has_reform = saxon_feudalism } }
+			every_subject_country = {
+				limit = { OR = { is_subject_of_type = saxon_daimyo	is_subject_of_type = german_march  } }
+				random_known_country = {
+					limit = { has_reform = saxon_feudalism }
+					create_subject = {
+						subject_type = saxon_daimyo
+						subject = PREV
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { culture_group = germanic 		government = monarchy 	NOT = { tag = GER } }
+			add_government_reform = saxon_feudalism
+		}
+		else = {
+			every_subject_country = {
+				limit = { is_subject_of_type = german_march  }
+				ROOT = { 
+					create_subject = {
+						subject_type = march
+						subject = PREV
+					}
+				}
+			}
+			every_subject_country = {
+				limit = { is_subject_of_type = saxon_daimyo }
+				grant_independence = yes
+			}
+		}
+	}
+	
+	option = {
+		name = "saxon_fief.85.1"
+		
+	}
+}
+
+country_event = {
+	id = saxon_fief.86
+	title = saxon_fief.86.title
+	desc = saxon_fief.86.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1544
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "saxon_fief.86.1"
+		every_province = {
+			limit = {
+				has_province_modifier = Kleinstaaterei
+			}
+			remove_province_modifier = Kleinstaaterei
+			add_permanent_province_modifier = {
+				name = Kleinstaaterei_lesser
+				duration = -1
+			}
+			province_event = {
+				id = capital_autonomy.2
+			}
+		}
+	}
+}
+
+namespace = french_appanage
+
+country_event = {
+	id = french_appanage.84
+	title = french_appanage.84.title
+	desc = french_appanage.84.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		is_subject_of_type = vassal
+		OR = {
+			overlord = { has_reform = feudal_france_reform }
+			overlord = { has_reform = independent_appanage_reform }
+		}
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "french_appanage.84.1"
+		overlord = {
+			create_subject = {
+				subject = PREV
+				subject_type = appanage
+			}
+			add_prestige = 1
+		}
+		add_government_reform = appanage_reform
+	}
+}
+
+namespace = saxon_province
+
+country_event = {
+	id = saxon_province.1
+	title = saxon_province.1.title
+	desc = saxon_province.1.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		has_reform = sax_feudalism_reform
+	}
+
+	is_triggered_only = yes
+	
+	option = {
+		name = saxon_province.1.a
+		every_owned_province = {
+			limit = {
+				OR = {	
+					trade_goods = grain
+					trade_goods = wool
+					trade_goods = fish
+					trade_goods = livestock
+					trade_goods = beer
+					trade_goods = apiculture
+					trade_goods = lumber
+					trade_goods = cheese
+					trade_goods = seafood
+					trade_goods = potato
+					trade_goods = tomato
+				}
+				NOT = { has_province_modifier = sax_efficient_peasants }
+			}
+			add_province_modifier = { 
+				name = sax_efficient_peasants
+				duration = -1
+			}
+		}
+		every_owned_province = {
+			limit = {
+				NOT = {
+					OR = {	
+						trade_goods = grain
+						trade_goods = wool
+						trade_goods = fish
+						trade_goods = livestock
+						trade_goods = beer
+						trade_goods = apiculture
+						trade_goods = lumber
+						trade_goods = cheese
+						trade_goods = seafood
+						trade_goods = potato
+						trade_goods = tomato
+					}
+				}
+				has_province_modifier = sax_efficient_peasants
+			}
+			remove_province_modifier = sax_efficient_peasants
+		}
+	}
+}
+
+country_event = {
+	id = saxon_province.2
+	title = saxon_province.2.title
+	desc = saxon_province.2.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_reform = sax_feudalism_reform }
+		any_owned_province = { has_province_modifier = sax_efficient_peasants }
+	}
+
+	is_triggered_only = yes
+	
+	option = {
+		name = saxon_province.1.a
+		every_owned_province = {
+			limit = {
+				has_province_modifier = sax_efficient_peasants
+			}
+			remove_province_modifier = sax_efficient_peasants
+		}
+	}
+}
+
+namespace = fix_perma_mods
+
+country_event = {
+	id = fix_perma_mods.1
+	title = fix_perma_mods.1.title
+	desc = fix_perma_mods.1.desc
+	picture = ARTWORK_eventPicture
+	
+	#hidden = yes
+	
+	trigger = {
+		OR = {
+			has_country_modifier = got_the_captains_focus
+			has_country_modifier = got_the_smugglers_focus
+			has_country_modifier = got_the_buccaneers_focus
+		}
+		NOT = { has_faction = pr_buccaneers }
+		NOT = { has_faction = pr_smugglers }
+		NOT = { has_faction = pr_captains }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = fix_perma_mods.1.a
+		remove_country_modifier = got_the_buccaneers_focus
+		remove_country_modifier = got_the_captains_focus
+		remove_country_modifier = got_the_smugglers_focus
+	}
+}
+
+namespace = ia_grand_dismantlement
+
+country_event = {
+	id = ia_grand_dismantlement.1
+	title = ia_grand_dismantlement.1.title
+	desc = ia_grand_dismantlement.1.desc
+	picture = CONSPIRACY_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ia_grand_dismantlement.1.a
+	}
+}
+
+country_event = {
+	id = ia_grand_dismantlement.2
+	title = ia_grand_dismantlement.2.title
+	desc = ia_grand_dismantlement.2.desc
+	picture = NEGOTIATIONS_LUBLIN_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ia_grand_dismantlement.2.a
+		
+		add_country_modifier = {
+			name = grand_dismantlement_victory_debuff
+			duration = 5475
+		}
+		hidden_effect = {
+			every_known_country = {
+				limit = { NOT = { is_subject_of = ROOT } }
+				add_aggressive_expansion = {
+					who = ROOT
+					value = 48
+					apply_calc = no
+				}
+			}
+		}
+		custom_tooltip = every_country_gains_50_ae_tt
+	}
+}
+
+namespace = dotfset
+
+country_event = {  #  dotf
+	id = dotfset.24
+	title = dotfset.24.t
+	desc = dotfset.24.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			any_country = {
+				religion = ROOT
+				is_defender_of_faith = yes
+			}
+		}
+		ai = yes
+		NOT = { war_exhaustion = 2 }
+		is_great_power = yes
+		is_year = 1500
+		NOT = {
+			AND = {
+				has_global_flag = papacy_permanent_dotf_flag
+				religion = catholic
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = dotfset.24.a
+		set_defender_of_the_faith = {
+			who = ROOT 
+			religion = ROOT 
+		}
+	}
+}
+
+province_event = {  #  place forts
+	id = dotfset.25
+	title = dotfset.25.t
+	desc = dotfset.25.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		owner = {
+			ai = yes
+			is_at_war = no
+		}
+		is_year = 1480
+		is_city = yes
+		OR = {
+			province_id = 176
+			province_id = 212
+			province_id = 211
+			province_id = 210
+			province_id = 196
+			province_id = 205
+			province_id = 4727
+			province_id = 103
+			province_id = 204
+			province_id = 4740
+			province_id = 1871
+			province_id = 166
+			province_id = 4722
+			province_id = 73
+			province_id = 1768
+			province_id = 110
+			province_id = 132
+			province_id = 111
+			province_id = 226
+			province_id = 223
+			province_id = 4561
+			province_id = 151
+			province_id = 1762
+			province_id = 317
+			province_id = 4779
+			province_id = 422
+			province_id = 419
+			province_id = 4306
+			province_id = 416
+			province_id = 4338
+			province_id = 2210
+			province_id = 2305
+			province_id = 4296
+			province_id = 4310
+			province_id = 324
+			province_id = 4516
+			province_id = 4734
+			province_id = 1766
+			province_id = 333
+			province_id = 2475
+			province_id = 2474
+			province_id = 365
+			province_id = 380
+			province_id = 2206
+			province_id = 331
+			province_id = 4340
+			province_id = 426
+			province_id = 4299
+			province_id = 2201
+			province_id = 2205
+			AND = {
+				OR = {
+					has_terrain = marsh
+					has_terrain = glacier
+					has_terrain = highlands
+					has_terrain = jungle
+					has_terrain = mountain
+					has_terrain = woods
+					has_terrain = hills
+					has_terrain = forest
+				}
+				NOT = {
+					any_neighbor_province = {
+						has_fort_building_trigger = yes
+					}
+				}
+			}
+			AND = {
+				has_terrain = mountain
+				NOT = {
+					any_neighbor_province = {
+						has_terrain = mountain
+						has_fort_building_trigger = yes
+					}
+				}
+			}
+			AND = {
+				has_fort_building_trigger = yes
+				NOT = { province_has_current_tech_fort_trigger = yes }
+			}
+		}
+		NOT = { province_has_current_tech_fort_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = dotfset.25.a
+		random = {
+			chance = 10
+			owner = {
+				ROOT = {
+					add_latest_building = { builder = PREV fort = yes }
+				}
+			}
+		}
+	}
+}
+
+country_event = {  #  place buildings
+	id = dotfset.26
+	title = dotfset.26.t
+	desc = dotfset.26.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		#is_year = 1490
+		is_bankrupt	= no
+		#is_at_war = no
+		NOT = { num_of_loans = 5 }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {
+		name = dotfset.26.a
+		every_owned_province = {
+			limit = {
+				is_core = ROOT
+				controlled_by = owner
+				NOT = { nationalism = 5 }
+				NOT = { has_siege = yes }
+				controlled_by = ROOT
+				development = 15
+				OR = {
+					has_manufactory_trigger = yes
+					NOT = { num_free_building_slots = 1 }
+				}
+			}
+			add_province_modifier = {
+				name = ai_expand_infrastructure_1
+				duration = -1
+				hidden = yes
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_core = ROOT
+				controlled_by = owner
+				NOT = { nationalism = 5 }
+				NOT = { has_siege = yes }
+				controlled_by = ROOT
+				development = 30
+			}
+			add_province_modifier = {
+				name = ai_expand_infrastructure_2
+				duration = -1
+				hidden = yes
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_core = ROOT
+				controlled_by = owner
+				NOT = { nationalism = 5 }
+				NOT = { has_siege = yes }
+				controlled_by = ROOT
+				development = 45
+			}
+			add_province_modifier = {
+				name = ai_expand_infrastructure_3
+				duration = -1
+				hidden = yes
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_core = ROOT
+				controlled_by = owner
+				NOT = { nationalism = 5 }
+				NOT = { has_siege = yes }
+				controlled_by = ROOT
+				development = 60
+			}
+			add_province_modifier = {
+				name = ai_expand_infrastructure_4
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				is_year = 1480
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					has_fort_building_trigger = yes
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					#add_building = workshop
+					add_building_construction = {
+						building = ramparts
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				adm_tech = 17
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					NOT = { has_building = university }
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					#add_building = workshop
+					add_building_construction = {
+						building = university
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				adm_tech = 6
+				NOT = { adm_tech = 24 }
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					base_production	= 4
+					NOT = { has_production_building_trigger = yes }
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					#add_building = workshop
+					add_building_construction = {
+						building = workshop
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { adm_tech = 24 }
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					base_production	= 6
+					OR = { 
+						NOT = { has_production_building_trigger = yes }
+						has_building = workshop
+					}
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 20
+					add_building_construction = {
+						building = counting_house
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				mil_tech = 6
+				NOT = { mil_tech = 16 }
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					base_manpower = 4
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					NOT = { has_manpower_building_trigger = yes }
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					#add_building = barracks
+					add_building_construction = {
+						building = barracks
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { mil_tech = 16 }
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					base_manpower = 6
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					OR = {
+						NOT = { has_manpower_building_trigger = yes }
+						has_building = barracks
+					}
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 20
+					add_building_construction = {
+						building = training_fields
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				adm_tech = 4
+				NOT = { adm_tech = 19 }
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					base_tax = 4
+					NOT = { has_tax_building_trigger = yes }
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					#add_building = temple
+					add_building_construction = {
+						building = temple
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { adm_tech = 19 }
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { has_any_ongoing_construction = yes }
+					base_tax = 6
+					OR = {
+						NOT = { has_tax_building_trigger = yes }
+						has_building = temple
+					}
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 20
+					add_building_construction = {
+						building = cathedral
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				adm_tech = 8
+				NOT = { adm_tech = 22 }
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					#has_owner_religion = yes
+					NOT = { has_any_ongoing_construction = yes }
+					NOT = { has_courthouse_building_trigger = yes }
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 20
+					#add_building = courthouse
+					add_building_construction = {
+						building = courthouse
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { adm_tech = 22 }
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					#has_owner_religion = yes
+					NOT = { has_any_ongoing_construction = yes }
+					OR = {
+						NOT = { has_courthouse_building_trigger = yes }
+						has_building = courthouse
+					}
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 20
+					add_building_construction = {
+						building = town_hall
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				mil_tech = 8
+				NOT = { mil_tech = 22 }
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { local_autonomy = 50 }
+					NOT = { has_any_ongoing_construction = yes }
+					NOT = { has_forcelimit_building_trigger = yes }
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					#add_building = regimental_camp
+					add_building_construction = {
+						building = regimental_camp
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { mil_tech = 22 }
+			every_owned_province = {
+				limit = {
+					is_core = ROOT
+					controlled_by = owner
+					NOT = { nationalism = 5 }
+					NOT = { local_autonomy = 50 }
+					NOT = { has_any_ongoing_construction = yes }
+					OR = { 
+						NOT = { has_forcelimit_building_trigger = yes }
+						has_building = regimental_camp
+					}
+					NOT = { has_siege = yes }
+					controlled_by = ROOT
+				}
+				random = {
+					chance = 10
+					add_building_construction = {
+						building = conscription_center
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {  #  white peaces
+	id = dotfset.27
+	title = dotfset.27.t
+	desc = dotfset.27.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		is_at_war = yes
+		all_war_enemy_countries = { ai = yes }
+		all_ally = { ai = yes }
+		is_in_war = {
+			attacker_leader = ROOT
+			duration = 3650
+		}
+		NOT = {
+			is_in_war = {
+				casus_belli = cb_harmonic_convergence
+			}
+		}
+		NOT = {
+			is_in_war = {
+				casus_belli = cb_final_crusade
+			}
+		}
+		NOT = {
+			is_in_war = {
+				casus_belli = cb_saxon_independence
+			}
+		}
+		any_war_enemy_country = {
+			is_subject = no
+			is_in_war = {
+				attacker_leader = ROOT
+				duration = 3650
+			}
+			war_score_against = {
+				who = ROOT
+				value = -10
+			}
+			NOT = {
+				war_score_against = {
+					who = ROOT
+					value = 10
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = dotfset.27.a
+		
+		every_war_enemy_country = {
+			limit = {
+				is_subject = no
+				war_score_against = {
+					who = ROOT
+					value = -10
+				}
+				NOT = {
+					war_score_against = {
+						who = ROOT
+						value = 10
+					}
+				}
+			}
+			white_peace = ROOT
+		}
+	}
+}
+
+# Release subjects
+country_event = {
+	id = dotfset.28
+	title = dotfset.28.t
+	desc = dotfset.28.d
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	
+	mean_time_to_happen = {
+		days = 15
+	}
+	
+	trigger = {
+		num_of_cities = 10
+		ai = yes
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		NOT = { tag = YOR 	religion = lollard }
+		
+		any_owned_province = {
+			NOT = { is_core = ROOT }
+			NOT = { province_id = 151 }
+			
+			any_core_country = {
+				NOT = { exists = yes }
+				NOT = { tag = Z00 }
+				if = {
+					limit = { ROOT = { culture_group = french } }
+					NOT = { tag = FRA }
+				}
+				if = {
+					limit = { ROOT = { culture_group = byzantine } }
+					NOT = { is_core = 151 }
+				}
+				PREV = {
+					culture_group = PREV
+				}
+				any_core_province = {
+					development = 10
+				}
+				NOT = {
+					calc_true_if = {
+						all_core_province = {
+							AND = {
+								is_core = ROOT
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						amount = 1
+					}
+				}
+				calc_true_if = {
+					all_core_province = {
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					amount = 4
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_owned_province = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { province_event = 151 }
+			
+				any_core_country = {
+					NOT = { exists = yes }
+					NOT = { tag = Z00 }
+					if = {
+						limit = { ROOT = { culture_group = french } }
+						NOT = { tag = FRA }
+					}
+					if = {
+						limit = { ROOT = { culture_group = byzantine } }
+						NOT = { is_core = 151 }
+					}
+					PREV = {
+						culture_group = PREV
+					}
+					any_core_province = {
+						development = 10
+					}
+					NOT = {
+						calc_true_if = {
+							all_core_province = {
+								AND = {
+									is_core = ROOT
+									country_or_non_sovereign_subject_holds = ROOT
+								}
+							}
+							amount = 1
+						}
+					}
+					calc_true_if = {
+						all_core_province = {
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						amount = 4
+					}
+				}
+			}
+			random_core_country = {
+				limit = {
+					NOT = { exists = yes }
+					NOT = { tag = Z00 }
+					if = {
+						limit = { ROOT = { culture_group = french } }
+						NOT = { tag = FRA }
+					}
+					if = {
+						limit = { ROOT = { culture_group = byzantine } }
+						NOT = { is_core = 151 }
+					}
+					PREV = {
+						culture_group = PREV
+					}
+					any_core_province = {
+						development = 10
+					}
+					NOT = {
+						calc_true_if = {
+							all_core_province = {
+								AND = {
+									is_core = ROOT
+									country_or_non_sovereign_subject_holds = ROOT
+								}
+							}
+							amount = 1
+						}
+					}
+					calc_true_if = {
+						all_core_province = {
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						amount = 4
+					}
+				}
+				save_event_target_as = tag_to_be_released
+			}
+		}
+		release = event_target:tag_to_be_released
+		vassalize = event_target:tag_to_be_released
+		
+		event_target:tag_to_be_released = {
+			clr_country_flag = recently_released_for_cores_flag
+			set_country_flag = recently_released_for_cores_flag
+			
+			change_religion = ROOT
+			if = {
+				limit = {
+					culture = noculture
+				}
+				change_culture = capital_scope
+			}
+			if = {
+				limit = { is_subject_of = RIG }
+				change_government = theocracy
+				add_government_reform = monastic_order_reform
+			}
+		}
+		
+	}
+	
+	option = {
+		name = dotfset.28.a
+		
+		ai_chance = { factor = 1 }
+		
+	}
+}
+
+country_event = {
+	id = dotfset.29
+	title = dotfset.29.title
+	desc = dotfset.29.desc
+	picture = CONSPIRACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { num_of_generals = 10 }
+	}
+	
+	option = {
+		name = dotfset.29.a
+		if = {
+			limit = {
+				army_tradition = 90
+			}
+			create_general = { tradition = 95 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 80
+			}
+			create_general = { tradition = 85 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 70
+			}
+			create_general = { tradition = 75 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 60
+			}
+			create_general = { tradition = 65 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 50
+			}
+			create_general = { tradition = 55 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 40
+			}
+			create_general = { tradition = 45 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 30
+			}
+			create_general = { tradition = 35 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 20
+			}
+			create_general = { tradition = 25 }
+		}
+		else_if = {
+			limit = {
+				army_tradition = 10
+			}
+			create_general = { tradition = 15 }
+		}
+		else = {
+			create_general = { tradition = 5 }
+		}
+	}
+}
+
+country_event = {  #  Gold Mining
+	id = dotfset.30
+	title = dotfset.30.t
+	desc = dotfset.30.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = dotfset.30.a
+		every_owned_province = {
+			limit = {
+				is_core = ROOT
+				controlled_by = owner
+				has_owner_religion = yes
+				NOT = { base_production	= 11 }
+				OR = {
+					trade_goods = silver
+					trade_goods = gold
+				}
+			}
+			random = {
+				chance = 50
+				add_base_production = 1
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_core = ROOT
+				controlled_by = owner
+				has_owner_religion = yes
+				NOT = { base_production	= 25 }
+				OR = {
+					trade_goods = silver
+					trade_goods = gold
+				}
+				OR = {
+					province_id = 333
+					province_id = 57
+					province_id = 330
+					province_id = 249
+				}
+			}
+			random = {
+				chance = 50
+				add_base_production = 1
+			}
+		}
+	}
+}
+
+country_event = {  # Removing Explo Ideas
+	id = dotfset.31
+	title = dotfset.31.t
+	desc = dotfset.31.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		is_year = 1600
+		has_idea_group = exploration_ideas
+		NOT = {
+			calc_true_if = {
+				all_province = {
+					has_port = yes
+					is_empty = yes
+				}
+				amount = 25
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = dotfset.31.a
+		remove_idea_group = exploration_ideas
+		if = {
+			limit = {
+				OR = {
+					tag = ENG
+					tag = GBR
+					tag = NED
+					tag = Z21
+					tag = AVE
+					tag = HSC
+					tag = IRE
+					tag = MTH
+					tag = TEM
+					tag = KCL
+					tag = KOS
+					tag = SCA
+					tag = JAP
+				}
+			}
+			add_idea_group = maritime_ideas
+		}
+		set_country_flag = no_more_explo_ideas
+	}
+}
+
+province_event = {  # remove buildings on conquest
+	id = dotfset.32
+	title = dotfset.32.t
+	desc = dotfset.32.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = dotfset.32.a
+		if = {
+			limit = { has_building = courthouse }
+			remove_building = courthouse
+		}
+		if = {
+			limit = { has_building = town_hall }
+			remove_building = town_hall
+		}
+		if = {
+			limit = { has_building = state_house }
+			remove_building = state_house
+		}
+		if = {
+			limit = { has_building = ramparts }
+			remove_building = ramparts
+		}
+		if = {
+			limit = { has_building = canal_system }
+			random = {
+				chance = 50
+				remove_building = canal_system
+			}
+		}
+		if = {
+			limit = { has_building = road_network }
+			random = {
+				chance = 25
+				remove_building = road_network
+			}
+		}
+		if = {
+			limit = { has_building = barracks }
+			random = {
+				chance = 50
+				remove_building = barracks
+			}
+		}
+		if = {
+			limit = { has_building = training_fields }
+			random = {
+				chance = 50
+				remove_building = training_fields
+			}
+		}
+		if = {
+			limit = { has_building = shipyard }
+			random = {
+				chance = 50
+				remove_building = shipyard
+			}
+		}
+		if = {
+			limit = { has_building = regimental_camp }
+			random = {
+				chance = 50
+				remove_building = regimental_camp
+			}
+		}
+		if = {
+			limit = { has_building = conscription_center }
+			random = {
+				chance = 50
+				remove_building = conscription_center
+			}
+		}
+	}
+}
+
+country_event = {  # splendour advisors
+	id = dotfset.33
+	title = dotfset.33.t
+	desc = dotfset.33.d
+	picture = AULIC_COUNCIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	# Admin advisor
+		name = dotfset.33.a
+		country_event = { id = dotfset.34 }
+	}
+	
+	option = {	# Diplo advisor
+		name = dotfset.33.b
+		country_event = { id = dotfset.35 }
+	}
+	
+	option = {	# Mil advisor
+		name = dotfset.33.c
+		country_event = { id = dotfset.36 }
+	}
+}
+
+country_event = {  # splendour advisors -- admin
+	id = dotfset.34
+	title = dotfset.34.t
+	desc = dotfset.34.d
+	picture = AULIC_COUNCIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	
+		name = dotfset.34.a
+		
+		define_advisor = {
+			type = philosopher
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.b
+		
+		define_advisor = {
+			type = natural_scientist
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.c
+		
+		define_advisor = {
+			type = artist
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.e
+		
+		define_advisor = {
+			type = treasurer
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.f
+		
+		define_advisor = {
+			type = theologian
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.g
+		
+		define_advisor = {
+			type = master_of_mint
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.h
+		
+		define_advisor = {
+			type = inquisitor
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.34.i
+		
+		add_splendor = 300
+		
+	}
+}
+
+country_event = {  # splendour advisors -- diplo
+	id = dotfset.35
+	title = dotfset.35.t
+	desc = dotfset.35.d
+	picture = AULIC_COUNCIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	
+		name = dotfset.35.a
+		
+		define_advisor = {
+			type = statesman
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.b
+		
+		define_advisor = {
+			type = naval_reformer
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.c
+		
+		define_advisor = {
+			type = trader
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.e
+		
+		define_advisor = {
+			type = spymaster
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.f
+		
+		define_advisor = {
+			type = colonial_governor
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.g
+		
+		define_advisor = {
+			type = diplomat
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.h
+		
+		define_advisor = {
+			type = navigator
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.35.i
+		
+		add_splendor = 300
+		
+	}
+}
+
+country_event = {  # splendour advisors -- mil
+	id = dotfset.36
+	title = dotfset.36.t
+	desc = dotfset.36.d
+	picture = AULIC_COUNCIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	
+		name = dotfset.36.a
+		
+		define_advisor = {
+			type = army_reformer
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.b
+		
+		define_advisor = {
+			type = army_organiser
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.c
+		
+		define_advisor = {
+			type = commandant
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.e
+		
+		define_advisor = {
+			type = quartermaster
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.f
+		
+		define_advisor = {
+			type = recruitmaster
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.g
+		
+		define_advisor = {
+			type = fortification_expert
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.h
+		
+		define_advisor = {
+			type = grand_captain
+			skill = 2
+		}
+	}
+	
+	option = {	
+		name = dotfset.36.i
+		
+		add_splendor = 300
+		
+	}
+}
+
+country_event = {  # Reset Navies
+	id = dotfset.37
+	title = dotfset.37.t
+	desc = dotfset.37.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		is_at_war = no
+		is_bankrupt = no
+		NOT = { num_of_loans = 5 }
+		OR = {
+			AND = {
+				dip_tech = 10
+				NOT = { has_country_flag = had_dip_10_naval_reset_flag }
+			}
+			AND = {
+				dip_tech = 15
+				NOT = { has_country_flag = had_dip_15_naval_reset_flag }
+			}
+			AND = {
+				dip_tech = 19
+				NOT = { has_country_flag = had_dip_19_naval_reset_flag }
+			}
+			AND = {
+				dip_tech = 22
+				NOT = { has_country_flag = had_dip_22_naval_reset_flag }
+			}
+			AND = {
+				dip_tech = 25
+				NOT = { has_country_flag = had_dip_25_naval_reset_flag }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = dotfset.37.a
+		disband_all_ships = yes
+		add_years_of_income = 1
+		add_years_of_owned_provinces_sailors = {
+			years = 1
+			trigger = {
+				always = yes
+			}
+		}
+		add_country_modifier = {
+			name = ai_reset_navy_modifier
+			duration = 1000
+		}
+		if = {
+			limit = {
+				dip_tech = 25
+			}
+			set_country_flag = had_dip_25_naval_reset_flag
+		}
+		if = {
+			limit = {
+				dip_tech = 22
+			}
+			set_country_flag = had_dip_22_naval_reset_flag
+		}
+		if = {
+			limit = {
+				dip_tech = 19
+			}
+			set_country_flag = had_dip_19_naval_reset_flag
+		}
+		if = {
+			limit = {
+				dip_tech = 15
+			}
+			set_country_flag = had_dip_15_naval_reset_flag
+		}
+		if = {
+			limit = {
+				dip_tech = 10
+			}
+			set_country_flag = had_dip_10_naval_reset_flag
+		}
+	}
+}
+
+country_event = {  # remove AI expanded infra for player
+	id = dotfset.38
+	title = dotfset.38.t
+	desc = dotfset.38.d
+	picture = AULIC_COUNCIL_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+		ai = no
+	}
+	
+	option = {	# Bye-bye AI expanded infra
+		name = dotfset.38.a
+		every_owned_province = {
+			limit = { has_province_modifier = ai_expand_infrastructure_1 }
+			remove_province_modifier = ai_expand_infrastructure_1
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = ai_expand_infrastructure_2 }
+			remove_province_modifier = ai_expand_infrastructure_2
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = ai_expand_infrastructure_3 }
+			remove_province_modifier = ai_expand_infrastructure_3
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = ai_expand_infrastructure_4 }
+			remove_province_modifier = ai_expand_infrastructure_4
+		}
+	}
+}
+
+country_event = {  # Spawn transports
+	id = dotfset.39
+	title = dotfset.39.t
+	desc = dotfset.39.d
+	picture = east_asian_CITY_DEVELOPMENT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		is_at_war = yes
+		is_bankrupt = no
+		NOT = { num_of_loans = 5 }
+		current_income_balance = 15
+		OR = {
+			capital_scope = {
+				province_is_on_an_island = yes
+			}
+			any_war_enemy_country = { 
+				capital_scope = {
+					province_is_on_an_island = yes
+				}
+			}
+			AND = {
+				capital_scope = {
+					continent = europe
+				}
+				any_war_enemy_country = {
+					capital_scope = {
+						NOT = { 
+							capital_scope = {
+								continent = europe
+							}
+						}
+					}
+				}
+			}
+		}
+		naval_forcelimit = 50
+		NOT = { num_of_transport = 25 }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = dotfset.39.a
+		random_owned_province = {
+			limit = {
+				has_port = yes
+				is_overseas = no
+			}
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+			transport = ROOT
+		}		
+	}
+}
+
+namespace = devastation_mechanic
+
+country_event = {	# devastation starter event
+	id = devastation_mechanic.1
+	title = devastation_mechanic.1.title
+	desc = devastation_mechanic.1.desc
+	picture = ARTWORK_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "devastation_mechanic.1.a"
+		
+	}
+}
+
+province_event = {	# devastation province event
+	id = devastation_mechanic.2
+	title = devastation_mechanic.2.title
+	desc = devastation_mechanic.2.desc
+	picture = VILLAGE_BURNING_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		devastation = 10
+		development = 10
+	}
+	
+	immediate = {
+		random_province = {
+			limit = {
+				NOT = { devastation = 10 }
+				OR = {
+					has_owner_accepted_culture = yes
+					has_owner_culture = yes
+				}
+				culture = ROOT
+				NOT = { has_province_modifier = small_refugee_influx }
+				NOT = { has_province_modifier = medium_refugee_influx }
+				NOT = { has_province_modifier = large_refugee_influx }
+			}
+			save_event_target_as = refugees_target_province
+		}
+		if = {
+			limit = { NOT = { has_saved_event_target = refugees_target_province } }
+			random_province = {
+				limit = {
+					NOT = { devastation = 10 }
+					OR = {
+						has_owner_accepted_culture = yes
+						has_owner_culture = yes
+					}
+					culture_group = ROOT
+					NOT = { has_province_modifier = small_refugee_influx }
+					NOT = { has_province_modifier = medium_refugee_influx }
+					NOT = { has_province_modifier = large_refugee_influx }
+				}
+				save_event_target_as = refugees_target_province
+			}
+		}
+		if = {
+			limit = { NOT = { has_saved_event_target = refugees_target_province } }
+			random_province = {
+				limit = {
+					NOT = { devastation = 10 }
+					OR = {
+						has_owner_accepted_culture = yes
+						has_owner_culture = yes
+					}
+					culture = ROOT
+				}
+				save_event_target_as = refugees_target_province
+			}
+		}
+		if = {
+			limit = { NOT = { has_saved_event_target = refugees_target_province } }
+			random_province = {
+				limit = {
+					NOT = { devastation = 10 }
+					OR = {
+						has_owner_accepted_culture = yes
+						has_owner_culture = yes
+					}
+					culture_group = ROOT
+				}
+				save_event_target_as = refugees_target_province
+			}
+		}
+		if = {
+			limit = { NOT = { has_saved_event_target = refugees_target_province } }
+			random_province = {
+				limit = {
+					NOT = { devastation = 10 }
+					has_owner_religion = yes
+					religion = ROOT
+					NOT = { has_province_modifier = small_refugee_influx }
+					NOT = { has_province_modifier = medium_refugee_influx }
+					NOT = { has_province_modifier = large_refugee_influx }
+				}
+				save_event_target_as = refugees_target_province
+			}
+		}
+		if = {
+			limit = { NOT = { has_saved_event_target = refugees_target_province } }
+			random_province = {
+				limit = {
+					NOT = { devastation = 10 }
+					has_owner_religion = yes
+					religion = ROOT
+				}
+				save_event_target_as = refugees_target_province
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "devastation_mechanic.2.a"
+		if = {
+			limit = {
+				development = 30
+			}
+			add_base_production = -3
+			add_base_manpower = -3
+			add_base_tax = -3
+			event_target:refugees_target_province = {
+				add_base_production = 1
+				add_base_tax = 2
+				add_province_modifier = {
+					name = large_refugee_influx
+					duration = 5475
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				development = 20
+			}
+			add_base_production = -2
+			add_base_manpower = -2
+			add_base_tax = -2
+			event_target:refugees_target_province = {
+				add_base_production = 1
+				add_base_tax = 1
+				add_province_modifier = {
+					name = medium_refugee_influx
+					duration = 5475
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				development = 10
+			}
+			add_base_production = -1
+			add_base_manpower = -1
+			add_base_tax = -1
+			event_target:refugees_target_province = {
+				add_base_tax = 1
+				add_province_modifier = {
+					name = small_refugee_influx
+					duration = 5475
+				}
+			}
+		}
+	}
+}
+
+province_event = {	# refugees province event
+	id = devastation_mechanic.3
+	title = devastation_mechanic.3.title
+	desc = devastation_mechanic.3.desc
+	picture = VILLAGE_RAIDED_eventPicture
+	
+	#hidden = yes
+	is_triggered_only = yes
+	goto = yes
+	
+	trigger = {
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "devastation_mechanic.3.a"
+		
+	}
+}

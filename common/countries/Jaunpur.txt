@@ -1,0 +1,67 @@
+ck2_converter_generated = yes
+graphical_culture = easterngfx
+color = { 100 94 125 }
+revolutionary_colors = { 5 0 5 }
+historical_idea_groups = {
+	innovativeness_ideas
+	quantity_ideas
+	offensive_ideas
+	defensive_ideas
+	trade_ideas
+	economic_ideas
+	diplomatic_ideas
+	aristocracy_ideas
+}
+historical_units = {
+	bhonsle_cavalry
+	indian_arquebusier
+	indian_elephant
+	indian_footsoldier
+	indian_rifle
+	mughal_mansabdar
+	mughal_musketeer
+	rajput_hill_fighters
+	rajput_musketeer
+	sikh_hit_and_run
+	tipu_sultan_rocket
+}
+monarch_names = {
+	"Euthydemos #2" = 10
+	"Antimachos #2" = 5
+	"Demetrios #5" = 15
+	"Pantaleon #1" = 5
+	"Menandros #2" = 5
+	"Kleopatra #0" = -5
+	"Stratos #3" = 5
+	"Agathoklea #1" = -5
+	"Amyntas #1" = 1
+}
+ship_names = {
+	"Bagmati"
+	"Budhi"
+	"Devi"
+	"Durga"
+	"Falgu"
+	"Gandak"
+	"Ganga"
+	"Gayatri"
+	"Jalsena"
+	"Kali Nauk"
+	"Kosi"
+	"Lakshmi"
+	"Lal Nauk"
+	"Loki Devi"
+	"Manasa Devi"
+	"Parvati"
+	"Radha"
+	"Ratri"
+	"Sagorer Bahini"
+	"Sarasvati"
+	"Shakti"
+	"Shaktir Nauk"
+	"Shasti Ma"
+	"Sita"
+	"Son"
+	"Trishool"
+	"Uma"
+}

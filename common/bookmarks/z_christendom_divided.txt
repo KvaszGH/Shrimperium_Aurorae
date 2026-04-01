@@ -1,0 +1,31 @@
+bookmark =
+{
+	name = christendom_divided
+	desc = christendom_divided_desc
+	date = "1444.11.11"
+	center = 183
+	
+	default = yes
+	
+	country = VAL
+	country = TEM
+	country = SAX
+	country = FLA
+	country = NRM
+	country = BRI
+	country = Z21
+	country = HSC
+	country = CRN
+	country = RIG
+	country = GOT
+	country = Z65
+	country = HES
+	country = VEN
+	country = HAB
+	country = BOH
+	country = NUM
+	easy_country = VAL
+	easy_country = TEM
+	easy_country = SAX
+	easy_country = FLA
+}

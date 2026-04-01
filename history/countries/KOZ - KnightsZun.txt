@@ -1,0 +1,7 @@
+government = theocracy
+add_government_reform = monastic_order_reform
+government_rank = 1
+technology_group = indian
+religion = zun_pagan
+primary_culture = afghani
+capital = 2226

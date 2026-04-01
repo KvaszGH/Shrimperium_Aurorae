@@ -1,0 +1,96 @@
+complacency_loss_fighting_mhadi = {
+	potential = { 
+		has_government_mechanic = ia_complacency_mechanic
+		has_global_flag = celestial_emperor_notices_mhadi_flag
+	}
+	trigger = {
+		has_global_flag = celestial_emperor_notices_mhadi_flag
+		OR = {
+			is_in_war = {
+				defender_leader = YOR
+			}
+			is_in_war = {
+				attacker_leader = YOR
+			}
+		}
+	}
+	monthly_ia_complacency = -2
+	imperial_mandate = 0.25
+	morale_damage_received = -0.15
+	manpower_recovery_speed = 0.25
+	reinforce_speed = 0.25
+}
+
+
+complacency_loss_losing_war = {
+	potential = { 
+		has_government_mechanic = ia_complacency_mechanic
+	}
+	trigger = {
+		OR = {
+			is_in_war = {
+				defender_leader = ROOT
+			}
+			is_in_war = {
+				attacker_leader = ROOT
+			}
+		}
+		NOT = { war_score = -25 }
+	}
+	monthly_ia_complacency = -2
+}
+
+complacency_loss_foreigners_in_south_china = {
+	potential = { 
+		has_government_mechanic = ia_complacency_mechanic
+	}
+	trigger = {
+		south_china_region = {
+			owner = {
+				NOT = { technology_group = ROOT }
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+	}
+	monthly_ia_complacency = -0.5
+}
+
+complacency_loss_foreigners_in_north_china = {
+	potential = { 
+		has_government_mechanic = ia_complacency_mechanic
+	}
+	trigger = {
+		north_china_region = {
+			owner = {
+				NOT = { technology_group = ROOT }
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+	}
+	monthly_ia_complacency = -0.5
+}
+
+complacency_loss_good_general = {
+	potential = { 
+		has_government_mechanic = ia_complacency_mechanic
+	}
+	trigger = {
+		has_commanding_three_star = yes
+	}
+	monthly_ia_complacency = -0.1
+}
+
+complacency_loss_more_powerful_chinese_country = {
+	potential = { 
+		is_emperor_of_china = yes
+	}
+	trigger = {
+		any_known_country = {
+			culture_group = east_asian
+			total_development = ROOT
+			government = monarchy
+		}
+	}
+	monthly_ia_complacency = -2
+	imperial_mandate = -1
+}

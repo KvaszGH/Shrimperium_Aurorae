@@ -1,0 +1,1371 @@
+grand_duchy_monarchy = {
+	rank = {
+		1 = GRAND_DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = GRAND_DUKE
+		2 = KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = GRAND_DUCHESS
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	trigger = {
+		has_reform = grand_duchy_reform
+		NOT = { government_rank = 2 }
+		OR = {
+			tag = LUX
+			tag = BAD
+			tag = TUS
+			tag = FIN
+			tag = LIT
+			culture_group = baltic
+			primary_culture = finnish
+		}
+	}
+}
+
+hre_county = {
+	rank = {
+		1 = COUNTY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = COUNT
+		2 = KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = COUNTESS
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = COUNTESS
+		2 = QUEEN_CONSORT
+		3 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	government_reform = monarchy_mechanic
+
+	trigger = {
+		has_reform = monarchy_mechanic
+		is_part_of_hre = yes
+		NOT = { total_development = 50 }
+		NOT = { religion = hellenic_pagan_reformed }
+	}
+}
+
+harmonic_confluence_monarchy = {
+	rank = {
+		1 = harmonic_confluence_duchy
+		2 = harmonic_confluence_kingdom
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = harmonic_confluence_ruler_duke
+		2 = harmonic_confluence_ruler_king
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = harmonic_confluence_ruler_duke_female
+		2 = harmonic_confluence_ruler_king_female
+		3 = EMPRESS
+	}
+	
+	heir_male = {
+		1 = harmonic_confluence_heir
+		2 = harmonic_confluence_heir
+		3 = harmonic_confluence_heir
+	}
+
+	heir_female = {
+		1 = harmonic_confluence_heir_female
+		2 = harmonic_confluence_heir_female
+		3 = harmonic_confluence_heir_female
+	}
+
+	trigger = {
+		has_reform = harmonic_confluence
+		OR = {
+			religion = hellenic_pagan_reformed
+			culture_group = xizho_group
+		}
+	}
+}
+
+cultivators_order_names = {
+	rank = {
+		1 = cultivators_order_duchy
+		2 = cultivators_order_kingdom
+		3 = cultivators_order_empire
+	}
+
+	ruler_male = {
+		1 = cultivators_order_ruler_duke
+		2 = cultivators_order_ruler_king
+		3 = cultivators_order_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = cultivators_order_ruler_duke
+		2 = cultivators_order_ruler_king
+		3 = cultivators_order_ruler_emperor
+	}
+
+	trigger = {
+		has_reform = cultivators_order
+	}
+}
+
+mingjiao_reform_names = {
+	rank = {
+		1 = mingjiao_reform_name
+		2 = mingjiao_reform_name
+		3 = mingjiao_reform_name
+	}
+
+	ruler_male = {
+		1 = mingjiao_reform_ruler
+		2 = mingjiao_reform_ruler
+		3 = mingjiao_reform_ruler
+	}
+
+	ruler_female = {
+		1 = mingjiao_reform_ruler
+		2 = mingjiao_reform_ruler
+		3 = mingjiao_reform_ruler
+	}
+
+	trigger = {
+		has_reform = mingjiao_reform
+	}
+}
+
+byzantine_warlord_monarchy = {
+	rank = {
+		1 = pretender_theme
+		2 = pretender_despotate
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = byzantine_warlord_ruler_duke
+		2 = byzantine_warlord_ruler_king
+		3 = BASILEUS
+	}
+
+	ruler_female = {
+		1 = byzantine_warlord_ruler_duke_female
+		2 = byzantine_warlord_ruler_king_female
+		3 = BASILISSA
+	}
+	
+	heir_male = {
+		1 = PRINCE
+		2 = DESPOT
+		3 = SYMBASILEUS
+	}
+
+	heir_female = {
+		1 = PRINCESS
+		2 = DESPOTISSA
+		3 = SYMBASILISSA
+	}
+
+	trigger = {
+		has_reform = byzantine_warlord
+		OR = {
+			culture_group = byzantine
+		}
+	}
+}
+
+celestial_xizho_monarchy = {
+	rank = {
+		1 = celestial_xizho_empire_name
+		2 = celestial_xizho_empire_name
+		3 = celestial_xizho_empire_name
+	}
+
+	ruler_male = {
+		1 = celestial_xizho_empire_ruler
+		2 = celestial_xizho_empire_ruler
+		3 = celestial_xizho_empire_ruler
+	}
+
+	ruler_female = {
+		1 = celestial_xizho_empire_ruler_female
+		2 = celestial_xizho_empire_ruler_female
+		3 = celestial_xizho_empire_ruler_female
+	}
+	
+	consort_male = {
+		1 = celestial_xizho_empire_consort_male
+		2 = celestial_xizho_empire_consort_male
+		3 = celestial_xizho_empire_consort_male
+	}
+
+	consort_female = {
+		1 = celestial_xizho_empire_consort
+		2 = celestial_xizho_empire_consort
+		3 = celestial_xizho_empire_consort
+	}
+
+	trigger = {
+		has_reform = celestial_xizho_empire
+	}
+}
+
+saxon_fief_reform_monarchy = {
+	rank = {
+		1 = saxon_fief_reform_duchy
+		2 = saxon_fief_reform_kingdom
+		3 = KAISERREICH
+	}
+
+	ruler_male = {
+		1 = saxon_fief_reform_ruler_duke
+		2 = saxon_fief_reform_ruler_king
+		3 = KAISER
+	}
+
+	ruler_female = {
+		1 = saxon_fief_reform_ruler_duke_female
+		2 = saxon_fief_reform_ruler_king_female
+		3 = KAISERIN
+	}
+	
+	consort_male = {
+		1 = saxon_fief_reform_ruler_duke
+		2 = saxon_fief_reform_ruler_king
+		3 = KAISER
+	}
+	consort_female = {
+		1 = saxon_fief_reform_ruler_duke_female
+		2 = saxon_fief_reform_ruler_king_female
+		3 = KAISERIN
+	}
+	heir_male = {
+		2 = KRONPRINZ
+		3 = KRONPRINZ
+	}
+	heir_female = {
+		2 = KRONPRINZEN
+		3 = KRONPRINZEN
+	}
+
+	trigger = {
+		OR = {
+			AND = { 
+				has_reform = saxon_fief_reform
+				is_subject_of_type = saxon_daimyo
+			}
+			AND = {
+				NOT = { is_subject_of_type = march }
+				NOT = { is_subject_of_type = german_march }
+				is_subject = yes
+				culture_group = germanic
+				NOT = { primary_culture = anglo_saxon }
+			}
+			#AND = { 
+			#	culture_group = germanic
+			#	NOT = { primary_culture = dutch }
+			#	NOT = { primary_culture = flemish }
+			#	NOT = { primary_culture = frisian }
+			#	NOT = { primary_culture = anglo_saxon }
+			#	NOT = { has_reform = saxon_feudalism }
+			#	NOT = { is_subject_of_type = german_march }
+			#}
+		}
+		government = monarchy
+	}
+}
+
+saxon_march_reform_monarchy = {
+	rank = {
+		1 = saxon_march_reform_duchy
+		2 = saxon_march_reform_kingdom
+		3 = KAISERREICH
+	}
+
+	ruler_male = {
+		1 = saxon_march_reform_ruler_duke
+		2 = saxon_march_reform_ruler_king
+		3 = KAISER
+	}
+
+	ruler_female = {
+		1 = saxon_march_reform_ruler_duke_female
+		2 = saxon_march_reform_ruler_king_female
+		3 = KAISERIN
+	}
+	
+	consort_male = {
+		1 = saxon_march_reform_ruler_duke
+		2 = saxon_march_reform_ruler_king
+		3 = KAISER
+	}
+	consort_female = {
+		1 = saxon_march_reform_ruler_duke_female
+		2 = saxon_march_reform_ruler_king_female
+		3 = KAISERIN
+	}
+	heir_male = {
+		2 = KRONPRINZ
+		3 = KRONPRINZ
+	}
+	heir_female = {
+		2 = KRONPRINZEN
+		3 = KRONPRINZEN
+	}
+
+	trigger = {
+		OR = {
+			is_subject_of_type = german_march
+			AND = {
+				is_subject_of_type = march
+				culture_group = germanic
+				NOT = { primary_culture = anglo_saxon }
+			}
+		}
+		government = monarchy
+	}
+}
+
+saxon_feudalism_monarchy = {
+	rank = {
+		1 = saxon_feudalism_duchy
+		2 = saxon_feudalism_kingdom
+		3 = saxon_feudalism_empire
+	}
+
+	ruler_male = {
+		1 = saxon_feudalism_ruler_duke
+		2 = saxon_feudalism_ruler_king
+		3 = saxon_feudalism_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = saxon_feudalism_ruler_duke_female
+		2 = saxon_feudalism_ruler_king_female
+		3 = saxon_feudalism_ruler_emperor_female
+	}
+	
+	consort_male = {
+		1 = saxon_feudalism_ruler_duke
+		2 = saxon_feudalism_ruler_king
+		3 = saxon_feudalism_ruler_emperor
+	}
+	
+	consort_female = {
+		1 = saxon_feudalism_ruler_duke_female
+		2 = saxon_feudalism_ruler_king_female
+		3 = saxon_feudalism_ruler_emperor_female
+	}
+	
+	
+	heir_male = {
+		1 = HEIR
+		2 = saxon_feudalism_heir_king
+		3 = saxon_feudalism_heir_emperor
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = saxon_feudalism_heir_king_female
+		3 = saxon_feudalism_heir_emperor_female
+	}
+
+	trigger = {
+		has_reform = saxon_feudalism
+	}
+}
+
+independent_german_monarchy = {
+	rank = {
+		1 = independent_german_duchy
+		2 = independent_german_kingdom
+		3 = KAISERREICH
+	}
+
+	ruler_male = {
+		1 = independent_german_ruler_duke
+		2 = independent_german_ruler_king
+		3 = KAISER
+	}
+
+	ruler_female = {
+		1 = independent_german_ruler_duke_female
+		2 = independent_german_ruler_king_female
+		3 = KAISERIN
+	}
+	
+	consort_male = {
+		1 = independent_german_ruler_duke
+		2 = independent_german_ruler_king
+		3 = KAISER
+	}
+	
+	consort_female = {
+		1 = independent_german_ruler_duke_female
+		2 = independent_german_ruler_king_female
+		3 = KAISERIN
+	}
+	
+	
+	heir_male = {
+		1 = HEIR
+		2 = KRONPRINZ
+		3 = KRONPRINZ
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = KRONPRINZEN
+		3 = KRONPRINZEN
+	}
+
+	trigger = {
+		culture_group = germanic
+		NOT = { is_subject = yes }
+		NOT = { has_reform = saxon_feudalism }
+		NOT = { primary_culture = dutch }
+		NOT = { primary_culture = flemish }
+		NOT = { primary_culture = frisian }
+		NOT = { primary_culture = anglo_saxon }
+		NOT = { has_reform = fkn_vintner_monarchy }
+		government = monarchy
+	}
+}
+
+gov_templar_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+				has_reform = templar_order_government
+	}
+}
+
+gov_auroral_horde = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		has_reform = auroral_horde
+	}
+}
+
+gov_santiago_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+				has_reform = santiago_order_government
+	}
+}
+
+gov_calatrava_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+				has_reform = calatrava_order_government
+	}
+}
+
+gov_hellenic_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+				has_reform = hellenic_order_government
+	}
+}
+
+gov_brotherhood_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+				has_reform = brotherhood_government
+	}
+}
+
+gov_perkunas_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+				has_reform = perkunas_government
+	}
+}
+
+gov_myrmidons_order = {
+	rank = {
+		1 = MONASTIC_ORDER
+		2 = MONASTIC_STATE
+		3 = MONASTIC_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = GRAND_MASTER
+		2 = GRAND_MASTER
+		3 = COMMANDER_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = GRAND_MISTRESS
+		2 = GRAND_MISTRESS
+		3 = COMMANDER_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		has_reform = myrmidons_government
+		NOT = { has_reform = myrmidon_western_protectorate }
+		NOT = { has_reform = myrmidon_paradise_initiative }
+	}
+}
+
+gov_gaelic_council_elders = {
+	rank = {
+		1 = druidic_state_tt
+		2 = druidic_state_tt_2
+		3 = druidic_state_tt_3
+	}
+	
+	ruler_male = {
+		1 = archdruid_tt
+		2 = archdruid_tt
+		3 = archdruid_tt
+	}
+	
+	ruler_female = {
+		1 = archdruid_tt
+		2 = archdruid_tt
+		3 = archdruid_tt
+	}
+	
+	heir_male = {
+		1 = archdruid_tt
+		2 = archdruid_tt
+		3 = archdruid_tt
+	}
+
+	heir_female = {
+		1 = archdruid_tt
+		2 = archdruid_tt
+		3 = archdruid_tt
+	}
+	
+	trigger = {
+		has_reform = gaelic_council_elders
+	}
+}
+
+gov_dutch_monarchy = {
+	rank = {
+		1 = groothertogdom_name
+		2 = koninkrijk_name
+		3 = rijk_name
+	}
+
+	ruler_male = {
+		1 = groot_hertog_title
+		2 = verlichte_koning_title
+		3 = keizer_title
+	}
+
+	ruler_female = {
+		1 = groot_hertog_title_fem
+		2 = verlichte_koning_title_fem
+		3 = keizer_title_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			has_reform = stadthalter_monarchy_reform
+			has_reform = erfstadhouder_monarchy_reform
+			tag = NED
+			AND = {
+				OR = {
+					primary_culture = frisian
+					primary_culture = flemish
+					primary_culture = dutch
+				}
+				NOT = { is_subject_of_type = saxon_daimyo }
+				NOT = { is_subject_of_type = german_march }
+			}
+		}
+	}
+}
+
+gov_roman_diocese = {
+	rank = {
+		1 = diocese_name
+		2 = diocese_name
+		3 = diocese_name_empire
+	}
+
+	ruler_male = {
+		1 = magister_millitum_title
+		2 = magister_millitum_title
+		3 = magister_millitum_title
+	}
+
+	ruler_female = {
+		1 = magister_millitum_title
+		2 = magister_millitum_title
+		3 = magister_millitum_title
+	}
+
+	trigger = {
+		OR = { 
+			has_reform = roman_diocese
+			has_reform = reign_of_majorian_reform
+		}
+	}
+}
+
+gov_diadochi = {
+	rank = {
+		1 = diadochi_name_duchy
+		2 = diadochi_name_kingdom
+		3 = diadochi_name_empire
+	}
+
+	ruler_male = {
+		1 = diadochia_chiliarch
+		2 = diadochia_satrap
+		3 = BASILEUS
+	}
+
+	ruler_female = {
+		1 = diadochia_chiliarch
+		2 = diadochia_satrap
+		3 = BASILISSA
+	}
+	
+	consort_male = {
+		1 = diadochia_chiliarch
+		2 = diadochia_satrap
+		3 = BASILEUS
+	}
+	
+	consort_female = {
+		1 = diadochia_chiliarch
+		2 = diadochia_satrap
+		3 = BASILISSA
+	}
+
+	trigger = { 
+		OR = {
+			has_reform = diadochos_reform
+			has_reform = upgraded_diadochos_reform
+		}
+	}
+}
+
+catalan_and_visigoth_titles = {
+	rank = {
+		1 = visigoth_duchy
+		2 = visigoth_kingdom
+		3 = visigoth_empire
+	}
+
+	ruler_male = {
+		1 = visigoth_ruler_duke
+		2 = visigoth_ruler_king
+		3 = visigoth_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = visigoth_ruler_duke_female
+		2 = visigoth_ruler_king_female
+		3 = visigoth_ruler_emperor_female
+	}
+	
+	consort_male = {
+		1 = visigoth_ruler_duke
+		2 = visigoth_ruler_king
+		3 = visigoth_ruler_emperor
+	}
+	
+	consort_female = {
+		1 = visigoth_ruler_duke_female
+		2 = visigoth_ruler_king_female
+		3 = visigoth_ruler_emperor_female
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = visigoth_heir_king
+		3 = visigoth_heir_emperor
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = visigoth_heir_king_female
+		3 = visigoth_heir_emperor_female
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = catalan
+			primary_culture = visigothic
+		}
+	}
+}
+
+westseaxe_titles = {
+	rank = {
+		1 = anglosaxon_duchy
+		2 = anglosaxon_kingdom
+		3 = anglosaxon_empire
+	}
+
+	ruler_male = {
+		1 = anglosaxon_ruler_duke
+		2 = anglosaxon_ruler_king
+		3 = anglosaxon_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = anglosaxon_ruler_duke_female
+		2 = anglosaxon_ruler_king_female
+		3 = anglosaxon_ruler_emperor_female
+	}
+	
+	consort_male = {
+		1 = anglosaxon_ruler_duke
+		2 = anglosaxon_ruler_king
+		3 = anglosaxon_ruler_emperor
+	}
+	
+	consort_female = {
+		1 = anglosaxon_ruler_duke_female
+		2 = anglosaxon_ruler_king_female
+		3 = anglosaxon_ruler_emperor_female
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = anglosaxon_heir
+		3 = anglosaxon_heir
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = anglosaxon_heir
+		3 = anglosaxon_heir
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			has_reform = westseaxe_monarchy_reform
+			primary_culture = anglo_saxon
+		}
+	}
+}
+
+welsh_titles = {
+	rank = {
+		1 = welsh_duchy
+		2 = welsh_kingdom
+		3 = welsh_empire
+	}
+
+	ruler_male = {
+		1 = welsh_ruler_duke
+		2 = welsh_ruler_king
+		3 = welsh_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = welsh_ruler_duke_female
+		2 = welsh_ruler_king_female
+		3 = welsh_ruler_emperor_female
+	}
+	
+	consort_male = {
+		1 = welsh_ruler_duke
+		2 = welsh_ruler_king
+		3 = welsh_ruler_emperor
+	}
+	
+	consort_female = {
+		1 = welsh_ruler_duke_female
+		2 = welsh_ruler_king_female
+		3 = welsh_ruler_emperor_female
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = welsh_heir
+		3 = welsh_heir
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = welsh_heir_female
+		3 = welsh_heir_female
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = welsh
+			primary_culture = cornish
+		}
+	}
+}
+
+french_titles = {
+	rank = {
+		1 = french_duchy
+		2 = french_kingdom
+		3 = french_empire
+	}
+
+	ruler_male = {
+		1 = french_ruler_duke
+		2 = french_ruler_king
+		3 = french_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = french_ruler_duke_female
+		2 = french_ruler_king_female
+		3 = french_ruler_emperor_female
+	}
+	
+	consort_male = {
+		1 = french_ruler_duke
+		2 = french_ruler_king
+		3 = french_ruler_emperor
+	}
+	
+	consort_female = {
+		1 = french_ruler_duke_female
+		2 = french_ruler_king_female
+		3 = french_ruler_emperor_female
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = french_heir
+		3 = french_heir
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = french_heir_female
+		3 = french_heir_female
+	}
+
+	trigger = {
+		government = monarchy
+		OR = { 
+			culture_group = french
+			primary_culture = frankish
+		}
+	}
+}
+
+polish_titles = {
+	rank = {
+		1 = polish_duchy
+		2 = polish_kingdom
+		3 = polish_empire
+	}
+
+	ruler_male = {
+		1 = polish_ruler_duke
+		2 = polish_ruler_king
+		3 = polish_ruler_emperor
+	}
+
+	ruler_female = {
+		1 = polish_ruler_duke_female
+		2 = polish_ruler_king_female
+		3 = polish_ruler_emperor_female
+	}
+	
+	consort_male = {
+		1 = polish_ruler_duke
+		2 = polish_ruler_king
+		3 = polish_ruler_emperor
+	}
+	
+	consort_female = {
+		1 = polish_ruler_duke_female
+		2 = polish_ruler_king_female
+		3 = polish_ruler_emperor_female
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = polish_heir
+		3 = polish_heir
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = polish_heir_female
+		3 = polish_heir_female
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = polish
+	}
+}
+
+franconian_titles = {
+	rank = {
+		1 = vintnerate
+		2 = high_vintnerate
+		3 = supreme_vintnerate
+	}
+
+	ruler_male = {
+		1 = first_vintner
+		2 = great_vintner
+		3 = vintner_emperor
+	}
+
+	ruler_female = {
+		1 = first_vintner_female
+		2 = great_vintner_female
+		3 = vintner_emperor_female
+	}
+
+	trigger = {
+		has_reform = fkn_vintner_monarchy
+	}
+}
+
+myrmidon_exarchate_titles = {
+	rank = {
+		1 = myrmidon_exarchate_duchy
+		2 = myrmidon_exarchate_kingdom
+	}
+
+	ruler_male = {
+		1 = myrmidon_exarchos
+		2 = myrmidon_grand_exarchos
+	}
+
+	ruler_female = {
+		1 = myrmidon_exarchissa
+		2 = myrmidon_grand_exarchissa
+	}
+
+	trigger = {
+		has_reform = myrmidon_exarchate_government
+	}
+}
+
+western_protectorate_titles = {
+	rank = {
+		1 = western_protectorate_duchy
+		2 = western_protectorate_kingdom
+		3 = western_protectorate_empire
+	}
+
+	ruler_male = {
+		1 = western_protectorate_ruler_duchy
+		2 = western_protectorate_ruler_kingdom
+		3 = western_protectorate_ruler_empire
+	}
+
+	ruler_female = {
+		1 = western_protectorate_ruler_duchy
+		2 = western_protectorate_ruler_kingdom
+		3 = western_protectorate_ruler_empire
+	}
+
+	trigger = {
+		has_reform = myrmidon_western_protectorate
+	}
+}
+
+paradise_initiative_titles = {
+	rank = {
+		1 = paradise_initiative_duchy
+		2 = paradise_initiative_kingdom
+		3 = paradise_initiative_empire
+	}
+
+	ruler_male = {
+		1 = paradise_initiative_ruler_duchy
+		2 = paradise_initiative_ruler_kingdom
+		3 = paradise_initiative_ruler_empire
+	}
+
+	ruler_female = {
+		1 = paradise_initiative_ruler_duchy
+		2 = paradise_initiative_ruler_kingdom
+		3 = paradise_initiative_ruler_empire
+	}
+
+	trigger = {
+		has_reform = myrmidon_paradise_initiative
+	}
+}
+
+mhadi_titles = {
+	rank = {
+		1 = mhadi_duchy
+		2 = mhadi_kingdom
+		3 = mhadi_empire
+	}
+
+	ruler_male = {
+		1 = mhadi_chosen_one
+		2 = mhadi_chosen_one
+		3 = mhadi_chosen_one
+	}
+
+	ruler_female = {
+		1 = mhadi_chosen_one
+		2 = mhadi_chosen_one
+		3 = mhadi_chosen_one
+	}
+
+	trigger = {
+		has_reform = mhadi_reform
+	}
+}
+
+peasant_dictator_titles = {
+	rank = {
+		1 = peasants_dictatorship_name
+		2 = peasants_dictatorship_name
+		3 = peasants_dictatorship_name
+	}
+
+	ruler_male = {
+		1 = peasants_dictator_title
+		2 = peasants_dictator_title
+		3 = peasants_dictator_title
+	}
+
+	ruler_female = {
+		1 = peasants_dictator_title
+		2 = peasants_dictator_title
+		3 = peasants_dictator_title
+	}
+
+	trigger = {
+		has_reform = peasants_chiefdom
+	}
+}
+
+gov_cat_clowder_hierarchy = {
+	rank = {
+		1 = cat_clowder_tt
+		2 = cat_clowder_tt_2
+		3 = cat_clowder_tt_3
+	}
+	
+	ruler_male = {
+		1 = clowder_tt
+		2 = clowder_tt
+		3 = clowder_tt
+	}
+	
+	ruler_female = {
+		1 = clowder_tt
+		2 = clowder_tt
+		3 = clowder_tt
+	}
+	
+	heir_male = {
+		1 = clowder_tt
+		2 = clowder_tt
+		3 = clowder_tt
+	}
+
+	heir_female = {
+		1 = clowder_tt
+		2 = clowder_tt
+		3 = clowder_tt
+	}
+	
+	trigger = {
+		has_reform = cat_clowder_hierarchy
+	}
+}
+
+gov_blessed_theocatcy = {
+    rank = {
+		1 = theocatcy_tt_2
+		2 = theocatcy_tt_2
+		3 = theocatcy_tt_3
+	}
+	
+	ruler_male = {
+		1 = theocat_tt
+		2 = theocat_tt
+		3 = theocat_tt_empire
+	}
+	
+	ruler_female = {
+		1 = theocate_tt
+		2 = theocate_tt
+		3 = theocate_tt_empire
+	}
+	
+	heir_male = {
+		1 = theokit_tt
+		2 = theokit_tt
+		3 = theokit_tt
+	}
+
+	heir_female = {
+		1 = theokit_tt
+		2 = theokit_tt
+		3 = theokit_tt
+	}
+	
+	trigger = {
+		has_reform = blessed_theocatcy_reform
+	}
+}

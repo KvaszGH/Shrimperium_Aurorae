@@ -1,0 +1,498 @@
+is_allowed_to_recruit_mercenaries = {
+	custom_trigger_tooltip = {
+		tooltip = is_allowed_to_recruit_mercenaries_tt
+		NOT = { has_country_modifier = dan_sca_refocus_on_personal_armies }
+		NOT = { religion = lollard }
+	}
+}
+
+has_production_building_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = has_production_building_trigger_tooltip
+		OR = {
+			has_building = workshop
+			has_building = counting_house
+			has_building = steam_factory
+			custom_trigger_tooltip = {
+				tooltip = silver_tooltip
+				OR = {
+					trade_goods = silver
+					trade_goods = gold
+				}
+			}
+		}
+	}
+}
+
+republic_with_female_rulers_trigger = {
+	OR = {
+		has_active_policy = mandatory_service
+		has_country_modifier = sister_suffragettes
+		has_country_modifier = mary_inheritance_reforms
+		has_reform = democratic_values_reform
+		has_reform = gaelic_council_elders
+		has_global_modifier_value = {
+			which = female_advisor_chance
+			value = 0.35
+		}
+	}
+}
+
+has_manufactory_trigger = { #Province Scope
+	custom_trigger_tooltip = {
+		tooltip = has_manufactory_trigger_tooltip
+		OR = {
+			has_building = wharf
+			has_building = weapons
+			has_building = textile
+			has_building = tradecompany
+			has_building = farm_estate
+			has_building = mills
+			has_building = furnace
+			has_building = plantations
+			has_building = ramparts
+			has_building = soldier_households
+			has_building = impressment_offices
+			has_building = state_house
+			trade_goods = silver
+			trade_goods = gold
+		}
+	}
+}
+
+
+has_dip_advisor_of_level = {
+	OR = {
+		statesman = $level$
+		diplomat = $level$
+		naval_reformer = $level$
+		trader = $level$
+		colonial_governor = $level$
+		navigator = $level$
+		spymaster = $level$
+		alchemist_advisor = $level$
+	}
+}
+
+has_dip_advisor = {
+	custom_trigger_tooltip = {
+		tooltip = has_dip_advisor_tooltip
+		OR = {
+			advisor = statesman
+			advisor = diplomat
+			advisor = naval_reformer
+			advisor = trader
+			advisor = colonial_governor
+			advisor = navigator
+			advisor = spymaster
+			advisor = alchemist_advisor
+		}
+	}
+}
+
+has_dip_advisor_2 = {
+	custom_trigger_tooltip = {
+		tooltip = has_dip_advisor_2_tooltip
+		OR = {
+			statesman = 2
+			diplomat = 2
+			naval_reformer = 2
+			trader = 2
+			colonial_governor = 2
+			navigator = 2
+			spymaster = 2
+			alchemist_advisor = 2
+		}
+	}
+}
+
+has_dip_advisor_3 = {
+	custom_trigger_tooltip = {
+		tooltip = has_dip_advisor_3_tooltip
+		OR = {
+			statesman = 3
+			diplomat = 3
+			naval_reformer = 3
+			trader = 3
+			colonial_governor = 3
+			navigator = 3
+			spymaster = 3
+			alchemist_advisor = 3
+		}
+	}
+}
+
+
+is_not_free_merc_company = {
+	ROOT = {
+		NOT = { mercenary_company = merc_hakkapeliita_cavalry }
+		NOT = { mercenary_company = merc_prussian_volunteer_army }
+		NOT = { mercenary_company = merc_knights_templar }
+		NOT = { mercenary_company = merc_swiss_guard }
+		NOT = { mercenary_company = merc_large_hakkapeliita_cavalry }
+		NOT = { mercenary_company = merc_guerilla_hakkapeliita_cavalry }
+		NOT = { mercenary_company = merc_elite_hakkapeliita_cavalry }
+		NOT = { mercenary_company = merc_mongol_banner }
+		NOT = { mercenary_company = merc_swiss_canton_mercenaries }
+		NOT = { mercenary_company = merc_japanese_volunteers }
+		NOT = { mercenary_company = merc_militant_order_of_saint_joan }
+		NOT = { mercenary_company = merc_black_army }
+		NOT = { mercenary_company = merc_black_army_2 }
+		NOT = { mercenary_company = merc_tatar_vanguard }
+		NOT = { mercenary_company = merc_righteous_army }
+		NOT = { mercenary_company = merc_scouting_almogavars }
+		NOT = { mercenary_company = merc_skirmishing_almogavars }
+		NOT = { mercenary_company = merc_veteran_almogavars }
+		NOT = { mercenary_company = merc_varangian_guard }
+		NOT = { mercenary_company = merc_aurora_knights }
+		NOT = { mercenary_company = merc_templar_knights }
+		NOT = { mercenary_company = merc_legion_of_dusk }
+		NOT = { mercenary_company = merc_meissen_guard }
+		NOT = { mercenary_company = merc_aen_bastion_guard }
+		NOT = { mercenary_company = merc_aen_order_of_the_lionhearted }
+		NOT = { mercenary_company = merc_aen_hessian_foreign_legion }
+		NOT = { mercenary_company = merc_crazed_horde }
+		NOT = { mercenary_company = merc_pyre_zealots }
+		NOT = { mercenary_company = merc_flameheralds }
+		NOT = { mercenary_company = merc_children_of_the_forest }
+	}
+}
+
+was_never_end_game_tag_trigger = {	#Country Scope
+	OR = {
+		#NOT = { end_game_tags_blocked = yes }
+		custom_trigger_tooltip = {
+			tooltip = was_never_end_game_tag_trigger_tt
+			AND = {
+				NOT = { was_tag = MUG }
+				NOT = { was_tag = TUR }
+				NOT = { was_tag = BYZ }
+				NOT = { was_tag = ROM }
+				NOT = { was_tag = HLR }
+				NOT = { was_tag = RUM }
+				NOT = { was_tag = QNG }
+				NOT = { was_tag = RUS }
+				NOT = { was_tag = PLC }
+				NOT = { was_tag = JAP }
+				NOT = { was_tag = YUA }
+				NOT = { was_tag = HIN }
+				NOT = { was_tag = BHA }
+				NOT = { was_tag = ARB }
+				NOT = { was_tag = PAP }
+				NOT = { was_tag = SPA }
+				NOT = { was_tag = GBR }
+				NOT = { was_tag = ITA }
+				NOT = { was_tag = GER }
+				NOT = { was_tag = MNG }
+				NOT = { was_tag = MGE }
+				NOT = { was_tag = SYN }
+				NOT = { was_tag = ADU }
+				NOT = { was_tag = FAP }
+				NOT = { was_tag = WEI }
+				NOT = { was_tag = HND }
+				NOT = { was_tag = ZAO }
+				NOT = { was_tag = LIO }
+				NOT = { was_tag = XIA }
+				NOT = { was_tag = DAX }
+				NOT = { was_tag = CEG }
+				NOT = { was_tag = SNG }
+				NOT = { was_tag = YIN }
+				NOT = { was_tag = CHN }
+				NOT = { was_tag = USA }
+				NOT = { was_tag = CAN }
+				NOT = { was_tag = BRZ }
+				NOT = { was_tag = AUS }
+				NOT = { was_tag = MEX }
+				NOT = { was_tag = ETH }
+				NOT = { was_tag = AKS }
+				NOT = { was_tag = GZI }
+				NOT = { was_tag = SOM }
+				NOT = { was_tag = RZI }
+				NOT = { was_tag = MAL }
+				NOT = { was_tag = ENG }
+				NOT = { was_tag = UKR }
+				NOT = { was_tag = AVE }
+				NOT = { was_tag = FRW }
+				NOT = { was_tag = AZT }
+				NOT = { was_tag = LAE }
+				NOT = { has_country_flag = nov_endgame_tag_flag }
+				NOT = { tag = MUG }
+				NOT = { tag = TUR }
+				NOT = { tag = BYZ }
+				NOT = { tag = ROM }
+				NOT = { tag = HLR }
+				NOT = { tag = RUM }
+				NOT = { tag = QNG }
+				NOT = { tag = RUS }
+				NOT = { tag = PLC }
+				NOT = { tag = JAP }
+				NOT = { tag = YUA }
+				NOT = { tag = HIN }
+				NOT = { tag = BHA }
+				NOT = { tag = ARB }
+				NOT = { tag = PAP }
+				NOT = { tag = SPA }
+				NOT = { tag = GBR }
+				NOT = { tag = ITA }
+				NOT = { tag = GER }
+				NOT = { tag = MNG }
+				NOT = { tag = MGE }
+				NOT = { tag = SYN }
+				NOT = { tag = ADU }
+				NOT = { tag = FAP }
+				NOT = { tag = WEI }
+				NOT = { tag = HND }
+				NOT = { tag = ZAO }
+				NOT = { tag = LIO }
+				NOT = { tag = XIA }
+				NOT = { tag = DAX }
+				NOT = { tag = CEG }
+				NOT = { tag = SNG }
+				NOT = { tag = YIN }
+				NOT = { tag = CHN }
+				NOT = { tag = USA }
+				NOT = { tag = CAN }
+				NOT = { tag = BRZ }
+				NOT = { tag = AUS }
+				NOT = { tag = MEX }
+				NOT = { tag = ETH }
+				NOT = { tag = AKS }
+				NOT = { tag = GZI }
+				NOT = { tag = SOM }
+				NOT = { tag = RZI }
+				NOT = { tag = MAL }
+				NOT = { tag = ENG }
+				NOT = { tag = UKR }
+				NOT = { tag = AVE }
+				NOT = { tag = FRW }
+				NOT = { tag = AZT }
+				NOT = { was_tag = FRA }
+				NOT = { was_tag = MUG }
+				NOT = { was_tag = TUR }
+				NOT = { was_tag = BYZ }
+				NOT = { was_tag = ROM }
+				NOT = { was_tag = HLR }
+				NOT = { was_tag = RUM }
+				NOT = { was_tag = QNG }
+				NOT = { was_tag = RUS }
+				NOT = { was_tag = PLC }
+				NOT = { was_tag = JAP }
+				NOT = { was_tag = YUA }
+				NOT = { was_tag = HIN }
+				NOT = { was_tag = BHA }
+				NOT = { was_tag = ARB }
+				NOT = { was_tag = PAP }
+				NOT = { was_tag = SPA }
+				NOT = { was_tag = GBR }
+				NOT = { was_tag = AVE }
+				NOT = { was_tag = ITA }
+				NOT = { was_tag = GER }
+				NOT = { was_tag = MNG }
+				NOT = { was_tag = MGE }
+				NOT = { was_tag = SYN }
+				NOT = { was_tag = ADU }
+				NOT = { was_tag = USA }
+				NOT = { was_tag = CAN }
+				NOT = { was_tag = BRZ }
+				NOT = { was_tag = AUS }
+				NOT = { was_tag = MEX }
+				NOT = { was_tag = ETH }
+				NOT = { was_tag = AKS }
+				NOT = { was_tag = GZI }
+				NOT = { was_tag = RZI }
+				NOT = { was_tag = SCA }
+				NOT = { was_tag = Z17 }
+				NOT = { was_tag = VAL }
+				NOT = { was_tag = TEM }
+				NOT = { was_tag = HSC }
+				NOT = { was_tag = GLL }
+				NOT = { was_tag = SOI }
+				NOT = { was_tag = LAE }
+                NOT = { was_tag = HES }
+				NOT = { tag = FRA }
+				NOT = { tag = MUG }
+				NOT = { tag = TUR }
+				NOT = { tag = BYZ }
+				NOT = { tag = ROM }
+				NOT = { tag = HLR }
+				NOT = { tag = RUM }
+				NOT = { tag = QNG }
+				NOT = { tag = RUS }
+				NOT = { tag = PLC }
+				NOT = { tag = JAP }
+				NOT = { tag = YUA }
+				NOT = { tag = HIN }
+				NOT = { tag = BHA }
+				NOT = { tag = ARB }
+				NOT = { tag = PAP }
+				NOT = { tag = SPA }
+				NOT = { tag = GBR }
+				NOT = { tag = AVE }
+				NOT = { tag = ITA }
+				NOT = { tag = GER }
+				NOT = { tag = MNG }
+				NOT = { tag = MGE }
+				NOT = { tag = SYN }
+				NOT = { tag = ADU }
+				NOT = { tag = USA }
+				NOT = { tag = CAN }
+				NOT = { tag = BRZ }
+				NOT = { tag = AUS }
+				NOT = { tag = MEX }
+				NOT = { tag = ETH }
+				NOT = { tag = AKS }
+				NOT = { tag = GZI }
+				NOT = { tag = RZI }
+				NOT = { tag = SCA }
+				NOT = { tag = Z17 }
+				NOT = { tag = VAL }
+				NOT = { tag = TEM }
+				NOT = { tag = HSC }
+				NOT = { tag = GLL }
+				NOT = { tag = SOI }
+                NOT = { tag = HES }
+			}
+		}
+	}
+}
+
+was_never_german_regional_tag_trigger = {	#Country Scope
+	NOT = { was_tag = BRA }
+	NOT = { was_tag = PRU }
+	NOT = { was_tag = POM }
+	NOT = { was_tag = SAX }
+	NOT = { was_tag = BAV }
+	NOT = { was_tag = HAB }
+	NOT = { was_tag = SWA }
+	NOT = { was_tag = FKN }
+	NOT = { was_tag = WES }
+	NOT = { was_tag = LOT }
+	NOT = { was_tag = SWI }
+	NOT = { was_tag = HSA }
+	
+	NOT = { tag = BRA }
+	NOT = { tag = PRU }
+	NOT = { tag = POM }
+	NOT = { tag = SAX }
+	NOT = { tag = BAV }
+	NOT = { tag = HAB }
+	NOT = { tag = SWA }
+	NOT = { tag = FKN }
+	NOT = { tag = WES }
+	NOT = { tag = LOT }
+	NOT = { tag = SWI }
+	NOT = { tag = HSA }
+}
+
+has_any_estates = {
+	custom_trigger_tooltip = {
+		tooltip = has_any_estates_tt
+		OR = {
+			has_estate = estate_brahmins
+			has_estate = estate_burghers
+			has_estate = estate_church
+			has_estate = estate_cossacks
+			has_estate = estate_dhimmi
+			has_estate = estate_jains
+			has_estate = estate_maratha
+			has_estate = estate_nobles
+			has_estate = estate_nomadic_tribes
+			has_estate = estate_rajput
+			has_estate = estate_vaisyas
+			has_estate = estate_janissaries
+			has_estate = estate_eunuchs
+			has_estate = estate_qizilbash
+			has_estate = estate_ghulams
+			has_estate = estate_peasants
+			has_estate = estate_alchemists
+			has_estate = estate_holy_orders
+			has_estate = estate_aurora
+		}
+	}
+}
+
+is_tatar_nation = {
+	OR = {
+		tag = Z00
+		tag = CRI
+		tag = KAZ
+		tag = SIB
+		tag = BSH
+		tag = AST
+		tag = QAS
+		tag = KLM
+	}
+}
+
+was_tatar_nation = {
+	OR = {
+		was_tag = Z00
+		was_tag = CRI
+		was_tag = KAZ
+		was_tag = SIB
+		was_tag = BSH
+		was_tag = AST
+		was_tag = QAS
+		was_tag = KLM
+	}
+}
+
+is_mongol_nation = {
+	OR = {
+		tag = OIR
+		tag = KHA
+		tag = KRC
+		tag = HMI
+		tag = SYG
+		tag = KSD
+		tag = KLK
+		tag = ZUN
+		tag = Z03
+		tag = Z04
+	}
+}
+
+was_mongol_nation = {
+	OR = {
+		was_tag = OIR
+		was_tag = KHA
+		was_tag = KRC
+		was_tag = HMI
+		was_tag = SYG
+		was_tag = KSD
+		was_tag = KLK
+		was_tag = ZUN
+		was_tag = Z03
+		was_tag = Z04
+	}
+}
+
+is_moghulistan_nation = {
+	OR = {
+		tag = GOL
+		tag = CHH
+		tag = KAS
+		tag = NOG
+		tag = CHG
+		tag = SHY #Technically not Moghulistan, but part of Central Asia
+		tag = BUK #Technically not Moghulistan, just an extension of Uzbek
+		tag = KZH
+		tag = KOK
+		tag = KHI
+	}
+}
+
+was_moghulistan_nation = {
+	OR = {
+		was_tag = GOL
+		was_tag = CHH
+		was_tag = KAS
+		was_tag = NOG
+		was_tag = CHG
+		was_tag = SHY #Technically not Moghulistan, but part of Central Asia
+		was_tag = BUK #Technically not Moghulistan, just an extension of Uzbek
+		was_tag = KZH
+		was_tag = KOK
+		was_tag = KHI
+	}
+}

@@ -1,0 +1,22 @@
+government = monarchy
+add_government_reform = iqta
+government_rank = 1
+technology_group = muslim
+religion = sunni
+primary_culture = andalucian
+capital = 225
+religious_school = maliki_school
+add_accepted_culture = berber
+1429.1.1= {
+	monarch = {
+		name = "Idris 'the Faithful'"
+		dynasty = "Ibn Qasim"
+		adm = 3
+		dip = 2
+		mil = 5		 
+		leader = { name = "Idris the Faithful"	type = general	fire = 3	shock = 5	manuever = 3	siege = 2 }
+	}
+	add_ruler_personality = righteous_personality
+	add_ruler_personality = zealous_personality
+	add_piety = -0.8
+}

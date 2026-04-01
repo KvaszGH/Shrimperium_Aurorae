@@ -1,0 +1,14 @@
+government = monarchy
+add_government_reform = byzantine_warlord
+government_rank = 1
+technology_group = eastern
+religion = orthodox
+primary_culture = kyrenaikan
+capital = 321
+fixed_capital = 321
+add_accepted_culture = greek
+add_accepted_culture = anatolian
+
+1444.11.11= {
+	add_legitimacy = -50
+}

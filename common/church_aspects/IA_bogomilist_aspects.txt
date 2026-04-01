@@ -1,0 +1,199 @@
+bog_abolish_church_hierarchies = {
+	cost = 100
+	effect = {
+		custom_tooltip = bog_abolish_church_hierarchies_tt
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_country_modifier = {
+				name = bog_abolish_church_hierarchies_modifier
+				duration = -1
+			}
+		}
+	}
+	modifier = {
+		yearly_corruption = -0.15
+	}
+}
+
+bog_appeal_to_the_peasantry = {
+	cost = 100
+	effect = {
+		custom_tooltip = bog_appeal_to_the_peasantry_tt
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_country_modifier = {
+				name = bog_appeal_to_the_peasantry_modifier
+				duration = -1
+			}
+		}
+	}
+	modifier = {
+		global_missionary_strength = 0.03
+	}
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+bog_mountain_guerillas = {
+	cost = 100
+	effect = {
+		custom_tooltip = bog_mountain_guerillas_tt
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_country_modifier = {
+				name = bog_mountain_guerillas_modifier
+				duration = -1
+			}
+		}
+	}
+	modifier = {
+		land_morale = 0.10
+	}
+	ai_will_do = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+	}
+}
+
+bog_full_liberty_to_elect = {
+	cost = 100
+	effect = {
+		custom_tooltip = bog_full_liberty_to_elect_tt
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_country_modifier = {
+				name = bog_full_liberty_to_elect_modifier
+				duration = -1
+			}
+		}
+	}
+	modifier = {
+		idea_cost = -0.05
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 2
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+			num_of_aspects = 3
+		}
+		modifier = {
+			factor = 0
+			average_autonomy_above_min = 15
+		}
+	}
+}
+
+bog_lift_taxation = {
+	cost = 100
+	effect = {
+		custom_tooltip = bog_lift_taxation_tt
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_country_modifier = {
+				name = bog_lift_taxation_modifier
+				duration = -1
+			}
+		}
+	}
+	modifier = {
+		development_cost = -0.10
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 5
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+			num_of_aspects = 3
+		}
+		modifier = {
+			factor = 0
+			NOT = { current_income_balance = 1 }
+		}
+	}
+}
+
+bog_reject_material_temptations = {
+	cost = 100
+	effect = {
+		custom_tooltip = bog_reject_material_temptations_tt
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_country_modifier = {
+				name = bog_reject_material_temptations_modifier
+				duration = -1
+			}
+		}
+	}
+	modifier = {
+		country_admin_power = 1
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 5
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+			num_of_aspects = 3
+		}
+		modifier = {
+			factor = 0
+			NOT = { current_income_balance = 1 }
+		}
+	}
+}
+
+bog_eternal_struggle = {
+	cost = 200
+	effect = {
+		add_yearly_manpower = 0.5
+		hidden_effect = {
+			bogomilism_clear_old_aspects_effect = yes
+			add_war_exhaustion = 2
+			if = {
+				limit = { ai = no }
+				add_country_modifier = {
+					name = bog_eternal_struggle_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+	modifier = {
+		manpower_recovery_speed = 2.5
+	}
+	ai_will_do = {
+		factor = 200
+		modifier = {
+			factor = 0
+			is_at_war = yes
+			manpower_percentage = 0.5
+			NOT = { has_church_aspect = bog_eternal_struggle }
+		}
+		modifier = {
+			factor = 0
+			manpower_percentage = 0.8
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			is_at_war = no
+			NOT = { has_church_aspect = bog_eternal_struggle }
+		}
+	}
+}

@@ -1,0 +1,17 @@
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = schlesian
+capital = 263
+1441.1.1= {
+	monarch = {
+		name = "Fryderyk I"
+		dynasty = "Piast"
+		birth_date = 1422.4.1
+		adm = 2
+		dip = 4
+		mil = 1
+	}
+}

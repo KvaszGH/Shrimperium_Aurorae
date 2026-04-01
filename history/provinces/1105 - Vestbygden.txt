@@ -1,0 +1,10 @@
+owner = JOM
+controller = JOM
+capital = "Vestbygden"
+culture = norse
+religion = norse_pagan_reformed
+trade_goods = whaling
+base_tax = 2
+base_production = 2
+base_manpower = 2
+add_core = JOM

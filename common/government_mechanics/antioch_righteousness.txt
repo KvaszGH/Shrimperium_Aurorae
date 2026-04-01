@@ -1,0 +1,146 @@
+righteousness_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 15
+	available = {
+		exists = Z17
+	}
+
+	powers = {
+		righteousness = {
+			gui = end_time_gov_mech
+			min = -100
+			max = 100
+			base_monthly_growth = 0
+			scaled_modifier = {
+				start_value = 0 
+				end_value = 100 
+				modifier = {
+					monthly_righteousness = -2
+					war_exhaustion = -0.05
+					defensiveness = 0.75
+					war_exhaustion_cost = -1
+					global_unrest = -4
+					auroraloyalists_influence = 0.20
+					manpower_in_own_culture_provinces = 0.25
+					manpower_in_accepted_culture_provinces = 0.25
+				}
+			}
+			reverse_scaled_modifier = {
+				start_value = -100
+				end_value = 0
+				modifier = {
+					monthly_righteousness = 0.5
+					war_exhaustion = 0.10
+					defensiveness = -0.5
+					war_exhaustion_cost = 2
+					global_unrest = 8
+					auroraloyalists_influence = -0.20
+					siege_ability = -0.40
+					land_maintenance_modifier = 0.40
+					land_morale = -0.25
+					discipline = -0.10
+					manpower_recovery_speed = -0.50
+					stability_cost_modifier = 4
+					liberty_desire_from_subject_development = 1
+					reduced_liberty_desire = -100
+					imperial_authority = -2
+				}
+			}
+			range_modifier = {
+				modifier = {
+					army_tradition_decay = 0.02
+					stability_cost_to_declare_war = 2
+				}
+				start_value = -100
+				end_value = -50.001
+			}
+			range_modifier = {
+				modifier = {
+					army_tradition_decay = 0.01
+					stability_cost_to_declare_war = 1
+				}
+				start_value = -50
+				end_value = -10
+			}
+			range_modifier = {
+				modifier = {
+				}
+				start_value = 5
+				end_value = 24.999
+			}
+			range_modifier = {
+				modifier = {
+					war_taxes_cost_modifier = -0.33
+					hostile_attrition = 0.5
+					max_hostile_attrition = 1
+				}
+				start_value = 25
+				end_value = 49.999
+			}
+			range_modifier = {
+				modifier = {
+					war_taxes_cost_modifier = -0.66
+					hostile_attrition = 1
+					max_hostile_attrition = 2
+					own_territory_dice_roll_bonus = 1
+				}
+				start_value = 50
+				end_value = 74.999
+			}
+			range_modifier = {
+				modifier = {
+					war_taxes_cost_modifier = -1
+					hostile_attrition = 1.5
+					max_hostile_attrition = 3
+					own_territory_dice_roll_bonus = 1
+					global_defender_dice_roll_bonus = 1	
+					enable_forced_march = yes
+					force_march_free = yes
+				}
+				start_value = 75
+				end_value = 100
+			}
+			is_good = yes
+		}
+		
+	}
+	
+#	interactions = {
+#		boost_naval_professionalism = {
+#			icon = GFX_boost_naval_professionalism_button
+#			trigger = {
+#				dip_power_cost = 50
+#				not = {
+#					has_government_power = {
+#						mechanic_type = naval_professionalism_mechanic
+#						power_type = naval_professionalism
+#						value = 100
+#					}
+#				}
+#			}
+#			effect = { 
+#				dip_power_cost = 50
+#				add_government_power = {
+#					mechanic_type = naval_professionalism_mechanic
+#					power_type = naval_professionalism
+#					value = 10
+#				}
+#			}
+#			cooldown_years = 0
+#			ai_chance = {
+#				factor = 0
+#				modifier = {
+#					factor = 10
+#					not = {
+#						has_government_power = {
+#							mechanic_type = naval_professionalism_mechanic
+#							power_type = naval_professionalism
+#							value = 90
+#						}
+#					}
+#					mil_power = 500
+#				}
+#			}
+#		}
+#	}
+}

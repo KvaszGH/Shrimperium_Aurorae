@@ -1,0 +1,164 @@
+gotland_pirate_island = {
+	icon = "pirate_republic"
+	allow_normal_conversion = no
+	legacy_equivalent = pirate_republic
+	lock_level_when_selected = yes
+	modifiers = {
+		naval_forcelimit_modifier = 0.5
+		capture_ship_chance = 0.33
+		state_governing_cost = 0.25
+		may_perform_slave_raid_on_same_religion = yes
+		allowed_marine_fraction = 0.5
+		global_manpower_modifier = -0.5
+		global_sailors_modifier = 3
+		
+	}
+	trigger = {
+		OR = {
+			has_reform = gotland_pirate_island
+			have_had_reform = gotland_pirate_island
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	can_form_trade_league = no
+
+	removed_effect = {
+		clr_country_flag = pirate_mutineer_council
+	}
+	
+	potential = {
+		OR = {
+			has_reform = gotland_pirate_island
+			have_had_reform = gotland_pirate_island
+			tag = GOT
+		}
+	}
+	
+	factions_frame = 9
+	factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+	
+	duration = 4
+	
+	custom_attributes = {
+		locked_government_type = yes
+		force_admiral_leader = yes
+		is_pirate_republic_reform = yes
+		elections_increase_factions_influence = yes
+		cannot_become_dictatorship = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		government_abilities = {
+			naval_professionalism_mechanic
+		}
+	}
+	
+}
+
+gotland_pirate_realm = {
+	icon = "pirate_republic"
+	allow_normal_conversion = no
+	legacy_equivalent = pirate_republic
+	lock_level_when_selected = yes
+	modifiers = {
+		naval_forcelimit_modifier = 0.75
+		capture_ship_chance = 0.33
+		state_governing_cost = 0.25
+		may_perform_slave_raid_on_same_religion = yes
+		allowed_marine_fraction = 1
+		global_manpower_modifier = -0.65
+		global_sailors_modifier = 3.5
+		envoy_travel_time = -0.5
+		diplomatic_upkeep = 2
+	}
+	trigger = {
+		OR = {
+			has_reform = gotland_pirate_realm
+			have_had_reform = gotland_pirate_realm
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	can_form_trade_league = no
+
+	removed_effect = {
+		clr_country_flag = pirate_mutineer_council
+	}
+	
+	potential = {
+		OR = {
+			has_reform = gotland_pirate_realm
+			have_had_reform = gotland_pirate_realm
+			tag = GOT
+		}
+	}
+	
+	factions_frame = 9
+	factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+	
+	duration = 4
+	
+	custom_attributes = {
+		locked_government_type = yes
+		force_admiral_leader = yes
+		is_pirate_republic_reform = yes
+		elections_increase_factions_influence = yes
+		cannot_become_dictatorship = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		government_abilities = {
+			naval_professionalism_mechanic
+		}
+	}
+	
+}
+
+danelaw_gov = {
+	icon = "feudal_theocracy"
+	allow_normal_conversion = yes
+	can_change_primary_culture = no
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		OR = {
+			has_reform = danelaw_gov
+			have_had_reform = danelaw_gov
+		}
+	}
+	nation_designer_trigger = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+	}
+	legacy_equivalent = feudal_theocracy_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 60
+	modifiers = {
+		missionaries = 1
+		global_missionary_strength = 0.01
+		tolerance_own = 1
+		infantry_power = 0.10
+		allowed_marine_fraction = 0.25
+		has_marines = yes
+		overlord_naval_forcelimit_modifier = 0.1
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		government_abilities = {
+			naval_professionalism_mechanic
+		}
+	}
+}

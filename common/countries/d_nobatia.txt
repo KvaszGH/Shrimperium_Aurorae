@@ -1,0 +1,33 @@
+ck2_converter_generated = yes
+graphical_culture = asiangfx
+color = { 162 133 85 }
+revolutionary_colors = { 5  8  1 } #Inspired by the Five Color Flag
+historical_idea_groups = {
+	aristocracy_ideas
+	innovativeness_ideas
+	quality_ideas
+	trade_ideas
+	theocracy_gov_ideas
+	spy_ideas
+	diplomatic_ideas
+	economic_ideas
+}
+monarch_names = {
+	"Aberikos #0" = 0
+	"Anthinos #0" = 0
+	"Chrissa #0" = -1
+	"Eirpanome #1" = 10
+	"Elitovios #0" = 0
+	"Guanzhi #0" = 0
+	"Hanifa #0" = -1
+	"Ji #0" = 0
+	"Jiongxiu #0" = 0
+	"Kerike #0" = -1
+	"Manyue #0" = -10
+	"Philemon #0" = 0
+	"Shuo #1" = 10
+	"Silko #1" = 1
+	"Xiuying #0" = -1
+	"Zahra #0" = -1
+	"Zhi #1" = 10
+}

@@ -1,0 +1,24 @@
+# Hanseatic League Members
+
+alliance = {
+	first = HSA
+	second = BRE
+	trade_league = 1
+	start_date = 1380.1.1
+	end_date = 1563.1.1
+}
+
+alliance = {
+	first = HSA
+	second = HAM
+	trade_league = 1
+	start_date = 1380.1.1
+	end_date = 1563.1.1
+}
+
+alliance = {
+	first = BRE
+	second = HAM
+	start_date = 1380.1.1
+	end_date = 1563.1.1
+}

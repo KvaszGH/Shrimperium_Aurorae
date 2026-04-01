@@ -1,0 +1,710 @@
+#Modifiers given through Hesse
+
+hes_rally_loyalists = {
+	land_maintenance_modifier = -0.15
+	mercenary_cost = -0.15
+	land_forcelimit = 4
+}
+
+hes_a_dream_broken = {
+	diplomatic_reputation = -1
+}
+
+hes_alberich_soldier_king = {
+	land_morale = 0.15
+}
+
+hes_restorer_of_thu = {
+	prestige_decay = -0.01 
+}
+
+hes_saxon_grain_tax = {
+	local_production_efficiency = -0.5
+}
+
+hes_new_emerging_power = {
+	army_tradition_from_battle = 1
+	prestige_from_land = 1
+}
+
+hes_armed_force_of_saxony_1 = {
+	global_manpower_modifier = -0.25
+	land_maintenance_modifier = -0.15
+}
+
+hes_armed_force_of_saxony_2 = {
+	global_manpower_modifier = -0.25
+	land_maintenance_modifier = -0.15
+	free_land_leader_pool = -1
+	army_tradition = 1 
+}
+
+hes_armed_force_of_saxony_3 = {
+	global_manpower_modifier = -0.25
+	land_maintenance_modifier = -0.15
+	free_land_leader_pool = -2
+	army_tradition = 1
+	prestige = 1
+}
+
+hes_in_the_saxon_army_mod_for_saxony_1 = {
+	free_land_leader_pool = 1
+	leader_cost = 0.10
+}
+
+hes_in_the_saxon_army_mod_for_saxony_2 = {
+	free_land_leader_pool = 1
+	leader_cost = 0.25
+	leader_land_fire = 1
+	leader_land_shock = 1
+	leader_land_manuever = 1
+	leader_siege = 1
+}
+
+hes_expansion_of_marburg_university = {
+	local_build_cost = 0.25
+	local_development_cost = 0.25  
+}
+
+hes_marburg_university_finished = {
+	leader_cost = -0.15
+	free_land_leader_pool = 1
+	leader_land_fire = 1 
+	leader_land_shock = 1
+	leader_land_manuever = 1
+}
+
+hes_pride_of_the_konig = {
+	land_maintenance_modifier = -0.2
+	land_forcelimit_modifier = -0.1
+}
+
+hes_hessian_overreliance_mod_for_sax = {
+	land_forcelimit_modifier = 0.15
+	manpower_recovery_speed = 0.25
+	land_maintenance_modifier = 0.1
+}
+
+hes_diverting_resources_to_sax = {
+	country_admin_power = -1
+	country_diplomatic_power = -1
+	development_cost = 0.1
+	build_cost = 0.1
+}
+
+hes_granted_royal_permit = {
+	ae_impact = -0.5
+	core_creation = -0.25
+	years_of_nationalism = -20 
+}
+
+hes_appointed_royal_administrator = {
+	reduced_liberty_desire = 50
+	improve_relation_modifier = 1
+	diplomatic_upkeep = 5
+	diplomatic_annexation_cost = -0.4
+}
+
+hes_mp_reform_buff = {
+	monthly_reform_progress = 0.5 
+}
+
+hes_mp_buffs_military = {
+	infantry_power = 0.2
+	special_unit_forcelimit = 0.5
+	morale_damage_received = -0.2
+	shock_damage_received = -0.2
+}
+##################################
+
+#Government Reform Related
+
+rhenish_bureaucractic_apparatus_positive_modifier = {
+	local_governing_cost = -0.20 
+	local_governing_cost_increase = -20 
+}
+
+rhenish_bureaucractic_apparatus_negative_modifier = {
+	local_governing_cost = 0.20
+	local_governing_cost_increase = 20
+}
+##########################
+
+#Regimental towns, cities and capital mechanic
+
+hes_regimental_capital_local = {
+	local_manpower_modifier = 1
+	manpower_recovery_speed = 0.015
+	global_manpower_modifier = 0.015
+	land_forcelimit = 2
+	local_regiment_cost = -0.5
+	regiment_recruit_speed = -0.5
+	local_development_cost_modifier = -0.2
+	trade_goods_size_modifier = -0.2
+	local_tax_modifier = -0.8
+	local_governing_cost = 0.3
+	fort_level = 2
+	local_defensiveness = 0.5
+	local_garrison_size = 1
+	tax_income = -48 
+	province_trade_power_value = 15
+	picture = "special_unit_manpower_cost_modifier"
+}
+hes_regimental_capital_state = {
+	local_manpower_modifier = 0.25
+	local_regiment_cost = -0.2
+	regiment_recruit_speed = -0.2
+	local_development_cost_modifier = -0.1
+	trade_goods_size_modifier = -0.1
+	local_tax_modifier = -0.25
+	local_governing_cost = 0.1
+	picture = "global_manpower"
+}
+hes_regimental_city_local = {
+	local_manpower_modifier = 0.5
+	manpower_recovery_speed = 0.005
+	global_manpower_modifier = 0.01
+	land_forcelimit = 1
+	local_regiment_cost = -0.3
+	regiment_recruit_speed = -0.3
+	local_development_cost_modifier = -0.2
+	trade_goods_size_modifier = -0.1
+	local_tax_modifier = -0.4
+	local_governing_cost = 0.2
+	fort_level = 1
+	local_defensiveness = 0.25
+	local_garrison_size = 0.5
+	tax_income = -24
+	province_trade_power_value = 10
+	picture = "special_unit_manpower_cost_modifier"
+}
+hes_regimental_city_state = {
+	local_manpower_modifier = 0.15
+	local_regiment_cost = -0.1
+	regiment_recruit_speed = -0.1
+	local_development_cost_modifier = -0.1
+	trade_goods_size_modifier = -0.05
+	local_tax_modifier = -0.15
+	local_governing_cost = 0.05
+	picture = "global_manpower"
+}
+hes_regimental_town_local = {
+	local_manpower_modifier = 0.25
+	global_manpower_modifier = 0.01
+	land_forcelimit = 1
+	local_regiment_cost = -0.2
+	regiment_recruit_speed = -0.2
+	local_development_cost_modifier = -0.15
+	trade_goods_size_modifier = -0.05
+	local_tax_modifier = -0.2
+	local_governing_cost = 0.1
+	tax_income = -12
+	province_trade_power_value = 5
+	picture = "special_unit_manpower_cost_modifier"
+}
+hes_regimental_town_state = {
+	local_manpower_modifier = 0.1
+	local_development_cost_modifier = -0.1
+	local_tax_modifier = -0.1
+	picture = "global_manpower"
+}
+
+##########################
+
+thu_leaderless = {
+	land_morale = -0.30
+}
+
+hes_fratricide = {
+	land_morale = -0.15
+}
+
+hes_restored_thu = {
+	land_morale = 0.20
+}
+
+kle_reconstruction_effort = {
+	local_build_cost = -0.25
+}
+
+kle_religious_tolerance = {
+	local_tolerance_of_heretics = 3
+	local_tolerance_of_heathens = 3
+}
+
+kle_tolerant_community = {
+	tolerance_of_heretics_capacity = 3
+	tolerance_heretic = 2
+	tolerance_own = 1
+}
+
+kle_ruhr_junctions = {
+	local_friendly_movement_speed = 0.15
+	supply_limit_modifier = 0.25
+}
+
+kle_ruhr_development_project = {
+	local_development_cost_modifier = -0.15
+}
+
+kle_pillars_of_industry = {
+	trade_goods_size = 0.2
+}
+
+kle_guarding_frontier = {
+	fort_maintenance_modifier = -0.50
+	defensiveness = 0.25
+}
+
+wes_raised_the_guard = {
+	defensiveness = 0.25
+	local_garrison_size = 0.50
+	land_morale = 0.10
+}
+
+wes_recent_reforms = {
+	stability_cost_modifier = 0.15
+}
+
+wes_religious_freedom_modifier = {
+	#tolerance_own = -1
+	tolerance_heretic = 3
+	tolerance_heathen = 3
+}
+
+wes_flourishing_guilds = {
+	local_development_cost_modifier = -0.25
+	local_production_efficiency = 0.25
+}
+
+wes_industry_heartland = {
+	local_development_cost_modifier = -0.25
+	trade_goods_size_modifier = 0.25
+}
+
+ended_the_antipapacies = {
+	papal_influence_from_cardinals = 1.0
+	curia_powers_cost = -0.25
+	missionaries = 1
+	global_religious_conversion_resistance = 0.5
+	reverse_relation_with_same_religion = 25
+	religion = yes
+}
+
+thu_nobles_privileges = {
+	nobles_privilege_slots = 2
+}
+
+aol_starter_bonus = {
+	cavalry_cost = -0.50
+	cavalry_power = 0.50
+	cav_to_inf_ratio = 0.50
+	land_forcelimit = 20
+	land_maintenance_modifier = -0.50
+}
+
+thu_devastated_countryside = {
+	trade_goods_size = -0.5
+	trade_goods_size_modifier = -0.5
+	local_tax_modifier = -0.25
+	local_manpower_modifier = -0.25
+}
+
+thu_reconstruction_effort = {
+	local_development_cost = -0.5
+}
+
+thu_reorganized_farmsteads = {
+	local_governing_cost = -0.50
+	local_development_cost_modifier = -0.25
+	local_build_cost = -0.25
+	min_local_autonomy = -30
+}
+
+thu_secret_rallying = {
+	manpower_recovery_speed = 0.3
+}
+
+thu_horrible_council = {
+	yearly_corruption = 0.2
+	global_unrest = 4
+	discipline = -0.05
+	land_morale = -0.10
+	leader_cost = 0.25
+	land_maintenance_modifier = 0.25
+	merc_maintenance_modifier = 0.25
+	mercenary_cost = 1
+	mercenary_discipline = -0.10
+	mercenary_manpower = -0.50		
+}
+
+thu_for_konrad = {
+	land_morale = 0.15
+}
+
+thu_magneric_relief = {
+	land_maintenance_modifier = -0.25
+}
+
+thu_ludowinger_legacy_secured = {
+	diplomatic_upkeep = 1
+	reduced_liberty_desire_on_same_continent = 20	
+}
+
+thu_rations = {
+	land_attrition = -0.10
+	global_supply_limit_modifier = 0.20
+}
+
+thu_home_of_konrads_legions = {
+	land_forcelimit = 3
+	land_forcelimit_modifier = 0.033
+}
+
+thu_the_reunion = {
+	land_morale = 0.10
+}
+
+thu_a_helping_hand_mod = {
+	local_build_cost = -0.30
+	local_development_cost = -0.30
+}
+
+thu_public_executions = {
+	global_unrest = 4
+}
+
+thu_return_of_homeland = {
+	liberty_desire = -20
+}
+
+thu_saxon_exports = {
+	trade_goods_size = -1
+}
+
+thu_witnessed_the_horror = {
+	land_morale = 0.05
+}
+
+thu_search_and_rescue = {
+	local_monthly_devastation = -0.5	
+}
+
+thu_jumpstarting_reconstruction = {
+	build_cost = -0.20
+	build_time = -0.30
+	development_cost = -0.15
+	global_prosperity_growth = 1
+}
+
+thu_organized_construction_efforts = {
+	build_cost = -0.05
+	development_cost = -0.05
+}
+
+thu_the_resistance = {
+	vassal_forcelimit_bonus = -0.25
+	vassal_income = -0.1
+}
+
+thu_resistance_leader = {
+	manpower_recovery_speed = 0.20
+	land_forcelimit = 10
+	global_tax_income = 60
+}
+
+thu_religious_devotion = {
+	global_unrest = -2
+	global_missionary_strength = 0.02
+	papal_influence = 2
+	religion = yes
+}
+
+thu_selling_grain = {
+	production_efficiency = 0.10
+}
+
+thu_buying_grain = {
+	manpower_recovery_speed = 0.10
+	land_maintenance_modifier = -0.10
+}
+
+thu_major_grain_hub = {
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.15
+}
+
+thu_minor_grain_hub = {
+	province_trade_power_value = 15
+}
+
+thu_double_rations = {
+	manpower_recovery_speed = 0.10
+	land_maintenance_modifier = -0.10
+}
+
+thu_horses_and_wagons = {
+	trade_goods_size = 1
+	allowed_num_of_manufactories = 1
+}
+
+thu_expansion_of_supply_trains = {
+	movement_speed = 0.10
+	land_attrition = -0.10
+}
+
+thu_rebuilt_forts = {
+	fort_maintenance_modifier = -0.20
+}
+
+thu_franconian_reconstruction_mod = {
+	local_build_cost = -0.30
+	local_development_cost = -0.30
+}
+
+thu_expanded_fortifications_mod = {
+	allowed_num_of_buildings = 1
+}
+
+thu_rhine_development = {
+	local_development_cost = -0.30
+	trade_goods_size = 1
+	local_production_efficiency = 0.5
+	allowed_num_of_manufactories = 1
+}
+
+thu_spirit_of_konrad = {
+	monarch_admin_power = 1
+}
+
+thu_the_many_hands = {
+	diplomatic_reputation = 1
+	diplomatic_upkeep = 1
+	vassal_forcelimit_bonus = 0.5
+}
+
+thu_glory_to_thuringia = {
+	land_morale = 0.10
+	global_unrest = -2
+	global_prosperity_growth = 1
+}
+
+thu_quick_integration = {
+	diplomatic_annexation_cost = -0.5
+	years_to_integrate_personal_union = -50
+}
+
+thu_corruption_exploited = {
+	advisor_cost = 0.20
+}
+
+fkn_new_talented_general = {
+	prestige_from_land = 1
+	army_tradition_from_battle = 1
+}
+
+fkn_mandatory_military_service_province_mod = {
+	local_manpower_modifier = 0.20
+}
+
+fkn_rebuilding_the_city = {
+	local_development_cost = -0.25
+}
+
+fkn_capital_construction_spree = {
+	local_build_cost = -0.30
+	local_build_time = -0.30
+}
+
+fkn_manufacturing_hub = {
+	trade_goods_size = 1
+	allowed_num_of_buildings = 1
+	allowed_num_of_manufactories = 1
+}
+
+fkn_a_place_to_mourn = {
+	tolerance_own = 2
+	global_unrest = -1
+}
+
+fkn_permanent_capital_garrisons = {
+	local_garrison_size = 0.25
+	local_defensiveness = 0.2
+	local_fort_maintenance_modifier = 0.5
+	local_assault_fort_ability = -0.5
+}
+
+fkn_mandatory_military_service_province_mod_t2 = {
+	local_manpower_modifier = 0.50
+}
+
+fkn_expand_military_facilities_mod = {
+	local_regiment_cost = -0.25
+	regiment_recruit_speed = -0.50
+}
+
+fkn_into_future = {
+	prestige = 1
+	global_prosperity_growth = 0.5
+}
+
+fkn_franconian_castles = {
+	local_defensiveness = 0.20
+	local_fort_maintenance_modifier = 0.25
+}
+
+capital_of_the_franken = {
+	local_tax_modifier = 0.75
+	local_production_efficiency = 0.50
+	local_manpower_modifier = 0.50
+	local_development_cost = -0.30
+	local_governing_cost = -1
+	local_governing_cost = -0.5
+}
+
+fkn_tending_our_lands = {
+	local_build_cost = -0.15
+	local_development_cost = -0.25
+}
+
+fkn_wurzburg_vineyards = {
+	local_development_cost_modifier = -0.10
+	trade_goods_size = 0.50
+	local_production_efficiency = 0.20
+}
+
+fkn_introducing_silvaner_strain = {
+	trade_value = 1
+}
+
+fkn_preparing_castell_vineyards = {
+	local_development_cost = -0.40
+}
+
+fkn_grape_untamed = {
+	trade_value_modifier = -0.80
+}
+
+ivycurse_angered_guilds = {
+	development_cost = 0.10
+	burghers_loyalty_modifier = -0.10
+}
+
+hussite_orphan_hetmans_bonus = {
+	shock_damage_received = -0.10
+}
+
+hussite_clerical_poverty_aspect_bonus = {
+	build_cost = -0.1
+}
+
+hussite_punishment_of_sins_aspect_bonus = {
+	all_estate_loyalty_equilibrium = 0.05
+}
+
+hussite_bread_and_wine_aspect_bonus = {
+	global_tax_modifier = 0.15
+}
+
+hussite_sola_scriptura_aspect_bonus = {
+	war_exhaustion = -0.05
+}
+
+hussite_adamite_services_aspect_bonus = {
+	manpower_recovery_speed = 0.15
+}
+
+hussite_pacifism_aspect_bonus = {
+	development_cost = -0.075
+}
+
+hussite_regular_defenestrations_aspect_bonus = {
+	morale_damage = 0.10
+}
+
+hussite_taborite_resurgence_aspect_bonus = {
+	relation_with_heretics = -50
+	enforce_religion_cost = -0.25
+}
+
+hussite_freedom_to_preach_aspect_bonus = {
+	no_religion_penalty = yes
+}
+
+non_germanic_land_penalty_sax = {
+	local_autonomy = 0.25
+	min_local_autonomy = 50
+	local_unrest = 10
+}
+
+fkn_united_reward = {
+	land_morale = 0.10
+}
+
+fkn_swabian_bonus = {
+	development_cost_modifier = -0.10
+	global_prosperity_growth = 0.1
+}
+
+fkn_adept_diplomacy = {
+	improve_relation_modifier = 0.33
+	diplomatic_reputation = 1
+}
+
+fkn_siezed_breweries = {
+	global_unrest = 1
+}
+
+fkn_beer_market_center = {
+	merchants = 1
+	global_own_trade_power = 0.25
+	reduced_trade_penalty_on_non_main_tradenode = 0.25
+}
+
+fkn_defences_compromised = {
+	defensiveness = -0.50
+}
+
+fkn_expanded_fortifications = {
+	allowed_num_of_buildings = 2
+	allowed_num_of_manufactories = 1
+	local_defensiveness = 0.25
+	local_development_cost = -0.30
+}
+
+austerity_policies_cooldown = {
+}
+
+fkn_swiss_development = {
+	local_development_cost = -0.3
+	local_build_cost = -0.3
+}
+
+fkn_swiss_perma_buff = {
+	development_cost_modifier = -0.10
+	global_prosperity_growth = 0.1
+}
+
+fkn_white_gold_monopoly = {
+	mercantilism_cost = -0.25
+	global_own_trade_power = 0.4
+}
+
+fkn_dedicated_barrelmaking = {
+	trade_goods_size = 1
+	trade_value_modifier = 0.5
+}
+
+fkn_dedicated_workforce = {
+	local_manpower_modifier = -3
+	local_production_efficiency = 0.3
+}
+
+fkn_all_barrels_filled = {
+	trade_value_modifier = -2
+}
+
+fkn_dedicated_glassworks = {
+	trade_goods_size = 1
+	trade_value_modifier = 0.25
+}

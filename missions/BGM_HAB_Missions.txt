@@ -1,0 +1,977 @@
+bgm_hab_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+	}
+	has_country_shield = yes
+	
+	bgm_hab_secure_dynasty = {
+		icon = catholic_confraternity
+		required_missions = {  }
+		position = 1
+		# free mission -- not anymore
+
+		trigger = {
+			legitimacy = 90
+			STY = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+			TIR = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+				}
+			}
+		}
+
+		effect = {
+			add_stability_or_adm_power = yes
+			bohemia_area = {
+				add_permanent_claim = ROOT
+			}
+			moravia_area = {
+				add_permanent_claim = ROOT
+			}
+			erzgebirge_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hab_integrate_fast
+				duration = 7300
+			}
+		}
+	}
+
+	#bgm_hab_contest_bohemia = {
+	#	icon = eastern_catholicization
+	#	required_missions = { bgm_hab_secure_dynasty }
+	#	position = 2
+	#	# free mission
+
+	#	trigger = {
+	#		has_won_war_against = {
+	#			who = BOH
+	#			max_years_since = 100
+	#		}
+	#	}
+
+	#	effect = {
+	#		add_prestige = 30
+	#		add_country_modifier = {
+	#			name = hab_contested_bohemia
+	#			duration = 10950
+	#		}
+	#	}
+	#}
+
+	bgm_hab_overpower_bohemia = {
+		icon = army_reforms
+		required_missions = { bgm_hab_secure_dynasty }
+		position = 3
+		# free mission
+
+		trigger = {
+			total_development = BOH
+			army_size = BOH
+			num_of_cities = BOH
+			total_development = MRV
+			army_size = MRV
+			num_of_cities = MRV
+		}
+
+		effect = {
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				target = BOH
+				months = 600
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				target = MVA
+				months = 600
+			}
+			
+			slovakia_area = {
+				add_permanent_claim = ROOT
+			}
+			transdanubia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	bgm_hab_bohemian_subordination = {
+		icon = bohemian_commonwealth
+		required_missions = { bgm_hab_overpower_bohemia }
+		position = 4
+		# free mission
+
+		trigger = {
+			OR = {
+				BOH = {
+					is_subject_of = ROOT
+				}
+				NOT = { exists = BOH }
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { exists = BOH }
+				BOH = { add_liberty_desire = -50 }
+			}
+			if = {
+				limit = { exists = BOH }
+				MVA = { add_liberty_desire = -50 }
+			}
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 25
+			}
+		}
+	}
+
+	bgm_hab_control_of_bohemia = {
+		icon = bohemian_borderlands
+		required_missions = { bgm_hab_bohemian_subordination }
+		position = 5
+		# free mission
+
+		trigger = {
+			NOT = { exists = BOH }
+			bohemia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			erzgebirge_area = {
+				type = all
+				owned_by = ROOT
+			}
+			moravia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_expanded_domain
+				duration = 14600
+			}
+		}
+	}
+
+	bgm_hab_representative_reform = {
+		icon = catholic_volunteers
+		required_missions = { bgm_hab_control_of_bohemia }
+		position = 6
+		# free mission
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+				region = carpathia_region
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+				region = south_german_region
+			}
+			reform_level = 6
+		}
+
+		effect = {
+			country_event = {
+				id = BGM_HAB_missions.2
+			}
+		}
+	}
+}
+
+bgm_hab_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+	}
+	has_country_shield = yes
+
+	bgm_hab_consolidate_the_subjects = {
+		icon = austria_prospers
+		required_missions = { }
+		position = 1
+		# free mission
+
+		trigger = {
+			TIR = { exists = no }
+			STY = { exists = no }
+		}
+
+		effect = {
+			custom_tooltip = hab_removed_annexed_subjects_modifier_tt
+			remove_country_modifier = annexers_legacy
+		}
+	}
+
+	bgm_hab_crown_land = {
+		icon = connect_further_austria
+		required_missions = { bgm_hab_consolidate_the_subjects }
+		position = 2
+		# free mission
+
+		trigger = {
+			crown_land_share = 50
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_crown_land
+				duration = 18250
+			}
+		}
+	}
+
+	bgm_hab_civil_reforms = {
+		icon = mission_rb_the_education_acts
+		required_missions = { bgm_hab_crown_land }
+		position = 3
+		# free mission
+
+		trigger = {
+			stability = 3
+			legitimacy_equivalent = 90
+			#grown_by_development = 500
+			if = {
+				limit = { ai = no }
+				monthly_adm = 12
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = civil_reforms
+				duration = -1
+			}
+		}
+	}
+
+	bgm_hab_push_into_hungary = {
+		icon = king_of_hungary
+		required_missions = { bgm_hab_overpower_bohemia }
+		position = 4
+		# free mission
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				OR = {
+					area = transdanubia_area
+					area = slovakia_area
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = {
+					exists = HUN
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					target = HUN
+					months = 300
+				}
+			}
+			alfold_area = {
+				add_permanent_claim = ROOT
+			}
+			transylvania_area = {
+				add_permanent_claim = ROOT
+			}
+			southern_transylvania_area = {
+				add_permanent_claim = ROOT
+			}
+			slavonia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	bgm_hab_bank_of_austria = {
+		icon = powerhouse_of_the_north
+		required_missions = { }
+		position = 5
+		# free mission
+
+		trigger = {
+			OR = {
+				has_global_modifier_value = {
+					which = global_tax_modifier
+					value = 1
+				}
+				AND = {
+					monthly_adm = 11
+					OR = {
+						full_idea_group = administrative_ideas
+						full_idea_group = economic_ideas
+					}
+				}
+			}
+			gold_income = 20
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_bank_of_austria
+				duration = -1
+			}
+		}
+	}
+}
+
+bgm_hab_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+	}
+	has_country_shield = yes
+
+	bgm_hab_internal_growth = {
+		icon = mission_early_game_buildings
+		required_missions = { }
+		position = 1
+		# free mission
+
+		trigger = {
+			development_in_provinces = {
+				value = 150
+				OR = {
+					area = austria_proper_area
+					area = inner_austria_area
+					area = tirol_area
+				}
+			}
+			
+		}
+
+		effect = {
+			austria_proper_area = {
+				limit = { owned_by = ROOT }
+				add_permanent_province_modifier = {
+					name = hab_prosperous_heartland
+					duration = -1
+				}
+			}
+			inner_austria_area = {
+				limit = { owned_by = ROOT }
+				add_permanent_province_modifier = {
+					name = hab_prosperous_heartland
+					duration = -1
+				}
+			}
+			tirol_area = {
+				limit = { owned_by = ROOT }
+				add_permanent_province_modifier = {
+					name = hab_prosperous_heartland
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = hab_economic_growth
+				duration = 10950
+			}
+		}
+	}
+
+	bgm_hab_agrarian_reform = {
+		icon = mission_pol_breadbasket_europe
+		required_missions = { bgm_hab_internal_growth }
+		position = 2
+		# free mission
+
+		trigger = {
+			stability = 1
+			farm_estate = 5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_agriculture_revolution
+				duration = -1
+			}
+		}
+	}
+
+	bgm_hab_tax_reform = {
+		icon = reform_the_monte
+		required_missions = { bgm_hab_crown_land }
+		position = 3
+		# free mission
+
+		trigger = {
+			monthly_adm = 10
+			OR = {
+				NOT = { has_estate = estate_nobles }
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 75
+				}
+				NOT = {
+					estate_influence = {
+						estate = estate_nobles
+						influence = 20
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_tax_reform
+				duration = -1
+			}
+		}
+	}
+
+	bgm_hab_enlightened_government = {
+		icon = weimar_classicism
+		required_missions = { bgm_hab_civil_reforms bgm_hab_tax_reform bgm_hab_vienna_university }
+		position = 4
+		# free mission
+
+		trigger = {
+			OR = {
+				full_idea_group = humanist_ideas
+				full_idea_group = innovativeness_ideas
+				is_revolutionary = yes
+				innovativeness = 80
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_enlightened_government
+				duration = -1
+			}
+		}
+	}
+
+	bgm_hab_despotism = {
+		icon = mission_empire
+		required_missions = { bgm_hab_enlightened_government }
+		position = 5
+		# free mission
+
+		trigger = {
+			OR = {
+				absolutism = 70
+				AND = {
+					crown_land_share = 100
+					NOT = {
+						num_of_estate_privileges = {
+							estate = estate_nobles
+							value = 1
+						}
+					}
+					NOT = {
+						num_of_estate_privileges = {
+							estate = estate_church
+							value = 1
+						}
+					}
+					NOT = {
+						num_of_estate_privileges = {
+							estate = estate_burghers
+							value = 1
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_absolutist_legacy
+				duration = -1
+			}
+		}
+	}
+
+	bgm_hab_economic_security = {
+		icon = mission_rb_prospect_for_coal
+		required_missions = { bgm_hab_bank_of_austria bgm_hab_despotism }
+		position = 6
+		# free mission
+
+		trigger = {
+			NOT = { num_of_loans = 1 }
+			NOT = { inflation = 0.5 }
+			NOT = { corruption = 1 }
+			monthly_income = 500
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hab_industrialization
+				duration = -1
+			}
+		}
+	}
+}
+
+bgm_hab_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+	}
+	has_country_shield = yes
+	
+	bgm_hab_viennese_splendour = {
+		icon = appease_the_estates
+		required_missions = { }
+		position = 1
+		# free mission
+
+		trigger = {
+			owns = 134
+			134 = {
+				num_of_times_improved = 5
+			}
+			if = {
+				limit = { ai = no }
+				prestige = 50
+				splendor = 600
+			}
+		}
+
+		effect = {
+			134 = {
+				if = {
+					limit = {
+						NOT = {
+							has_great_project = {
+								type = schonbrunn_palace
+								tier = 1
+							}
+						}
+					}
+					add_great_project_tier = {
+						type = schonbrunn_palace
+						tier = 1
+					}
+				}
+				else = {
+					add_base_tax = 1
+					add_base_production = 1
+				}
+			}
+			add_prestige_or_monarch_power = { amount = 20 }
+		}
+	}
+	
+	bgm_hab_establish_opera = {
+		icon = counter_reformation
+		required_missions = { bgm_hab_viennese_splendour }
+		position = 1
+		# free mission
+
+		trigger = {
+			owns = 134
+			134 = {
+				num_of_buildings_in_province = 4
+			}
+			if = {
+				limit = { ai = no }
+				
+				134 = {
+					num_of_times_improved = 10
+					province_has_center_of_trade_of_level = 3
+				}
+			}
+		}
+
+		effect = {
+			134 = {
+				if = {
+					limit = {
+						NOT = {
+							has_great_project = {
+								type = state_opera
+								tier = 1
+							}
+						}
+					}
+					add_great_project_tier = {
+						type = state_opera
+						tier = 1
+					}
+				}
+				else = {
+					add_base_tax = 1
+					add_base_production = 1
+				}
+			}
+			add_prestige_or_monarch_power = { amount = 20 }
+		}
+	}
+
+	bgm_hab_vienna_university = {
+		icon = mission_early_modern_university
+		required_missions = { bgm_hab_establish_opera }
+		position = 3
+		# free mission
+
+		trigger = {
+			if = {
+				limit = { ai = no }
+				134 = {
+					OR = {
+						has_building = university
+						num_of_times_improved = 20
+					}
+				}
+			}
+			innovativeness = 20
+		}
+
+		effect = {
+			add_innovativeness_big_effect = yes
+			
+			134 = {
+				if = {
+					limit = { NOT = { has_building = university } }
+					add_building = university
+				}
+				else = {
+					add_base_production = 1
+					add_base_tax = 1
+				}
+				add_province_modifier = {
+					name = hab_vienna_university
+					duration = -1
+				}
+			}
+		}
+	}
+
+	bgm_hab_western_diplomacy = {
+		icon = shift_the_balance
+		required_missions = { }
+		position = 4
+		# free mission
+
+		trigger = {
+			OR = {
+				diplomatic_reputation = 6
+				has_global_modifier_value = {
+					which = improve_relation_modifier
+					value = 1.2
+				}
+			}
+			OR = {
+				army_professionalism = 0.40
+				army_tradition = 70
+			}
+		}
+		effect = {
+			add_power_projection = { 
+				type = 25_permanent_power_projection
+				amount = 25
+			}
+			custom_tooltip = permanent_pp_tt
+		}
+	}
+}
+
+bgm_hab_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+	}
+	has_country_shield = yes
+	
+	bgm_hab_amass_army = {
+		icon = mission_assemble_an_army
+		required_missions = {  }
+		position = 1
+		# free mission
+
+		trigger = {
+			army_size_percentage = 0.95
+			73 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+			switzerland_area = {
+				add_permanent_claim = ROOT
+			}
+			romandie_area = {
+				add_permanent_claim = ROOT
+			}
+			carinthia_area = {
+				add_permanent_claim = ROOT
+			}
+			110 = {
+				add_permanent_claim = ROOT
+			}
+			128 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	bgm_hab_austrian_switzerland = {
+		icon = reorganize_the_confederacy
+		required_missions = { bgm_hab_amass_army }
+		position = 2
+		# free mission
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 7
+				OR = {
+					area = switzerland_area
+					area = romandie_area
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hab_alpine_union
+				duration = -1
+			}
+			custom_tooltip = hsc_unlock_highlands_privilege_tt
+			hidden_effect = {
+				set_country_flag = hsc_unlocked_highlands_privilege_flag
+			}
+		}
+	}
+
+	bgm_hab_austrian_carniola = {
+		icon = ven_san_zanipolo
+		required_missions = { }
+		position = 3
+		# free mission
+
+		trigger = {
+			carinthia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			venetia_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hab_building_navy
+				duration = 7300
+			}
+			add_sailors = 500
+		}
+	}
+
+	bgm_hab_venetian_trade = {
+		icon = ven_capital_of_europe
+		required_missions = { bgm_hab_austrian_carniola }
+		position = 4
+		# free mission
+
+		trigger = {
+			venetia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hab_venetian_trade
+				duration = -1
+			}
+		}
+	}
+}
+
+bgm_hab_missions_5_dip = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+		#NOT = { has_country_flag = hab_conquer }
+	}
+	has_country_shield = yes
+	
+	bgm_hab_powerful_allies = {
+		icon = mission_diplomatic_relation
+		required_missions = { bgm_hab_western_diplomacy }
+		position = 5
+		# free mission
+
+		trigger = {
+			land_forcelimit = 50
+			calc_true_if = {
+				amount = 2
+				all_ally = {
+					army_strength = {
+						who = ROOT
+						value = 0.75
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = austria_allies
+				duration = -1
+			}
+		}
+	}
+
+	bgm_hab_marital_diplomacy = {
+		icon = spread_the_von_wettins
+		required_missions = { bgm_hab_powerful_allies }
+		position = 6
+		# free mission
+
+		trigger = {
+			OR = {
+				statesman = 3
+				diplomat = 3
+				full_idea_group = diplomatic_ideas
+				full_idea_group = influence_ideas
+			}
+			if = {
+				limit = { ai = no }
+				num_of_royal_marriages = 6
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = austrian_dynastic_diplomacy
+				duration = -1
+			}
+		}
+	}
+}
+
+bgm_hab_missions_4_mil = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+	}
+	potential = {
+		OR = {
+			tag = HAB
+			tag = AUH
+		}
+		#has_country_flag = hab_conquer
+	}
+	has_country_shield = yes
+	
+	bgm_hab_alpine_fortresses = {
+		icon = alpine_defenses
+		required_missions = { bgm_hab_western_diplomacy }
+		position = 5
+		# free mission
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 8
+				
+				region = south_german_region
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+					has_terrain = highlands
+				}
+				fort_level = 2
+			}
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = {
+					region = south_german_region
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+						has_terrain = highlands
+					}
+					fort_level = 2
+				}
+				add_permanent_province_modifier = {
+					name = hab_alpine_redoubts
+					duration = -1
+				}
+			}
+		}
+	}
+
+	bgm_hab_fate_of_italy = {
+		icon = mission_italian_conquest
+		required_missions = { bgm_hab_alpine_fortresses }
+		position = 6
+		# free mission
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+				region = italy_region
+			}
+		}
+
+		effect = {
+			add_prestige_or_monarch_power = { amount = 50 }
+			add_country_modifier = {
+				name = hab_reforged_the_iron_crown
+				duration = -1
+			}
+		}
+	}
+}

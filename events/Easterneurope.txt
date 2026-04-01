@@ -1,0 +1,574 @@
+namespace = ia_flavor_nov
+
+country_event = {
+	id = ia_flavor_nov.1
+	title = ia_flavor_nov.1.title
+	desc = ia_flavor_nov.1.desc
+	picture = DEFENESTRATION_PRAGUE_eventPicture
+	
+	trigger = {
+		tag = NOV
+		is_year = 1446
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 360
+	}
+	
+	immediate = {
+		capital_scope = {
+			add_devastation = 15
+		}
+	}
+	
+	option = {	# Boris the Bogomil
+		name = ia_flavor_nov.1.a
+		ai_chance = {
+			factor = 8
+		}
+		
+		define_ruler = {
+			name = "Boris 'the Bogomil'"
+			dynasty = "Gorchakov"
+			adm = 3
+			dip = 5
+			mil = 2
+			age = 43
+			religion = bogomilist
+		}
+		
+		hidden_effect = {
+			add_ruler_personality = inspiring_leader_personality
+			add_ruler_personality = peasant_revolt_leader_personality
+			add_ruler_personality = kind_hearted_personality
+			
+			set_country_flag = had_novgorod_starting_event_flag
+			set_country_flag = nov_chose_bogomil_path_flag
+			clr_country_flag = nov_chose_orthodox_path_flag
+		}
+	}
+	
+	option = {	# Grigorei the Druzhina
+		name = ia_flavor_nov.1.b
+		ai_chance = {
+			factor = 2
+		}
+		
+		define_ruler = {
+			name = "Grigorei 'the Druzhina'"
+			dynasty = "Baryatinky"
+			adm = 4
+			dip = 2
+			mil = 6
+			age = 24
+			religion = orthodox
+		}
+		
+		hidden_effect = {
+			add_ruler_personality = zealot_personality
+			add_ruler_personality = strict_personality
+			add_ruler_personality = last_knight_personality
+			
+			set_country_flag = had_novgorod_starting_event_flag
+			clr_country_flag = nov_chose_bogomil_path_flag
+			set_country_flag = nov_chose_orthodox_path_flag
+		}
+	}
+}
+
+country_event = {
+	id = ia_flavor_nov.2
+	title = ia_flavor_nov.2.title
+	desc = ia_flavor_nov.2.desc
+	picture = REVOLT_HUNGARIAN_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {	# Genocide Jumpscare
+		name = ia_flavor_nov.2.a
+		
+		every_owned_province = {
+			limit = {
+				culture = cumano_rus
+			}
+			add_base_tax = -2
+			add_base_production = -2
+			add_base_manpower = -2
+			add_devastation = 50
+			change_culture = ROOT
+			change_religion = ROOT
+		}
+		307 = {
+			add_base_manpower = -10
+			add_base_production = -10
+			add_base_tax = -10
+			add_devastation = 100
+			add_permanent_province_modifier = {
+				name = nov_burned_vladimir
+				duration = 18250
+			}
+		}
+		
+		add_country_modifier = { 
+			name = nov_flames_of_revenge
+			duration = 7300
+		}
+	}
+}
+
+country_event = {	# Lumber Creation
+	id = ia_flavor_nov.3
+	title = ia_flavor_nov.3.title
+	desc = ia_flavor_nov.3.desc
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_province = {
+			limit = {
+				has_state_edict = nov_lumber_state_edict
+				OR = {
+					has_terrain = forest
+					has_terrain = woods
+				}
+				NOT = { trade_goods = lumber }
+				NOT = { trade_goods = woodworking }
+			}
+			save_event_target_as = lumber_province_1
+			set_province_flag = lumber_province_1_flag
+		}
+		random_owned_province = {
+			limit = {
+				has_state_edict = nov_lumber_state_edict
+				OR = {
+					has_terrain = forest
+					has_terrain = woods
+				}
+				NOT = { trade_goods = lumber }
+				NOT = { trade_goods = woodworking }
+				NOT = { has_province_flag = lumber_province_1_flag }
+			}
+			save_event_target_as = lumber_province_2
+			set_province_flag = lumber_province_2_flag
+		}
+		random_owned_province = {
+			limit = {
+				has_state_edict = nov_lumber_state_edict
+				OR = {
+					has_terrain = forest
+					has_terrain = woods
+				}
+				NOT = { trade_goods = lumber }
+				NOT = { trade_goods = woodworking }
+				NOT = { has_province_flag = lumber_province_1_flag }
+				NOT = { has_province_flag = lumber_province_2_flag }
+			}
+			save_event_target_as = lumber_province_3
+		}
+		hidden_effect = {
+			event_target:lumber_province_1 = {
+				clr_province_flag = lumber_province_1_flag
+			}
+			event_target:lumber_province_2 = {
+				clr_province_flag = lumber_province_2_flag
+			}
+		}
+	}
+	
+	option = {	
+		name = ia_flavor_nov.3.a
+		
+		event_target:lumber_province_1 = {
+			change_trade_goods = lumber
+		}
+		
+		add_adm_power = -15
+		add_dip_power = -15
+		add_treasury = -50
+	}
+	
+	option = {	
+		name = ia_flavor_nov.3.b
+		
+		event_target:lumber_province_2 = {
+			change_trade_goods = lumber
+		}
+		
+		add_adm_power = -15
+		add_dip_power = -15
+		add_treasury = -50
+	}
+	
+	option = {	
+		name = ia_flavor_nov.3.c
+		
+		event_target:lumber_province_3 = {
+			change_trade_goods = lumber
+		}
+		
+		add_adm_power = -15
+		add_dip_power = -15
+		add_treasury = -50
+	}
+	
+	option = {	
+		name = ia_flavor_nov.3.d
+		
+	}
+}
+
+country_event = { # Count le wins
+	id = ia_flavor_nov.4
+	title = ia_flavor_nov.4.t
+	desc = ia_flavor_nov.4.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		OR = { tag = NOV	was_tag = NOV }
+		has_country_flag = nov_chose_bogomil_path_flag
+	}
+	
+	option = {
+		name = ia_flavor_nov.4.a
+		
+		if = {
+			limit = { NOT = { has_country_flag = nov_counting_wins } }
+			set_variable = { which = NovWins value = 1 }
+			set_country_flag = nov_counting_wins
+		}
+		else = {
+			change_variable = {
+				which = NovWins
+				value = 1
+			}
+		}
+	}
+}
+
+country_event = { # Fall of Polish Pope
+	id = ia_flavor_nov.5
+	title = ia_flavor_nov.5.title
+	desc = ia_flavor_nov.5.desc
+	picture = POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = { tag = NOV	was_tag = NOV }
+	}
+	
+	option = {
+		name = ia_flavor_nov.5.a
+		
+		custom_tooltip = all_catholics_will_suffer_tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = { religion = catholic }
+				add_province_modifier = {
+					name = deposition_of_pope_province_modifier
+					duration = 7300
+				}
+			}
+			every_country = {
+				limit = { religion = catholic }
+				add_country_modifier = {
+					name = deposition_of_pope_country_modifier
+					duration = -1
+				}
+			}
+		}
+		add_prestige_or_monarch_power = { amount = 25 }
+	}
+}
+
+
+namespace = cumania_collapse
+
+country_event = {
+	id = cumania_collapse.1
+	title = cumania_collapse.1.title
+	desc = cumania_collapse.1.desc
+	picture = BYZ_REVOLUTION_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			is_rival = ROOT
+			is_enemy = ROOT
+			alliance_with = ROOT
+			is_neighbor_of = ROOT
+			is_subject_of = ROOT
+		}
+	}
+	
+	trigger = {
+		tag = Z00
+		NOT = { exists = ZAZ }
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	immediate = {
+		hidden_effect = {
+			release = ZAZ
+			ZAZ = {
+				add_country_modifier = {
+					name = cumania_revolter_mod
+					duration = 1825
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 1
+						cavalry = 1
+					}
+				}
+				change_government = republic
+				add_government_reform = cossacks_reform
+			}
+		}
+	}
+	
+	option = {
+		name = cumania_collapse.1.a
+		trigger = { ai = no }
+		
+		add_prestige = -20
+		add_truce_with = ZAZ
+	}
+	
+	option = {
+		name = cumania_collapse.1.b
+		
+		declare_war_with_cb = {
+			who = ZAZ
+			casus_belli = cb_annex
+		}
+	}
+	
+	option = {
+		name = cumania_collapse.1.c
+		trigger = { ai = no }
+		highlight = yes
+		
+		declare_war_with_cb = {
+			who = ZAZ
+			casus_belli = cb_annex
+		}
+		
+		switch_tag = ZAZ
+	}
+}
+
+country_event = {
+	id = cumania_collapse.2
+	title = cumania_collapse.2.title
+	desc = cumania_collapse.2.desc
+	picture = BYZ_REVOLUTION_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			is_rival = ROOT
+			is_enemy = ROOT
+			alliance_with = ROOT
+			is_neighbor_of = ROOT
+			is_subject_of = ROOT
+		}
+	}
+	
+	trigger = {
+		tag = Z00
+		NOT = { exists = CRI }
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	immediate = {
+		hidden_effect = {
+			release = CRI
+			CRI = {
+				add_country_modifier = {
+					name = cumania_revolter_mod
+					duration = 1825
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 1
+						cavalry = 1
+					}
+				}
+				change_government = tribal
+				add_government_reform = steppe_horde
+			}
+		}
+	}
+	
+	option = {
+		name = cumania_collapse.2.a
+		trigger = { ai = no }
+		
+		add_prestige = -20
+		add_truce_with = CRI
+	}
+	
+	option = {
+		name = cumania_collapse.2.b
+		
+		declare_war_with_cb = {
+			who = CRI
+			casus_belli = cb_annex
+		}
+	}
+	
+	option = {
+		name = cumania_collapse.2.c
+		trigger = { ai = no }
+		highlight = yes
+		
+		declare_war_with_cb = {
+			who = CRI
+			casus_belli = cb_annex
+		}
+		
+		switch_tag = CRI
+	}
+}
+
+country_event = {
+	id = cumania_collapse.3
+	title = cumania_collapse.3.title
+	desc = cumania_collapse.3.desc
+	picture = BYZ_REVOLUTION_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			is_rival = ROOT
+			is_enemy = ROOT
+			alliance_with = ROOT
+			is_neighbor_of = ROOT
+			is_subject_of = ROOT
+		}
+	}
+	
+	trigger = {
+		tag = Z00
+		NOT = { exists = GOL }
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 120
+	}
+	
+	immediate = {
+		hidden_effect = {
+			yrtesh_area = {
+				cede_province = GOL
+			}
+			ob_area = {
+				cede_province = GOL
+			}
+			aqmola_area = {
+				cede_province = GOL
+			}
+			GOL = {
+				change_government = tribal
+				add_government_reform = steppe_horde
+				add_country_modifier = {
+					name = cumania_revolter_mod
+					duration = 1825
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 1
+						cavalry = 1
+					}
+				}
+				define_ruler = {
+					name = "Qobolta"
+					dynasty = "Borjigin"
+					adm = 4
+					dip = 3
+					mil = 6
+					age = 20
+					claim = 95
+				}
+				add_ruler_personality = legendary_conqueror_personality
+			}
+		}
+	}
+	
+	option = {
+		name = cumania_collapse.3.a
+		GOL = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_annex
+			}
+		}
+	}
+	
+	option = {
+		name = cumania_collapse.3.c
+		trigger = { ai = no }
+		highlight = yes
+		
+		GOL = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_annex
+			}
+		}
+		
+		switch_tag = GOL
+	}
+}
+
+province_event = {
+	id = cumania_collapse.4
+	title = cumania_collapse.4.t
+	desc = cumania_collapse.4.d
+	picture = CITY_VIEW_eventPicture
+	goto = ROOT
+	hidden = yes
+	
+	trigger = {
+		has_owner_religion = yes
+		
+		OR = {
+			culture = cuman
+		}
+		
+		owner = {
+			OR = {
+				culture_group = east_slavic
+				primary_culture = goths
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = cumania_collapse.4.a
+		
+		change_culture = cumano_rus
+	}
+}

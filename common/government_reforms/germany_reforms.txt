@@ -1,0 +1,767 @@
+german_unification_reform = {
+	icon = "constitution"
+	allow_normal_conversion = no
+	potential = {
+		culture_group = germanic
+		#is_revolutionary = no
+	}
+	trigger = {
+		#is_subject = no
+		government_rank = 3
+		OR = {
+			tag = GER
+			#tag = LOT
+			tag = HLR
+			tag = NGC
+			tag = SGC
+		}
+	}
+	#lock_level_when_selected = yes
+	can_change_primary_culture = no
+	valid_for_nation_designer = no
+	
+	#fixed_rank = 2
+	
+	modifiers = {
+		relation_with_same_culture_group = -50
+		relation_with_same_culture = -50
+		same_culture_advisor_cost = -0.2
+	}
+	
+	custom_attributes = {
+	}
+	
+	effect = {
+		custom_tooltip = access_nationalism_cb_tt
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+saxon_feudalism = {
+	icon = "constitution"
+	allow_normal_conversion = no
+	potential = {
+		has_reform = saxon_feudalism
+	}
+	lock_level_when_selected = yes
+	can_change_primary_culture = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	
+	fixed_rank = 2
+	
+	modifiers = {
+		max_absolutism = -50
+		diplomatic_annexation_cost = 3
+		accept_vassalization_reasons = 10
+		#liberty_desire_from_subject_development = 0.25
+		reduced_liberty_desire_on_same_continent = -20	
+		province_warscore_cost = 100
+		enforce_religion_cost = -0.75
+		all_estate_influence_modifier = 0.1
+		global_tax_modifier = 0.40
+		production_efficiency = -0.15
+		trade_efficiency = -0.15
+		diplomatic_upkeep = -3
+		development_cost_modifier = 0.10
+	}
+	
+	custom_attributes = {
+		has_tributaries = yes
+		locked_government_type = yes
+		need_crownland_to_annex = yes
+		nobility_loyalty_hit_on_integration = yes
+		gain_monarch_power_from_force_converting = yes
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+saxon_fief_reform = {
+	icon = "nobleman"
+	allow_normal_conversion = no
+	can_change_primary_culture = no
+	potential = {
+		OR = {
+			is_subject_of_type = saxon_daimyo
+			AND = {
+				have_had_reform = saxon_fief_reform
+				any_war_enemy_country = {
+					OR = {
+						has_reform = saxon_feudalism
+						has_reform = saxon_fief_reform
+					}
+				}
+			}
+			overlord = { has_reform = saxon_feudalism }
+			overlord = { has_reform = saxon_fief_reform }
+		}
+	}
+	#fixed_rank = 1
+	maintain_dynasty = yes
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	modifiers = {
+		global_manpower_modifier = 0.1
+		nobles_loyalty_modifier = 0.15
+		nobles_influence_modifier = 0.10
+		global_own_trade_power = 0.20
+		global_tax_modifier = 0.40
+		production_efficiency = -0.15
+		global_foreign_trade_power = -0.20
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		need_crownland_to_annex = yes
+		nobility_loyalty_hit_on_integration = yes
+		gain_monarch_power_from_force_converting = yes
+	}
+	#government_abilities = {
+	#	saxon_favor_mechanic
+	#}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+german_free_city = {
+	icon = "free_city"
+	allow_normal_conversion = no
+	potential = {
+		culture_group = germanic
+	}
+	trigger = {
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 4
+				is_overseas = no
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+
+	modifiers = {
+		trade_efficiency = 0.1
+		development_cost = -0.1
+		production_efficiency = 0.1
+		burghers_influence_modifier = 0.1
+		burghers_loyalty_modifier = 0.1
+	}
+	fixed_rank = 1
+	
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+		}
+		can_use_trade_post = yes
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	duration = 4
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+sax_feudalism_reform = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+	lock_level_when_selected = no
+	potential = {
+		culture_group = germanic
+		OR = {
+			has_reform = sax_feudalism_reform
+			have_had_reform = sax_feudalism_reform
+			overlord = { has_reform = sax_feudalism_reform }
+			overlord = { has_reform = saxon_fief_reform }
+		}
+	}
+	trigger = {
+		OR = {
+			has_reform = sax_feudalism_reform
+			have_had_reform = sax_feudalism_reform
+			overlord = { has_reform = sax_feudalism_reform }
+			overlord = { has_reform = saxon_fief_reform }
+		}
+	}
+	modifiers = {
+		vassal_forcelimit_bonus = 0.25
+		vassal_manpower_bonus = 0.25
+		vassal_income = 0.10
+		monarch_power_tribute = 1
+		global_institution_spread = -0.2
+	}
+	custom_attributes = {
+		subject_tax_modifier_25 = yes
+	}
+	
+	effect = {
+		custom_tooltip = sax_producing_grain_tt
+		hidden_effect = {
+			every_owned_province = {
+				if = {
+					limit = {
+						OR = {	
+							trade_goods = grain
+							trade_goods = wool
+							trade_goods = fish
+							trade_goods = livestock
+							trade_goods = beer
+							trade_goods = apiculture
+							trade_goods = lumber
+							trade_goods = cheese
+							trade_goods = seafood
+							trade_goods = potato
+							trade_goods = tomato
+						}
+					}
+					add_province_modifier = { 
+						name = sax_efficient_peasants
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_province_modifier = sax_efficient_peasants
+					}
+				}
+				remove_province_modifier = sax_efficient_peasants
+			}
+		}
+	}
+}
+
+deutches_reich_reform = {
+	icon = "constitution"
+	allow_normal_conversion = no
+	can_change_primary_culture = no
+	potential = {
+		OR = { 
+			has_reform = deutches_reich_reform
+			have_had_reform = deutches_reich_reform
+		}
+		tag = GER
+		culture_group = germanic
+	}
+	lock_level_when_selected = yes
+	valid_for_nation_designer = no
+	nation_designer_cost = 20
+	
+	fixed_rank = 3
+	
+	modifiers = {
+		max_absolutism = -10
+		governing_capacity = 300
+		max_possible_parliament_seats = 6
+		development_cost = -0.1	
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+hes_thuringian_realm_reform = {
+	icon = "nobleman"
+	allow_normal_conversion = no
+	can_change_primary_culture = no
+	potential = {
+		OR = {
+			has_reform = hes_thuringian_realm_reform
+			have_had_reform = hes_thuringian_realm_reform
+		}
+		primary_culture = thuringian
+	}
+	trigger = {
+		has_reform = hes_thuringian_realm_reform
+	}
+	maintain_dynasty = yes
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	modifiers = {
+		land_forcelimit = 10
+		discipline = 0.05
+		manpower_recovery_speed = 0.25
+		infantry_cost = -0.20
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+hes_military_reform = {
+	icon = "prussian_monarchy"
+	allow_normal_conversion = no
+	potential = {
+		primary_culture = hessian
+	}
+	#trigger = {
+	#	has_reform = hes_military_reform
+	#}
+	valid_for_nation_designer = no
+	lock_level_when_selected = no
+	modifiers = {
+		land_attrition = -0.20
+		drill_decay_modifier = -0.40
+		drill_gain_modifier = 0.40
+		mercenary_cost = 0.25
+		merc_maintenance_modifier = 0.25
+		mercenary_manpower = -0.25
+		land_maintenance_modifier = 0.10
+	}
+	custom_attributes = {
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+	}
+}
+
+hes_military_reform_2 = {
+	icon = "prussian_monarchy"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = hes_military_reform_2
+			have_had_reform = hes_military_reform_2
+		}
+		primary_culture = hessian
+	}
+	#trigger = {
+	#	has_reform = hes_military_reform
+	#}
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	modifiers = {
+		land_attrition = -0.25
+		drill_decay_modifier = -0.45
+		drill_gain_modifier = 0.45
+		mercenary_cost = 0.5
+		merc_maintenance_modifier = 0.5
+		mercenary_manpower = -0.5
+		land_maintenance_modifier = 0.20
+		discipline = 0.05
+		infantry_power = 0.1
+	}
+	custom_attributes = {
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+	}
+}
+
+kle_union_of_cities = {
+	icon = "crown"
+	potential = {
+		OR = {
+			has_reform = kle_union_of_cities
+			have_had_reform = kle_union_of_cities
+		}
+	}
+	trigger = {
+		OR = {
+			has_reform = kle_union_of_cities
+			have_had_reform = kle_union_of_cities
+		}
+		is_subject = yes
+	}
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	modifiers = {
+		development_cost_modifier = -0.10
+		land_forcelimit = 10
+		global_manpower = 10
+		production_efficiency = 0.25
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+	}
+}
+
+thu_saxon_march_reform = {
+	icon = "crown"
+	potential = {
+		OR = {
+			has_reform = thu_saxon_recruitment_reform
+			have_had_reform = thu_saxon_recruitment_reform
+		}
+	}
+	trigger = {
+		has_reform = thu_saxon_march_reform
+		is_subject = yes
+		overlord = { OR = { has_reform = saxon_feudalism 	tag = SAX	was_tag = SAX } }
+	}
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	modifiers = {
+		development_cost_modifier = -0.10
+		land_forcelimit = 10
+		global_manpower_modifier = 0.10
+		infantry_power = 0.10
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+	}
+}
+
+thu_saxon_recruitment_reform = {
+	icon = "crown"
+	potential = {
+		OR = {
+			has_reform = thu_saxon_recruitment_reform
+			have_had_reform = thu_saxon_recruitment_reform
+		}
+	}
+	trigger = {
+		has_reform = thu_saxon_recruitment_reform
+		is_subject = yes
+		overlord = { OR = { has_reform = saxon_feudalism 	tag = SAX	was_tag = SAX } }
+	}
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	modifiers = {
+		development_cost = -0.40
+		build_cost = -0.20
+		global_manpower_modifier = -0.50
+		land_forcelimit_modifier = -0.40
+		global_tax_income = 36
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+	}
+}
+
+fkn_marcher_lords_reform = {
+	icon = "black_army_reform"
+	allow_normal_conversion = yes
+	lock_level_when_selected = no
+	potential = {
+		primary_culture = franconian
+	}
+	trigger = {
+		OR = {
+			has_reform = fkn_marcher_lords_reform
+			have_had_reform = fkn_marcher_lords_reform
+		}
+		OR = {
+			tag = FKN
+			was_tag = FKN
+		}
+	}
+	modifiers = {
+		vassal_forcelimit_bonus = 1
+		vassal_manpower_bonus = 1
+		vassal_income = 0.20
+		diplomatic_upkeep = 1
+		liberty_desire_from_subject_development = -0.15	
+	}
+	custom_attributes = {
+		subject_tax_modifier_25 = yes
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+fkn_vintner_monarchy = {
+	icon = "vodka_monopoly"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	potential = {
+		primary_culture = franconian
+	}
+	trigger = {
+		#OR = {
+		#	has_reform = fkn_vintner_monarchy
+		#	have_had_reform = fkn_vintner_monarchy
+		#}
+		OR = {
+			tag = FKN
+			was_tag = FKN
+		}
+	}
+	modifiers = {
+		global_trade_goods_size_modifier = 0.1
+		centralize_state_cost = -0.1
+		diplomatic_reputation = 1
+		core_creation = 0.1
+		global_tax_modifier = -0.2
+		heir_chance = -100
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+		centralize_state_development = yes 
+		#centralize_state_half_refund = yes
+	}
+	effect = {
+		custom_tooltip = fkn_vintner_elections_tt
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+fkn_franken_council = {
+	icon = "prussian_monarchy"
+	allow_normal_conversion = yes
+	lock_level_when_selected = no
+	potential = {
+		primary_culture = franconian
+	}
+	trigger = {
+		#OR = {
+		#	has_reform = fkn_franken_council
+		#	have_had_reform = fkn_franken_council
+		#}
+		OR = {
+			tag = FKN
+			was_tag = FKN
+		}
+	}
+	modifiers = {
+		advisor_cost = -0.15
+		reform_progress_growth = 0.25
+	}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+hussite_wagenburgs = {
+	icon = "feudal_levies"
+	allow_normal_conversion = yes
+	#lock_level_when_selected = yes
+	potential = {
+		religion = hussite
+	}
+	trigger = {
+		
+	}
+	modifiers = {
+		global_defender_dice_roll_bonus = 1
+		shock_damage_received = -0.10
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+austrian_constitutionalism = {
+	icon = "constitution"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = austrian_constitutionalism
+			have_had_reform = austrian_constitutionalism
+		}
+	}
+	lock_level_when_selected = yes
+	can_change_primary_culture = no
+	
+	modifiers = {
+		reduced_liberty_desire_on_same_continent = 20
+		num_accepted_cultures = 2
+	}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+bohemian_elective_kingdom_reform = {
+	icon = "bohemian_monarchy"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			primary_culture = czech
+			primary_culture = czech_new
+		}
+		NOT = { has_country_flag = bohemia_abolished }
+	}
+	nation_designer_trigger = {
+		OR = {
+			primary_culture = czech
+			primary_culture = czech_new
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = yes
+	can_change_primary_culture = no
+	modifiers = {
+		diplomatic_reputation = 1
+		nobles_loyalty_modifier = 0.1
+		nobles_privilege_slots = 1
+		nobles_influence_modifier = 0.05
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		custom_attributes = {
+			has_ruler_election = yes
+			has_improved_ruler_election = yes
+		}
+	}
+	ai = {
+		factor = 1000
+	}
+}
+
+bohemian_germanic_monarchy = {
+	icon = "bohemian_monarchy"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			primary_culture = sudeten
+		}
+	}
+	lock_level_when_selected = yes
+	can_change_primary_culture = no
+	
+	modifiers = {
+		vassal_forcelimit_bonus = 0.25
+		vassal_manpower_bonus = 0.25
+		vassal_naval_forcelimit_bonus = 0.25
+		vassal_sailors_bonus = 0.25
+		vassal_income = 0.25
+	}
+	
+	#conditional = {
+	#	allow = {
+	#		has_dlc = "Common Sense"
+	#	}
+	#	has_parliament = yes
+	#}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
+rhenish_bureaucratic_apparatus = {
+	icon = "provincial_government"
+	potential = {
+		primary_culture = hessian
+	}
+	
+	modifiers = {
+		culture_conversion_time = -0.25 
+		reform_progress_growth = 0.2
+	}
+
+	custom_attributes = {
+		centralize_state_development = yes
+		rhenish_bureaucratic_apparatus_province_mods = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_owner_culture = yes
+					culture = hessian
+				}
+				add_province_modifier = {
+					name = rhenish_bureaucractic_apparatus_positive_modifier
+					duration = -1
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						NOT = { culture = hessian }
+						has_owner_culture = no
+					}
+				}
+				add_province_modifier = {
+					name = rhenish_bureaucractic_apparatus_negative_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = rhenish_bureaucractic_apparatus_positive_modifier
+				}
+				remove_province_modifier = rhenish_bureaucractic_apparatus_positive_modifier
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = rhenish_bureaucractic_apparatus_negative_modifier
+				}
+				remove_province_modifier = rhenish_bureaucractic_apparatus_negative_modifier
+			}
+		}
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}

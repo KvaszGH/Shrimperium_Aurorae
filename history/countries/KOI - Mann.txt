@@ -1,0 +1,22 @@
+government = theocracy
+add_government_reform = cat_clowder_hierarchy
+government_rank = 1
+technology_group = western
+religion = druidic_pagan
+primary_culture = cat
+capital = 4365
+historical_friend = HSC
+1444.11.11= {
+	monarch = {
+		name = "Gar"
+		dynasty = "Reimse"
+		adm = 2
+		dip = 2
+		mil = 2
+		birth_date = 1392.1.1
+		religion = druidic_pagan
+		culture = cat
+	}
+	add_ruler_personality = bold_fighter_personality
+	add_ruler_personality = embezzler_personality
+}

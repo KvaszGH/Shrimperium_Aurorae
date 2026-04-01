@@ -1,0 +1,174 @@
+country_decisions = {
+
+	english_nation_arthurian = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_england_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = ENG }
+			NOT = { tag = AVE }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { has_global_flag = destroyed_dumnonia_flag }
+			culture_group = gaelic
+			government = monarchy
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 242		# Gwynedd
+				province_id = 237		# Oxfordshire
+				province_id = 239		# Caerloyw
+				province_id = 233		# Kernow
+				province_id = 241		# Morgannwg
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no			
+			NOT = { exists = ENG }
+			owns_core_province = 242		# Gwynedd
+			owns_core_province = 237		# Oxfordshire
+			owns_core_province = 239		# Caerloyw
+			owns_core_province = 233		# Kernow
+			owns_core_province = 241		# Morgannwg
+		}
+		effect = {
+			hidden_effect = { ia_save_historical_relations_effect = yes }
+			change_tag = ENG
+			on_change_tag_effect = yes
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			home_counties_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			yorkshire_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			east_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			west_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			east_anglia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			wales_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			wessex_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			#Cumbria
+			247 = {
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ENG
+				}
+			}
+			#Northumberland
+			246 = {
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ENG
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government = monarchy
+			}
+			add_government_reform = dumnonia_monarchy_reform
+			set_country_flag = formed_england_flag
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_capital = 239
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	albion_request_boon = {
+		major = yes
+		potential = {
+			has_country_flag = albion_in_court_flag
+			NOT = { has_country_modifier = sought_boon_from_albion }
+		}
+		allow = {
+			has_country_flag = albion_in_court_flag
+			NOT = { has_country_modifier = sought_boon_from_albion }
+		}
+		effect = {
+			if = {
+				limit = { ai = yes }
+				country_event = { id = gaeldom.22 }
+			}
+			else = {
+				country_event = { id = gaeldom.21 }
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+}

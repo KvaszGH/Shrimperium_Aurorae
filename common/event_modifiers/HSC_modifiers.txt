@@ -1,0 +1,225 @@
+hsc_gathered_clans = {
+	land_morale = 0.10
+	land_maintenance_modifier = -0.20
+}
+
+ended_cornish_piracy = {
+	naval_tradition_from_trade = 0.5
+	global_ship_trade_power = 0.25
+	ship_power_propagation = 0.50
+}
+
+gaeldom_new_era = {
+	all_power_cost = -0.05
+	global_prosperity_growth = 0.5
+	build_time = -0.25
+	global_tax_modifier = 0.20
+	inflation_reduction = 0.1
+}
+
+feline_partnership = {
+	global_trade_goods_size_modifier = 0.1
+	spy_offence = 0.25
+	global_spy_defence = 0.25
+	monarch_lifespan = 1
+}
+
+mth_mutual_prosperity = {
+	global_tax_income = 60
+}
+
+mth_common_works = {
+	local_build_cost = -0.15
+	local_development_cost = -0.15
+	allowed_num_of_buildings = 4
+	allowed_num_of_manufactories = 1
+}
+
+mth_irish_prosperity = {
+	global_tax_modifier = 0.25
+}
+
+irish_ports = {
+	global_sailors = 10000
+	navy_tradition_decay = -0.005
+}
+
+mth_ports_ire = {
+	local_production_efficiency = 0.3
+	local_development_cost = -0.2
+	province_trade_power_modifier = 0.50
+}
+
+hsc_reestablish_sacred_groves = {
+	monthly_reform_progress_modifier = 0.25
+	global_autonomy = -0.05
+	global_missionary_strength = 0.02
+}
+
+hsc_grand_archives = {
+	technology_cost = -0.05
+	local_development_cost_modifier = -0.5
+	trade_goods_size_modifier = 0.25
+	local_tax_modifier = 1
+}
+
+mth_flourishing_local_industry = {
+	trade_goods_size_modifier = 0.25
+	trade_value_modifier = 0.25
+}
+
+mth_irish_industry = {
+	production_efficiency = 0.15
+}
+
+hsc_agricultural_investments = {
+	local_development_cost = -0.1
+	trade_goods_size_modifier = 0.25
+}
+
+hsc_farming_tools_industry = {
+	local_development_cost = -0.2
+	trade_goods_size_modifier = 0.5
+}
+
+hsc_great_seafood_port = {
+	trade_value_modifier = 0.25
+	local_development_cost = -0.1
+	trade_goods_size = 1
+	trade_goods_size_modifier = 0.5
+}
+
+looms_of_lothian = {
+	trade_value_modifier = 0.25
+	local_development_cost_modifier = -0.2
+	trade_goods_size = 2
+}
+
+lothian_reinforced = {
+	local_defensiveness = 0.15
+	local_defender_dice_roll_bonus = 1
+	local_hostile_attrition = 2
+}
+
+hsc_jewel_north_sea = {
+	prestige_decay = -0.005
+	global_foreign_trade_power = 0.15
+}
+
+recently_recruited_druid = {
+
+}
+
+hsc_druidic_mint = {
+	local_gold_depletion_chance_modifier = -1
+	local_development_cost_modifier = -0.1
+	trade_goods_size_modifier = 0.2
+}
+
+bri_menowar_mod = {
+	has_man_of_war = yes
+	has_marines = yes
+	allowed_marine_fraction = 0.1
+	allowed_man_of_war_fraction = 0.15
+}
+
+ia_colonial_rush = {
+	colonists = 1
+	range = 0.5
+}
+
+ia_around_the_cape = {
+	global_colonial_growth = 15
+	colonist_placement_chance = 0.20
+}
+
+last_king_in_residence = {
+	min_local_autonomy = 50
+	local_unrest = -10
+	local_missionary_strength = -1
+	local_religious_unity_contribution = -1
+	local_religious_conversion_resistance = 5
+	max_attrition = 10
+	local_hostile_attrition = 5
+	local_hostile_movement_speed = -0.5
+	local_friendly_movement_speed = -0.25
+	local_build_cost = 2
+	local_monthly_devastation = -1
+	local_governing_cost = -1
+	allowed_num_of_manufactories = -10
+	local_development_cost = 0.5
+	province_trade_power_value = 1
+}
+
+storyteller_overconfidence = {
+	morale_damage_received = -0.25
+	shock_damage_received = 0.20
+	fire_damage_received = 0.20
+}
+
+albion_sweeping_powers = {
+	reduced_liberty_desire = -15
+	all_estate_loyalty_equilibrium = -0.1
+	reform_progress_growth = -0.1
+}
+
+albion_scientific_divertment = {
+	innovativeness_gain = -0.25
+	technology_cost = 0.1
+}
+
+sought_boon_from_albion = {}
+
+albion_military_advisor = {
+	drill_gain_modifier = 1
+	drill_decay_modifier = -0.25
+	yearly_army_professionalism = 0.0025
+	army_tradition = 1
+}
+
+crossroads_gift_of_power = {
+	country_admin_power = 1
+	monthly_reform_progress_modifier = 0.20
+	administrative_efficiency = 0.05
+}
+
+crossroads_gift_of_charisma = {
+	country_diplomatic_power = 1
+	advisor_cost = -0.2
+	improve_relation_modifier = 0.25
+}
+
+crossroads_gift_of_vengeance = {
+	country_military_power = 1
+	fire_damage = 0.10
+	shock_damage = 0.15
+}
+
+crossroads_price_cooldown = {}
+
+crossroads_tasteless_province_mod = {
+	trade_value_modifier = -0.75
+}
+
+crossroads_lack_of_taste = {
+	land_morale = -0.05
+	global_trade_goods_size_modifier = -0.1
+}
+
+crossroads_essence_of_passion = {
+	manpower_recovery_speed = -0.33
+	development_cost_modifier = 0.1
+}
+
+crossroads_dreams_and_madness = {
+	global_unrest = 5
+	all_power_cost = 0.075
+}
+
+crossroads_warping_time = {
+	movement_speed = -0.15
+	land_attrition = 0.2
+	build_time = 0.5
+	great_project_upgrade_time = 1
+	build_cost = 0.1
+}

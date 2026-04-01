@@ -1,0 +1,2157 @@
+namespace = ivycurse
+
+country_event = {
+	id = ivycurse.0
+	title = ivycurse.0.t
+	desc = ivycurse.0.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			export_to_variable = {
+				which = check_total_tax
+				value = trigger_value:total_base_tax
+			}
+			export_to_variable = {
+				which = check_total_dev
+				value = trigger_value:total_development
+			}
+			multiply_variable = {
+				which = check_total_tax
+				value = 4
+			}
+			if = {
+				limit = { 
+					check_variable = { which = check_total_tax which = check_total_dev }
+				}
+				set_country_flag = not_meta_devver
+			}
+			else = {
+				#set_country_flag = meta_devver
+			}
+			
+			if = {
+				limit = {
+					NOT = { has_global_flag = initialized_cure_flag }
+				}
+				set_global_flag = initialized_cure_flag
+				REB = {
+					set_variable = { which = IvyCureScore value = 0 }
+				}
+				
+			}
+		}
+	}
+	
+	option = {
+		name = ivycurse.0.a
+		
+		custom_tooltip = ivycurse_desc_tt
+		hidden_effect = {
+			country_event = { id = ivycurse.1  days = 1 }
+			set_country_flag = ivycurse_started
+		}
+	}
+}
+
+province_event = {
+	id = ivycurse.1
+	title = ivycurse.1.t
+	desc = ivycurse.1.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	goto = ROOT
+	hidden = yes
+	
+	trigger = {
+		owner = {
+			has_disaster = bonfire_of_the_vanities_disaster
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 80
+	}
+	
+	option = {
+		name = ivycurse.1.a
+		
+		trigger = {
+			owner = {
+				NOT = { has_country_flag = meta_devver }
+				has_country_modifier = sanitary_standards
+			}
+		}
+		if = {
+			limit = { owner = { has_country_flag = show_ivycurse_events_flag } }
+			province_event = { id = ivycurse.1001 }
+		}
+		add_devastation = 10
+		if = {
+			limit = { NOT = { development = 10 } }
+			random_list = {
+				50 = {
+					add_base_tax = -1
+				}
+				50 = {}
+			}
+			random_list = {
+				50 = {
+					add_base_manpower = -1
+				}
+				50 = {}
+			}
+			random_list = {
+				50 = {
+					add_base_production = -1
+				}
+				50 = {}
+			}
+		}
+		else = {
+			if = {
+				limit = { NOT = { development = 20 } }
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				random_list = {
+					50 = {
+						add_base_tax = -1
+					}
+					100 = {}
+				}
+				random_list = {
+					50 = {
+						add_base_manpower = -1
+					}
+					100 = {}
+				}
+				random_list = {
+					50 = {
+						add_base_production = -1
+					}
+					100 = {}
+				}
+			}
+			else = {
+				if = {
+					limit = { NOT = { development = 30 } }
+					add_base_tax = -2
+					add_base_production = -2
+					add_base_manpower = -2
+				}
+				else = {
+					add_base_tax = -3
+					add_base_production = -3
+					add_base_manpower = -3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = ivycurse.1.b
+		
+		trigger = {
+			owner = {
+				NOT = { has_country_flag = meta_devver }
+				NOT = { has_country_modifier = sanitary_standards }
+			}
+		}
+		
+		if = {
+			limit = { owner = { has_country_flag = show_ivycurse_events_flag } }
+			province_event = { id = ivycurse.1001 }
+		}
+		add_devastation = 20
+		if = {
+			limit = { NOT = { development = 10 } }
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+		else = {
+			if = {
+				limit = { NOT = { development = 20 } }
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+			}
+			else = {
+				if = {
+					limit = { NOT = { development = 30 } }
+					add_base_tax = -3
+					add_base_production = -3
+					add_base_manpower = -3
+				}
+				else = {
+					add_base_tax = -4
+					add_base_production = -5
+					add_base_manpower = -5
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = ivycurse.1.c
+		
+		trigger = {
+			owner = {
+				has_country_flag = meta_devver
+			}
+		}
+		
+		if = {
+			limit = { owner = { has_country_flag = show_ivycurse_events_flag } }
+			province_event = { id = ivycurse.1001 }
+		}
+		add_base_production = -20
+		add_base_manpower = -20
+		
+		custom_tooltip = meta_devver_tt
+	}
+}
+
+province_event = {
+	id = ivycurse.1001
+	title = ivycurse.1.t
+	desc = ivycurse.1.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	goto = ROOT
+	
+	trigger = {
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ivycurse.1.a
+		
+		trigger = {
+			owner = {
+				NOT = { has_country_flag = meta_devver }
+				has_country_modifier = sanitary_standards
+			}
+		}
+		
+		custom_tooltip = province_has_lost_dev_tt_sanitary
+	}
+	
+	option = {
+		name = ivycurse.1.b
+		
+		trigger = {
+			owner = {
+				NOT = { has_country_flag = meta_devver }
+				NOT = { has_country_modifier = sanitary_standards }
+			}
+		}
+		
+		
+		custom_tooltip = province_has_lost_dev_tt
+	}
+	
+	option = {
+		name = ivycurse.1.c
+		
+		trigger = {
+			owner = {
+				has_country_flag = meta_devver
+			}
+		}
+		
+		custom_tooltip = meta_devver_tt
+	}
+}
+
+country_event = {
+	id = ivycurse.2
+	title = ivycurse.2.t
+	desc = ivycurse.2.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ivycurse.2.a
+		
+		add_dip_power = -200
+		add_adm_power = -200
+		add_mil_power = -200
+		
+		hidden_effect = {
+			REB = {
+				change_variable = {
+					which = IvyCureScore
+					value = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = ivycurse.2.b
+		trigger = {
+			ai = no
+		}
+		
+		add_prestige = -20
+		hidden_effect = {
+			REB = {
+				change_variable = {
+					which = IvyCureScore
+					value = -10
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ivycurse.3
+	title = ivycurse.3.t
+	desc = ivycurse.3.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_regency = no
+		is_lesser_in_union = no
+		NOT = { has_country_modifier = ivycurse_strikes_immortal }
+	}
+	
+	option = {
+		name = ivycurse.3.a
+		trigger = {
+			NOT = { tag = Z17 }
+			NOT = { tag = TEM }
+			NOT = { ruler_has_personality = immortal_personality }
+		}
+		
+		kill_ruler = yes
+	}
+	
+	option = {
+		name = ivycurse.3.b
+		trigger = {
+			tag = Z17
+		}
+		
+		add_country_modifier = {
+			name = ivycurse_strikes_immortal
+			duration = 3650
+		}
+		
+		hidden_effect = {
+			REB = {
+				change_variable = {
+					which = IvyCureScore
+					value = 10
+				}
+			}
+		}
+		
+		custom_tooltip = ivycurse_strikes_yangshing_tt
+	}
+	
+	option = {
+		name = ivycurse.3.c
+		trigger = {
+			OR = {
+				tag = TEM
+				ruler_has_personality = immortal_personality
+			}
+			NOT = { tag = Z17 }
+		}
+		
+		add_country_modifier = {
+			name = ivycurse_strikes_immortal
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = ivycurse.4
+	title = ivycurse.4.t
+	desc = ivycurse.4.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_regency = no
+		is_lesser_in_union = no
+		has_consort = yes
+	}
+	
+	option = {
+		name = ivycurse.4.a
+		trigger = {
+			NOT = { has_country_modifier = antioch_dragon_princess }
+			NOT = { consort_has_personality = immortal_personality }
+		}
+		
+		remove_consort = yes
+		add_stability = -1
+	}
+	
+	option = {
+		name = ivycurse.4.b
+		trigger = {
+			has_country_modifier = antioch_dragon_princess
+		}
+		
+		hidden_effect = {
+			REB = {
+				change_variable = {
+					which = IvyCureScore
+					value = 10
+				}
+			}
+		}
+		
+		custom_tooltip = ivycurse_strikes_yangshing_tt
+	}
+	
+	option = {
+		name = ivycurse.4.c
+		trigger = {
+			NOT = { has_country_modifier = antioch_dragon_princess }
+			consort_has_personality = immortal_personality
+		}
+	}
+}
+
+country_event = {
+	id = ivycurse.5
+	title = ivycurse.5.t
+	desc = ivycurse.5.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_regency = no
+		is_lesser_in_union = no
+		has_heir = yes
+		NOT = { tag = Z17 }
+	}
+	
+	option = {
+		name = ivycurse.5.a
+		trigger = {
+			NOT = { heir_has_personality = immortal_personality }
+		}
+		
+		kill_heir = {}
+		add_stability = -1
+	}
+	
+	option = {
+		name = ivycurse.5.c
+		trigger = {
+			heir_has_personality = immortal_personality
+		}
+	}
+}
+
+country_event = {
+	id = ivycurse.6
+	title = ivycurse.6.t
+	desc = ivycurse.6.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_advisor = yes
+	}
+	
+	option = {
+		name = ivycurse.5.a
+		
+		kill_advisor = random
+	}
+}
+
+country_event = {
+	id = ivycurse.7
+	title = ivycurse.7.t
+	desc = ivycurse.7.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	# Divert state resources
+		name = ivycurse.7.a
+		trigger = {
+			NOT = { has_country_modifier = ivycurse_diverting_state_resources }
+		}
+		
+		add_country_modifier = {
+			name = ivycurse_diverting_state_resources
+			duration = 3650
+		}
+		
+		ai_chance = {
+			factor = 200
+		}
+		
+		hidden_effect = {
+			country_event = {
+				id = ivycurse.7
+				days = 1
+			}
+			change_variable = {
+				which = IvyCureSpeed
+				value = 1
+			}
+		}
+	}
+	
+	option = {	# Spend money
+		name = ivycurse.7.b
+		trigger = {
+			NOT = { has_country_flag = ivycurse_spending_money }
+			
+		}
+		
+		add_treasury = -5000
+		
+		ai_chance = {
+			factor = 200
+			modifier = {
+				factor = 0
+				NOT = { treasury = 5000 }
+			}
+		}
+		
+		hidden_effect = {
+			set_country_flag = ivycurse_spending_money
+			country_event = {
+				id = ivycurse.7
+				days = 1
+			}
+			change_variable = {
+				which = IvyCureSpeed
+				value = 1
+			}
+		}
+	}
+	
+	option = {	# "Volunteer" test subjects
+		name = ivycurse.7.c
+		trigger = {
+			NOT = { has_country_modifier = ivycurse_test_subjects }
+			
+		}
+		
+		add_country_modifier = {
+			name = ivycurse_test_subjects
+			duration = 3650
+		}
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		hidden_effect = {
+			country_event = {
+				id = ivycurse.7
+				days = 1
+			}
+			change_variable = {
+				which = IvyCureSpeed
+				value = 1
+			}
+		}
+	}
+	
+	option = {	# Innovativeness
+		name = ivycurse.7.e
+		trigger = {
+			NOT = { has_country_flag = ivycurse_innovativeness }
+			OR = {
+				innovativeness = 75
+				full_idea_group = innovativeness_ideas
+			}
+		}
+		
+		highlight = yes
+		
+		ai_chance = {
+			factor = 200
+		}
+		
+		change_innovativeness = -10
+		
+		hidden_effect = {
+			set_country_flag = ivycurse_innovativeness
+			country_event = {
+				id = ivycurse.7
+				days = 1
+			}
+			change_variable = {
+				which = IvyCureSpeed
+				value = 1
+			}
+		}
+	}
+	
+	option = {	# Pray
+		name = ivycurse.7.f
+		trigger = {
+			NOT = { has_country_flag = ivycurse_prayers }
+			OR = {
+				AND = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 75
+					}
+					estate_influence = {
+						estate = estate_church
+						influence = 75
+					}
+				}
+				full_idea_group = religious_ideas
+				full_idea_group = theocracy_gov_ideas
+			}
+		}
+		
+		highlight = yes
+		
+		ai_chance = {
+			factor = 200
+		}
+		
+		add_prestige = -20
+		
+		hidden_effect = {
+			set_country_flag = ivycurse_prayers
+			country_event = {
+				id = ivycurse.7
+				days = 1
+			}
+			change_variable = {
+				which = IvyCureSpeed
+				value = 1
+			}
+		}
+	}
+	
+	option = {	# Be Antioch
+		name = ivycurse.7.g
+		trigger = {
+			NOT = { has_country_flag = ivycurse_be_antioch }
+			tag = Z17
+			is_emperor = yes
+		}
+		
+		highlight = yes
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		hidden_effect = {
+			set_country_flag = ivycurse_be_antioch
+			country_event = {
+				id = ivycurse.7
+				days = 1
+			}
+			change_variable = {
+				which = IvyCureSpeed
+				value = 1
+			}
+		}
+	}
+	
+	option = {	# Start Project
+		name = ivycurse.7.h
+		
+		ai_chance = {
+			factor = 5
+		}
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = IvyCureSpeed
+						value = 6
+					}
+				}
+				country_event = {
+					id = ivycurse.8
+					days = 100
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = {
+							which = IvyCureSpeed
+							value = 5
+						}
+					}
+					country_event = {
+						id = ivycurse.8
+						days = 200
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = {
+								which = IvyCureSpeed
+								value = 4
+							}
+						}
+						country_event = {
+							id = ivycurse.8
+							days = 400
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = {
+									which = IvyCureSpeed
+									value = 3
+								}
+							}
+							country_event = {
+								id = ivycurse.8
+								days = 800
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = {
+										which = IvyCureSpeed
+										value = 2
+									}
+								}
+								country_event = {
+									id = ivycurse.8
+									days = 1200
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = {
+											which = IvyCureSpeed
+											value = 1
+										}
+									}
+									country_event = {
+										id = ivycurse.8
+										days = 1600
+									}
+								}
+								else = {
+									country_event = {
+										id = ivycurse.8
+										days = 3000
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		custom_tooltip = ivycurse_cure_speed_tt
+	}
+}
+
+country_event = {
+	id = ivycurse.8
+	title = ivycurse.8.t
+	desc = ivycurse.8.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = ivycurse_cured } }
+			country_event = {
+				id = ivycurse.9
+			}
+		}
+	}
+	
+	option = {
+		name = ivycurse.8.a	
+	}
+}
+
+country_event = {
+	id = ivycurse.9
+	title = ivycurse.9.t
+	desc = ivycurse.9.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	# Share the Cure
+		name = ivycurse.9.a	
+		
+		hidden_effect = {
+			set_global_flag = ivycurse_cured
+			ROOT = {
+				save_global_event_target_as = ivycurse_saviour
+			}
+			every_country = {
+				country_event = {
+					id = ivycurse.10
+				}
+			}
+		}
+		add_country_modifier = {
+			name = cured_the_ivycurse
+			duration = -1
+		}
+	}
+	
+	option = {	# Be Selfish
+		name = ivycurse.9.b	
+		
+		hidden_effect = {
+			set_country_flag = ivycurse_cured_selfish
+		}
+	}
+}
+
+country_event = {
+	id = ivycurse.10
+	title = ivycurse.10.t
+	desc = ivycurse.10.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {	# Hoorah!
+		name = ivycurse.10.a	
+		
+		custom_tooltip = ongoing_projects_cancelled_tt
+	}
+}
+
+country_event = {		# Elites flee the quarantines, peasants are angry
+	id = ivycurse.11
+	title = ivycurse.11.t
+	desc = ivycurse.11.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_province = { 
+			has_fort_building_trigger = yes 
+			devastation = 10
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_fort_building_trigger = yes
+					devastation = 10
+				}
+				save_event_target_as = ivycursed_fort
+			}
+		}
+	}
+	
+	option = {	# Protect the rich, enforce the quarantines
+		name = ivycurse.11.a	
+		goto = ivycursed_fort
+		
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_eunuchs
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_peasants
+			loyalty = -40
+		}
+		event_target:ivycursed_fort = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			particularist_rebels = 5
+			every_neighbor_province = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				anti_tax_rebels = 3
+			}
+		}
+	}
+	
+	option = {	# Let the Peasants do as they will...
+		name = ivycurse.11.b	
+		goto = ivycursed_fort
+		
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_eunuchs
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_peasants
+			loyalty = 20
+		}
+		
+		event_target:ivycursed_fort = {
+			if = {
+				limit = {
+					has_building = fort_15th
+				}
+				remove_building = fort_15th
+			}
+			else_if = {
+				limit = {
+					has_building = fort_16th
+				}
+				remove_building = fort_16th
+			}
+			else_if = {
+				limit = {
+					has_building = fort_17th
+				}
+				remove_building = fort_17th
+			}
+			else_if = {
+				limit = {
+					has_building = fort_18th
+				}
+				remove_building = fort_18th
+			}
+			
+			add_base_tax = -2
+			add_base_production = -2
+			add_base_manpower = -2
+			add_devastation = 20
+			every_neighbor_province = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 20
+			}
+		}
+	}
+}
+
+country_event = {		# Governmental Collapse, autonomy rises, infrastructure decays
+	id = ivycurse.12
+	title = ivycurse.12.t
+	desc = ivycurse.12.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_province = { 
+			is_state = yes 
+			devastation = 25
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					devastation = 25
+				}
+				save_event_target_as = ivycursed_autonomy_province
+			}
+		}
+	}
+	
+	option = {	# Nothing we can do
+		name = ivycurse.12.a	
+		goto = ivycursed_autonomy_province
+		
+		event_target:ivycursed_autonomy_province = {
+			add_local_autonomy = 50
+			if = {
+				limit = { has_building = courthouse }
+				remove_building = courthouse
+			}
+			else_if = {
+				limit = { has_building = town_hall }
+				remove_building = town_hall
+			}
+			if = { 
+				limit = { has_building = canal_system }
+				remove_building = canal_system
+			}
+			if = { 
+				limit = { has_building = road_network }
+				remove_building = road_network
+			}
+			every_neighbor_province = {
+				limit = { owned_by = ROOT }
+				add_local_autonomy = 50
+				if = {
+					limit = { has_building = courthouse }
+					remove_building = courthouse
+				}
+				else_if = {
+					limit = { has_building = town_hall }
+					remove_building = town_hall
+				}
+				if = { 
+					limit = { has_building = canal_system }
+					remove_building = canal_system
+				}
+				if = { 
+					limit = { has_building = road_network }
+					remove_building = road_network
+				}
+			}
+		}
+	}
+	option = {	# Nothing we can do
+		name = ivycurse.12.b	
+		goto = ivycursed_autonomy_province
+		
+		adm_power_cost = 100
+		add_treasury = -400
+		event_target:ivycursed_autonomy_province = {
+			add_local_autonomy = 50
+			every_neighbor_province = {
+				limit = { owned_by = ROOT }
+				add_local_autonomy = 50
+			}
+		}
+	}
+}
+
+country_event = {		# Persecution of minorities
+	id = ivycurse.13
+	title = ivycurse.13.t
+	desc = ivycurse.13.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_province = { 
+			OR = {
+				has_owner_accepted_culture = no
+				has_owner_religion = no
+			}
+			any_neighbor_province = {
+				owned_by = ROOT
+				has_owner_accepted_culture = yes
+				has_owner_religion = yes
+				devastation = 50
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						has_owner_accepted_culture = no
+						has_owner_religion = no
+					}
+					any_neighbor_province = {
+						owned_by = ROOT
+						has_owner_accepted_culture = yes
+						has_owner_religion = yes
+						devastation = 50
+					}
+				}
+				save_event_target_as = ivycursed_minority_province
+			}
+		}
+	}
+	
+	option = {	# Arrest the troublemakers!
+		name = ivycurse.13.a	
+		goto = ivycursed_minority_province
+		
+		mil_power_cost = 100
+		event_target:ivycursed_minority_province = {
+			random_neighbor_province = {
+				limit = {
+					owned_by = ROOT
+					has_owner_accepted_culture = yes
+					has_owner_religion = yes
+				}
+				anti_tax_rebels = 3
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+		}
+	}
+	
+	option = {	# Let it happen
+		name = ivycurse.13.b	
+		goto = ivycursed_minority_province
+		
+		event_target:ivycursed_minority_province = {
+			add_base_manpower = -2
+			add_base_production = -2
+			add_base_manpower = -2
+			add_devastation = 25
+		}
+	}
+	
+	option = {	# Finish the job
+		name = ivycurse.13.c	
+		goto = ivycursed_minority_province
+		
+		mil_power_cost = 100
+		event_target:ivycursed_minority_province = {
+			add_base_manpower = -5
+			add_base_production = -5
+			add_base_manpower = -5
+			add_devastation = 80
+			change_culture = ROOT
+			change_religion = ROOT
+		}
+	}
+}
+
+country_event = {		# The world is ending
+	id = ivycurse.14
+	title = ivycurse.14.t
+	desc = ivycurse.14.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_province = { 
+			devastation = 99
+			NOT = { development = 15 }
+			has_owner_religion = yes
+			NOT = { is_capital = yes }
+		}
+		NOT = { religion = bogomilist }
+		NOT = { religion = lollard }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					devastation = 99
+					NOT = { development = 15 }
+					has_owner_religion = yes
+					NOT = { is_capital = yes }
+				}
+				save_event_target_as = ivycursed_apocalypse_province
+			}
+		}
+	}
+	
+	option = {	# Uh oh
+		name = ivycurse.14.a
+		goto = ivycursed_apocalypse_province
+		
+		random_list = {
+			50 = {
+				event_target:ivycursed_apocalypse_province = {
+					change_religion = bogomilist
+					add_permanent_province_modifier = {
+						name = "religious_zeal_at_conv"
+						duration = 9000
+					}
+					random_neighbor_province = {
+						limit = {
+							devastation = 99
+							NOT = { development = 15 }
+							has_owner_religion = yes
+							NOT = { is_capital = yes }
+						}
+						change_religion = bogomilist
+						add_permanent_province_modifier = {
+							name = "religious_zeal_at_conv"
+							duration = 9000
+						}
+					}
+				}
+			}
+			50 = {
+				event_target:ivycursed_apocalypse_province = {
+					change_religion = lollard
+					add_permanent_province_modifier = {
+						name = "religious_zeal_at_conv"
+						duration = 9000
+					}
+					random_neighbor_province = {
+						limit = {
+							devastation = 99
+							NOT = { development = 15 }
+							has_owner_religion = yes
+							NOT = { is_capital = yes }
+						}
+						change_religion = lollard
+						add_permanent_province_modifier = {
+							name = "religious_zeal_at_conv"
+							duration = 9000
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	option = {	# Uh oh
+		name = ivycurse.14.b	
+		goto = ivycursed_apocalypse_province
+		
+		dip_power_cost = 150
+		random_list = {
+			50 = {
+				event_target:ivycursed_apocalypse_province = {
+					change_religion = bogomilist
+					add_permanent_province_modifier = {
+						name = "religious_zeal_at_conv"
+						duration = 3650
+					}
+					random_neighbor_province = {
+						limit = {
+							devastation = 99
+							NOT = { development = 15 }
+							has_owner_religion = yes
+						}
+						change_religion = bogomilist
+						add_permanent_province_modifier = {
+							name = "religious_zeal_at_conv"
+							duration = 3650
+						}
+					}
+				}
+			}
+			50 = {
+				event_target:ivycursed_apocalypse_province = {
+					change_religion = lollard
+					add_permanent_province_modifier = {
+						name = "religious_zeal_at_conv"
+						duration = 3650
+					}
+					random_neighbor_province = {
+						limit = {
+							devastation = 99
+							NOT = { development = 15 }
+							has_owner_religion = yes
+						}
+						change_religion = lollard
+						add_permanent_province_modifier = {
+							name = "religious_zeal_at_conv"
+							duration = 3650
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}
+
+country_event = {		# Illicit Experiments
+	id = ivycurse.15
+	title = ivycurse.15.t
+	desc = ivycurse.15.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		OR = {
+			has_estate = estate_alchemists
+			any_neighbor_country = { has_estate = estate_alchemists }
+		}
+		NOT = { has_country_modifier = ivycurse_punished_experimenters }
+		NOT = { has_country_modifier = ivycurse_pardoned_experimenters }
+	}
+	
+	immediate = {
+		
+	}
+	
+	option = {	# Punish the perpetrators and destroy the ill gotten gains!
+		name = ivycurse.15.a	
+		
+		add_stability = 1
+		add_country_modifier = {
+			name = ivycurse_punished_experimenters
+			duration = 9000
+		}
+	}
+	
+	option = {	# Punish the perpetrators, but secretly keep the research
+		name = ivycurse.15.b	
+		
+		add_country_modifier = {
+			name = ivycurse_punished_experimenters
+			duration = 9000
+		}
+		random = { 
+			chance = 50 
+
+			add_stability = -2
+			add_prestige = -50
+		}
+		hidden_effect = {
+			REB = {
+				change_variable = {
+					which = IvyCureScore
+					value = 2
+				}
+			}
+		}
+	}
+	
+	option = {	# They did the right thing
+		name = ivycurse.15.c	
+		
+		add_country_modifier = {
+			name = ivycurse_pardoned_experimenters
+			duration = 9000
+		}
+		add_stability = -1
+		add_prestige = -25
+		hidden_effect = {
+			REB = {
+				change_variable = {
+					which = IvyCureScore
+					value = 4
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ivycurse.100
+	title = ivycurse.100.t
+	desc = ivycurse.100.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ivycurse.100.a
+		
+		custom_tooltip = ivycurse_over_tt
+		hidden_effect = {
+			set_country_flag = survived_curse_of_ivy
+			every_owned_province = {
+				add_base_tax = 1
+				if = {
+					limit = { owner = { ai = yes } }
+					add_devastation = -100
+				}
+				else = {
+					add_devastation = -50
+				}
+			}
+			if = {
+				limit = {
+					is_emperor_of_china = yes
+				}
+				add_mandate = 60
+			}
+		}	
+	}
+}
+
+country_event = {
+	id = ivycurse.101
+	title = ivycurse.101.t
+	desc = ivycurse.101.d
+	picture = DIPLOMAT_INTERROGATION_eventPicture
+	
+	trigger = {
+		has_institution = new_world_i
+		NOT = { has_country_flag = declined_sanitation_flag }
+		NOT = { has_country_modifier = sanitary_standards }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ivycurse.101.a
+		
+		add_country_modifier = {
+			name = sanitary_standards
+			duration = -1
+		}
+		hidden_effect = {
+			
+		}	
+	}
+	
+	option = {
+		name = ivycurse.101.b
+		
+		trigger = {
+			OR = {
+				ai = no
+				NOT = {
+					OR = {
+						is_emperor = yes
+						is_emperor_of_china = yes
+					}
+				}
+			}
+		}
+		
+		add_country_modifier = {
+			name = sanitary_standards_declined
+			duration = 3650
+		}
+		hidden_effect = {
+			set_country_flag = declined_sanitation_flag
+		}
+		custom_tooltip = declining_sanitation_consequences_tt
+	}
+}
+
+country_event = {
+	id = ivycurse.102
+	title = ivycurse.102.t
+	desc = ivycurse.102.d
+	picture = DIPLOMAT_INTERROGATION_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		ai = no
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = ivycurse.102.a
+		
+		hidden_effect = {
+			set_global_flag = ivycurse_disabled
+			clr_global_flag = ivycurse_enabled
+		}
+		add_prestige = -1
+	}
+	
+	option = {
+		name = ivycurse.102.b
+		
+		add_splendor = 2	
+		hidden_effect = {
+			set_global_flag = ivycurse_enabled
+			clr_global_flag = ivycurse_disabled
+		}
+	}
+}
+
+province_event = {	# normal plague time
+	id = ivycurse.103
+	title = ivycurse.103.t
+	desc = ivycurse.103.d
+	picture = FAMINE_eventPicture
+	goto = ROOT
+	
+	immediate = {
+		hidden_effect = {
+			add_permanent_province_modifier = {
+				name = recent_plague
+				duration = 7300
+			}
+		}
+	}
+	
+	trigger = {
+		owner = {
+			has_institution = new_world_i
+		}
+		OR = {
+			province_has_center_of_trade_of_level = 1
+			development = 25
+		}
+		NOT = { has_province_modifier = recent_plague }
+	}
+	
+	mean_time_to_happen = {
+		months = 3000
+		modifier = {
+			factor = 0.75
+			owner = { trade_income_percentage = 0.40 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { trade_income_percentage = 0.60 }
+		}
+		modifier = {
+			factor = 2
+			owner = { has_country_modifier = sanitary_standards }
+		}
+		modifier = {
+			factor = 0.75
+			province_has_center_of_trade_of_level = 3
+		}
+		modifier = {
+			factor = 0.9
+			province_has_center_of_trade_of_level = 2
+		}
+		modifier = {
+			factor = 0.9
+			province_has_center_of_trade_of_level = 1
+		}
+		modifier = {
+			factor = 0.8
+			development = 20
+		}
+		modifier = {
+			factor = 0.8
+			development = 30
+		}
+		modifier = {
+			factor = 0.8
+			development = 40
+		}
+		modifier = {
+			factor = 0.8
+			development = 50
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_institution = global_trade }
+		}
+	}
+	
+	option = {
+		name = ivycurse.103.a
+		ai_chance = { 
+			factor = 33 
+			modifier = {
+				factor = 0
+				OR = {
+					owner = { is_emperor_of_china = yes }
+					owner = { is_emperor = yes }
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { is_capital = yes }
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = sanitary_standards
+				}
+			}
+			custom_tooltip = sanitary_standards_tt
+			add_devastation = 10
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -2
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1000
+			}
+			hidden_effect = {
+				random_list = {
+					60 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					15 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					25 = {}
+				}
+			}
+		}
+		else = {
+			add_devastation = 20
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -4
+				add_base_production = -3
+				add_base_tax = -3
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -2
+			}
+			else = {
+				add_base_manpower = -2
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1875
+			}
+			hidden_effect = {
+				random_list = {
+					50 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					40 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					10 = {}
+				}
+			}
+		}
+		
+		if = {
+			limit = { owner = { is_emperor_of_china = yes } }
+			add_mandate = -2
+		}
+	}
+	
+	option = {	# Quarantine and Let them DIE
+		name = ivycurse.103.b
+		ai_chance = { 
+			factor = 33 
+			modifier = {
+				factor = 0
+				OR = { 
+					owner = { is_emperor_of_china = yes }
+					owner = { is_emperor = yes }
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { is_capital = yes }
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = sanitary_standards
+				}
+			}
+			custom_tooltip = sanitary_standards_tt
+			add_devastation = 20
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -4
+				add_base_production = -3
+				add_base_tax = -2
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -2
+				add_base_production = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1000
+			}
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 365
+			}
+			hidden_effect = {
+				random_list = {
+					20 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					80 = {}
+				}
+			}
+		}
+		else = {
+			add_devastation = 40
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -6
+				add_base_production = -4
+				add_base_tax = -2
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -4
+				add_base_production = -3
+				add_base_tax = -2
+			}
+			else = {
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1875
+			}
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 730
+			}
+			hidden_effect = {
+				random_list = {
+					30 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					10 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					60 = {}
+				}
+			}
+		}
+		
+		if = {
+			limit = { owner = { is_emperor_of_china = yes } }
+			add_mandate = -5
+		}
+	}
+	
+	option = {
+		name = ivycurse.103.c
+		ai_chance = { 
+			factor = 33 
+			modifier = {
+				factor = 0.1
+				owner = { num_of_loans = 1 }
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = sanitary_standards
+				}
+			}
+			custom_tooltip = sanitary_standards_tt
+			owner = { add_years_of_income = -0.25 }
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 365
+			}
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -1
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+			else = {
+				add_base_manpower = -1
+			}
+			hidden_effect = {
+				random_list = {
+					20 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					80 = {}
+				}
+			}
+		}
+		else = {
+			owner = { add_years_of_income = -0.33 }
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 730
+			}
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -2
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+			hidden_effect = {
+				random_list = {
+					30 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					10 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					60 = {}
+				}
+			}
+		}
+		
+		if = {
+			limit = { owner = { is_emperor_of_china = yes } }
+			add_mandate = 1
+		}
+	}
+}
+
+province_event = {	# normal plague time
+	id = ivycurse.104
+	title = ivycurse.103.t
+	desc = ivycurse.104.d
+	picture = FAMINE_eventPicture
+	goto = ROOT
+	
+	trigger = {
+		NOT = { has_province_modifier = recent_plague }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_permanent_province_modifier = {
+				name = recent_plague
+				duration = 7300
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ivycurse.103.a
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 0
+				OR = { 
+					owner = { is_emperor_of_china = yes }
+					owner = { is_emperor = yes }
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { is_capital = yes }
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = sanitary_standards
+				}
+			}
+			custom_tooltip = sanitary_standards_tt
+			add_devastation = 10
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -2
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1000
+			}
+			hidden_effect = {
+				random_list = {
+					50 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					50 = {}
+				}
+			}
+		}
+		else = {
+			add_devastation = 20
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -4
+				add_base_production = -3
+				add_base_tax = -2
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -2
+				add_base_production = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1875
+			}
+			hidden_effect = {
+				random_list = {
+					50 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					25 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					25 = {}
+				}
+			}
+		}
+		if = {
+			limit = { owner = { is_emperor_of_china = yes } }
+			owner = { add_mandate = -2 }
+		}
+	}
+	
+	option = {	# Quarantine and Let them DIE
+		name = ivycurse.103.b
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 0
+				OR = { 
+					owner = { is_emperor_of_china = yes }
+					owner = { is_emperor = yes }
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { is_capital = yes }
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = sanitary_standards
+				}
+			}
+			custom_tooltip = sanitary_standards_tt
+			add_devastation = 20
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -4
+				add_base_production = -3
+				add_base_tax = -2
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -2
+				add_base_production = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1000
+			}
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 365
+			}
+			hidden_effect = {
+				random_list = {
+					10 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					90 = {}
+				}
+			}
+		}
+		else = {
+			add_devastation = 40
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -6
+				add_base_production = -3
+				add_base_tax = -3
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -4
+				add_base_production = -3
+				add_base_tax = -2
+			}
+			else = {
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_struck
+				duration = 1875
+			}
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 730
+			}
+			hidden_effect = {
+				random_list = {
+					15 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					5 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					80 = {}
+				}
+			}
+		}
+		if = {
+			limit = { owner = { is_emperor_of_china = yes } }
+			owner = { add_mandate = -5 }
+		}
+	}
+	
+	option = {
+		name = ivycurse.103.c
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 0.1
+				owner = { num_of_loans = 1 }
+			}
+		}
+		
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = sanitary_standards
+				}
+			}
+			custom_tooltip = sanitary_standards_tt
+			owner = { add_years_of_income = -0.25 }
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -1
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+			else = {
+				add_base_manpower = -1
+			}
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 365
+			}
+			hidden_effect = {
+				random_list = {
+					10 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					90 = {}
+				}
+			}
+		}
+		else = {
+			owner = { add_years_of_income = -0.5 }
+			add_permanent_province_modifier = {
+				name = plague_quarantine
+				duration = 730
+			}
+			if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 3 	development = 40 } }
+				add_base_manpower = -3
+				add_base_production = -2
+				add_base_tax = -1
+			}
+			else_if = {
+				limit = { OR = { province_has_center_of_trade_of_level = 2 	development = 25 } }
+				add_base_manpower = -2
+				add_base_production = -1
+				add_base_tax = -1
+			}
+			else = {
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+			hidden_effect = {
+				random_list = {
+					10 = {
+						random_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					10 = {
+						every_neighbor_province = { province_event = { id = ivycurse.104 	days = 30	random = 15} }
+					}
+					80 = {}
+				}
+			}
+		}
+		if = {
+			limit = { owner = { is_emperor_of_china = yes } }
+			owner = { add_mandate = 1 }
+		}
+	}
+}
