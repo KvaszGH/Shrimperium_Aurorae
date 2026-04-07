@@ -1,3 +1,6 @@
+recently_became_peasant_republic_modifier = {
+}
+
 capitalautonomymod_2700 = {
 	min_local_autonomy = 60
 	local_autonomy = 0.20

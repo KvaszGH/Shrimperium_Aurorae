@@ -1627,6 +1627,7 @@ country_event = {  # Religious Question
 	
 	option = {	# enforce templarite
 		name = ia_flavor_sax.20.b
+		trigger = { is_religion_enabled = protestant }
 		ai_chance = { 
 			factor = 50
 			modifier = {

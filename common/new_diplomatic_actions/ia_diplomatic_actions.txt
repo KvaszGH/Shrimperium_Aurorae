@@ -3859,6 +3859,7 @@ ia_subject_revolutionary_status = {
 	require_acceptance = no
 
 	is_visible = {
+		NOT = { has_government_attribute = is_peasants_republic }
 		FROM = { is_subject_of = ROOT }
 		OR = {
 			AND = {

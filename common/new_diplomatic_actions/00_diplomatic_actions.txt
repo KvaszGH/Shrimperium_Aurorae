@@ -1367,52 +1367,22 @@ dissolve_protectorate = {
 			AND = {
 				stability = 1
 				liberty_desire = 90
-				NOT = {
-					has_opinion = {
-						who = ROOT
-						value = -50
-					}
-				}
+				manpower_percentage = 0.2
 			}
 			AND = {
 				stability = 1
 				liberty_desire = 80
-				NOT = {
-					has_opinion = {
-						who = ROOT
-						value = -100
-					}
-				}
+				manpower_percentage = 0.3
 			}
 			AND = {
 				stability = 1
 				liberty_desire = 70
-				NOT = {
-					has_opinion = {
-						who = ROOT
-						value = -150
-					}
-				}
+				manpower_percentage = 0.4
 			}
 			AND = {
 				stability = 1
 				liberty_desire = 60
-				NOT = {
-					has_opinion = {
-						who = ROOT
-						value = -199
-					}
-				}
-			}
-		}
-		NOT = {
-			any_neighbor_country = {
-				ROOT = {
-					ai_attitude = {
-						who = PREV
-						attitude = attitude_threatened
-					}
-				}
+				manpower_percentage = 0.5
 			}
 		}
 	}

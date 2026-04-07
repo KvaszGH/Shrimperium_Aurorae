@@ -317,6 +317,44 @@ on_yearly_pulse_2 = {
 	}
 }
 
+on_new_age = {
+	if = {
+		limit = {
+			current_age = age_of_reformation
+			#is_emperor = yes
+		}
+		if = {
+			limit = { exists = TEM }
+			TEM = { country_event = { id = ia_flavor_tem.8 } }
+		}
+		else_if = {
+			limit = { any_country = { religion = protestant		government = theocracy } }
+			random_country = {
+				limit = { religion = protestant		government = theocracy }
+				country_event = { id = ia_flavor_tem.8 }
+			}
+		}
+		else_if = {
+			limit = { any_country = { religion = protestant } }
+			random_country = {
+				limit = { religion = protestant }
+				country_event = { id = ia_flavor_tem.8 }
+			}
+		}
+		else = {
+			random_country = {
+				limit = { 
+					OR = { religion = catholic 	religion = fraticelli } 	
+					NOT = { tag = PAP }
+					NOT = { tag = FAP }
+					NOT = { has_reform = saxon_feudalism }
+				}
+				country_event = { id = ia_flavor_tem.8 }
+			}
+		}
+	}
+}
+
 on_yearly_pulse_3 = {
 	events = {
 		saxon_fief.86

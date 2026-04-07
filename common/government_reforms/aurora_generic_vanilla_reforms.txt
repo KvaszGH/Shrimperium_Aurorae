@@ -2648,6 +2648,11 @@ peasants_republic = {
 	}
 	effect = {
 		hidden_effect = {
+			add_country_modifier = {
+				name = recently_became_peasant_republic_modifier
+				duration = 3650
+				hidden = yes
+			}
 			if = {
 				limit = {
 					has_global_flag = great_peasants_war_flag
