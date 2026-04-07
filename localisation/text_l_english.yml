@@ -1115,7 +1115,7 @@
  CANT_ALLY_THEY_TRUCE_OVERLORD:0 "They have a truce with $OVERLORD$."
  MARWAR:0 "We are at war. We will not marry our enemies."
  MARPENDING:0 "We are awaiting their reply."
- WARTITLE:0 "Declare War"
+ WARTITLE:0 "Shrimp 'em"
  WARREQDESC:0 "Do you wish to declare war against $COUNTRY$"
  PEACETITLE:0 "Sue for Peace"
  NODIPLOMATS:0 "You have no diplomats to send."
