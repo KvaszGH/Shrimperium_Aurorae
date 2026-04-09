@@ -55,6 +55,10 @@ capitalautonomymod_300 = {
 	local_unrest = 1
 }
 
+capital_1_govcap = {
+	local_governing_cost_increase = 1
+}
+
 small_refugee_influx = {
 	local_unrest = 1
 	local_autonomy = 0.03

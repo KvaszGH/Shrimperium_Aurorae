@@ -2590,6 +2590,34 @@ country_event = {  # Spawn transports
 	}
 }
 
+country_event = {  # Make sure everyone has at least 1 govcap
+	id = dotfset.40
+	title = dotfset.40.t
+	desc = dotfset.40.d
+	picture = AULIC_COUNCIL_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = {	# Bye-bye AI expanded infra
+		name = dotfset.40.a
+		every_owned_province = {
+			limit = {
+				NOT = { is_capital = yes }
+				has_province_modifier = capital_1_govcap
+			}
+			remove_province_modifier = capital_1_govcap
+		}
+		capital_scope = {
+			add_province_modifier = {
+				name = capital_1_govcap
+				duration = -1
+				hidden = yes
+			}
+		}
+	}
+}
+
 namespace = devastation_mechanic
 
 country_event = {	# devastation starter event
