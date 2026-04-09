@@ -112,4 +112,28 @@ country_decisions = {
             factor = 0
         }
 	}
+	
+	dev_sum_clicks_decision = {
+		major = yes
+		color = { 235 102 255 }
+		
+		potential = {
+			ai = no
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = dev_sum_clicks_decision_tooltip
+				always = no
+			}
+		}
+		
+		effect = {
+			
+		}
+		
+		ai_will_do = {
+            factor = 0
+        }
+	}
 }
