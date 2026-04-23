@@ -224,7 +224,7 @@ road_network = {
 	}
 	 
 	ai_will_do = {
-		factor = 50 # Because hard-coded AI only considers what it will gain, not what its enemies will lose.
+		factor = 10 # Because hard-coded AI only considers what it will gain, not what its enemies will lose.
 		modifier = {
 			factor = 0
 			FROM = { num_of_loans = 1 }
@@ -272,16 +272,6 @@ workshop = {
 			type = production
 			value = 1
 		}
-		if = { 
-			limit = { 
-				FROM = { has_country_flag = rhe_prod_building_prosperity_bonus }
-			}
-			add_province_modifier = {
-				name = rhe_improved_prod_buildings
-				duration = -1
-				hidden = yes
-			}
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -289,7 +279,6 @@ workshop = {
 			type = production
 			value = 1
 		}
-		remove_province_modifier = rhe_improved_prod_buildings
 	}
 
 	allow_in_gold_provinces = no
@@ -2333,17 +2322,6 @@ counting_house = {
 			value = 2
 			upgrade_value = 1
 		}
-		if = { 
-			limit = { 
-				FROM = { has_country_flag = rhe_prod_building_prosperity_bonus }
-				NOT = { has_province_modifier = rhe_improved_prod_buildings }
-			}
-			add_province_modifier = {
-				name = rhe_improved_prod_buildings
-				duration = -1
-				hidden = yes
-			}
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -2351,7 +2329,6 @@ counting_house = {
 			type = production
 			value = 2
 		}
-		remove_province_modifier = rhe_improved_prod_buildings
 	}
 	on_obsolete = {
 	}
@@ -2861,11 +2838,7 @@ wharf = {
 			type = production 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
+		
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -2877,11 +2850,6 @@ wharf = {
 			building = manufactory 
 			type = production 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 	}
 	on_obsolete = {
@@ -2941,11 +2909,6 @@ weapons = {
 			type = manpower 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -2957,11 +2920,6 @@ weapons = {
 			building = manufactory 
 			type = manpower 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 	}
 	on_obsolete = {
@@ -2994,11 +2952,6 @@ textile = {
 			type = production 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -3010,11 +2963,6 @@ textile = {
 			building = manufactory 
 			type = production 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 	}
 	on_obsolete = {
@@ -3055,11 +3003,6 @@ plantations = {
 			type = production 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -3071,11 +3014,6 @@ plantations = {
 			building = manufactory 
 			type = production 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 	}
 	on_obsolete = {
@@ -3127,11 +3065,6 @@ tradecompany = {
 			type = production 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -3143,11 +3076,6 @@ tradecompany = {
 			building = manufactory 
 			type = production 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 	}
 	on_obsolete = {
@@ -3189,11 +3117,6 @@ farm_estate = {
 			type = production 
 			value = 1
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 		if = {
 			limit = {
 				FROM = {
@@ -3213,11 +3136,6 @@ farm_estate = {
 			building = manufactory 
 			type = production 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 		if = {
 			limit = {
@@ -3262,11 +3180,6 @@ mills = {
 			type = production 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -3278,11 +3191,6 @@ mills = {
 			building = manufactory 
 			type = production 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
 		}
 	}
 	on_obsolete = {
@@ -3313,21 +3221,11 @@ furnace = {
 			type = production
 			value = 2
 		}
-		rhe_add_prod_from_manu = {
-			building = manufactory 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
 			building = manufactory
 			type = production
-			value = 2
-		}
-		rhe_remove_prod_from_manu = {
-			building = manufactory 
-			type = production 
 			value = 2
 		}
 	}
@@ -3447,11 +3345,6 @@ soldier_households = {
 			type = manpower 
 			value = 1 
 		}
-		rhe_add_prod_from_manu = {
-			building = soldier_households 
-			type = production 
-			value = 2
-		}
 		if = {
 			limit = {
 				FROM = {
@@ -3474,11 +3367,6 @@ soldier_households = {
 			building = manufactory 
 			type = manpower 
 			value = 1
-		}
-		rhe_remove_prod_from_manu = {
-			building = soldier_households 
-			type = production 
-			value = 2
 		}
 		if = {
 			limit = {
@@ -3627,21 +3515,11 @@ state_house = {
 			type = tax
 			value = 2
 		}
-		rhe_add_prod_from_manu = {
-			building = state_house 
-			type = production 
-			value = 2
-		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
 			building = state_house
 			type = tax
-			value = 2
-		}
-		rhe_remove_prod_from_manu = {
-			building = state_house
-			type = production 
 			value = 2
 		}
 	}

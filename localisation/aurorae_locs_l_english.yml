@@ -8,7 +8,6 @@
  DLC_missions_yes_ACE_TOOLTIP_INSTANT: "§VRecommended Imperium Aurorae Content§!"
  no_colonization_allowed_modifier: "§RNo Colonization Allowed!§!"
  suddenpacifism: "Declaring war has been temporarily blocked due to an event!"
- influence_ideas_march_bonus: "Overlord has Influence Ideas"
  
  hide_show_corruption_decisions_title: "Show/Hide Corruption Management Decisions"
  hide_show_corruption_decisions_desc: "Some people may not be able to see the corruption management buttons due to resolution or UI mod conflicts, or simply don't like the buttons. If you wish, you can replicate the effects of the corruption buttons via decisions by toggling this decision."

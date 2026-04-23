@@ -156,7 +156,6 @@ country_decisions = {
 					NOT = { primary_culture = andalucian }
 				}
 				change_primary_culture = andalucian
-				hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 			}
 			if = {
 				limit = { 

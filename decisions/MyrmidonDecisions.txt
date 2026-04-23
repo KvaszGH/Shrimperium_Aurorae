@@ -41,7 +41,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -96,7 +95,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -155,7 +153,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -210,7 +207,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -265,7 +261,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -329,7 +324,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -393,7 +387,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -457,7 +450,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -513,7 +505,6 @@ country_decisions = {
 					change_unit_type = high_american
 					change_primary_culture = ROOT
 					change_religion = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
 					kill_ruler = yes
@@ -567,7 +558,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -622,7 +612,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -677,7 +666,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -732,7 +720,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government
@@ -787,7 +774,6 @@ country_decisions = {
 					change_technology_group = high_american
 					change_unit_type = high_american
 					change_primary_culture = ROOT
-					hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 					change_religion = ROOT
 					change_government = republic
 					add_government_reform = myrmidon_exarchate_government

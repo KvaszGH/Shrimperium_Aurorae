@@ -2393,33 +2393,9 @@ examination_system_reform = {
 		nobles_influence_modifier = -0.1
 		advisor_cost = -0.10
 		yearly_corruption = -0.10
-		meritocracy = 0.25
 	}
 	ai = {
-		factor = 250
-	}
-}
-
-maintain_nobles_status_quo_reform = {
-	icon = "conciliarism_reform"
-	allow_normal_conversion = yes
-	potential = {
-		is_revolutionary = no
-	}
-	modifiers = {
-		legitimacy = 0.5
-		#meritocracy = 0.5
-		stability_cost_modifier = -0.15
-	}
-	custom_attributes = {
-		free_noble_levies = yes
-	}
-	ai = {
-		factor = 1
-		modifier = {
-			factor = 0
-			crown_land_share = 50
-		}
+		factor = 30
 	}
 }
 

@@ -121,7 +121,6 @@ country_decisions = {
 				#set_legacy_government = despotic_monarchy
 			}
 			change_primary_culture = moroccan
-			hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 			set_country_flag = formed_morocco_flag
 			if = {
 				limit = { 
@@ -236,7 +235,6 @@ country_decisions = {
 				set_government_rank = 2
 			}
 			change_primary_culture = algerian
-			hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 			algiers_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -375,7 +373,6 @@ country_decisions = {
 				set_government_rank = 2
 			}
 			change_primary_culture = vandal
-			hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 			tunisia_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -483,7 +480,6 @@ country_decisions = {
 				set_government_rank = 2
 			}
 			change_primary_culture = tunisian
-			hidden_effect = { ia_change_culture_without_consequence_effect = yes }
 			tripolitania_area = {
 				limit = {
 					NOT = { owned_by = ROOT }

@@ -708,12 +708,9 @@ papal_missions_column_4 = {
 					estate = estate_nobles
 					loyalty = 60
 				}
-				OR = {
-					estate_territory = {
-						estate = estate_nobles
-						territory = 25
-					}
-					has_estate_privilege = estate_nobles_command_of_the_military
+				estate_territory = {
+					estate = estate_nobles
+					territory = 25
 				}
 				num_of_cavalry = 10
 			}
