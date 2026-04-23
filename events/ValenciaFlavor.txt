@@ -762,7 +762,10 @@ country_event = {  # Visigoth uprisings
 	hidden = yes
 	
 	trigger = {
-		always = no
+		tag = VAL
+		any_core_province = { NOT = { owned_by = ROOT } }
+		NOT = { is_year = 1490 }
+		NOT = { has_country_modifier = recent_visigoth_uprisings_modifier }
 	}
 	
 	mean_time_to_happen = {

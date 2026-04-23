@@ -754,6 +754,7 @@ country_event = {  # Grew too much ultimatum
 		}
 		
 		event_target:saxon_king = {
+			white_peace = ROOT
 			create_subject = {
 				subject_type = saxon_daimyo
 				subject = ROOT
