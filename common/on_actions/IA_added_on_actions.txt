@@ -714,3 +714,34 @@ on_province_culture_converted = {
 		}
 	}
 }
+
+on_expanded_infrastructure = {
+	if = {
+		limit = {
+			has_province_modifier = rhe_bustling_city
+		}
+		add_base_tax = 1
+		add_base_production = 1
+		add_base_manpower = 1
+	}
+}
+
+on_expanded_infrastructure_removed = {
+	if = {
+		limit = {
+			has_province_modifier = rhe_bustling_city
+		}
+		add_base_tax = -1
+		add_base_production = -1
+		add_base_manpower = -1
+	}
+}
+
+on_adm_tech_taken = {
+	if = {
+		limit = { adm_tech = 21 }
+		every_owned_province = {
+			remove_province_modifier = rhe_coal_unknown_uses
+		}
+	}
+}

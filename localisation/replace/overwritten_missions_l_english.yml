@@ -18,7 +18,8 @@
  trade_protectorate_title: "Protectorate"
  trade_protectorate_title_plural: "Protectorates"
  is_trade_protectorate: "Is Protectorate"
- mechanic_can_establish_trade_protectorates_yes: "Can Establish §YProtectorates§!!"
+ mechanic_can_establish_trade_protectorates_yes: "§YCan Establish §YProtectorates§!!"
+ diplomatic_corps_desc: "Through the establishment of a professional Diplomatic Corps we ensure that the lessons of senior diplomats are passed on to the younger generation.\n\n Unlocks the ability to §Yform heathen royal marriages§! if we are a monarchy!\n"
  
  hun_the_anatolian_threat_title: "Reclaim Transylvania"
  hun_the_anatolian_threat_desc: "During the weakness of our Crown under the Polish rule, the Transylvanian nobles broke away from our control or were conquered by nomads from the Cuman steppes. It is time to re-assert our rulership over the region."

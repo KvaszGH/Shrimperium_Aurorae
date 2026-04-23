@@ -81,7 +81,7 @@ country_event = {
 	picture = SIEGE_eventPicture
 
 	trigger = {
-		tag = GRA
+		is_subject = no
 	}
 	
 	is_triggered_only = yes
