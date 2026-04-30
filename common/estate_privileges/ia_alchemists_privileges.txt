@@ -300,17 +300,19 @@ estate_alchemists_elixirs_for_the_troops = {
 		#global_regiment_cost = 0.15
 	}
 	benefits = {
-		global_regiment_cost = 0.10
+		
 	}
 	influence_scaled_conditional_modifier = {
 		trigger = { always = yes }
 		modifier = { 
 			#discipline = -0.06
+			global_regiment_cost = 0.12
 			morale_damage = 0.12
 			reinforce_speed = 0.36
-			recover_army_morale_speed = 0.36
+			recover_army_morale_speed = 0.12
 			shock_damage = 0.12
 			shock_damage_received = -0.12
+			fire_damage_received = 0.12
 		}
 	}
 	ai_will_do = {
